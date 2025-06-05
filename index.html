@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swift Peak Hosting LTD Brings You Premium WemX Hosting Solutions</title>
+    <title>Swift Peak Hosting LTD - Premium WemX Hosting Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -327,8 +327,26 @@
             color: var(--text-muted);
         }
         
+        .plan-details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .plan-description {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .plan-regular-price {
+            color: var(--accent);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
         .plan-features {
             margin-bottom: 30px;
+            list-style: none;
         }
         
         .plan-features li {
@@ -581,49 +599,45 @@
     <header>
         <div class="container">
             <div class="header-content">
+                <a href="#" class="logo">Swift<span>Peak Hosting</span></a>
                 <div class="nav-items">
-                    <a href="index.html">Home</a>
-                    <a href="plans.html">Plans</a>
-                    <a href="features.html">Features</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="#home">Home</a>
+                    <a href="#pricing">Plans</a>
+                    <a href="#features">Features</a>
+                    <a href="#contact">Contact</a>
                 </div>
                 <div class="auth-buttons">
-                    <a href="login.html" class="btn btn-outline">Login</a>
-                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    <a href="#" class="btn btn-outline">Login</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Premium WemX Hosting Solutions</h1>
                     <p>Unleash the power of your WemX panel with SwiftPeak's reliable, high-performance cloud hosting solutions. Experience lightning-fast speeds, 99.9% uptime, and dedicated support.</p>
                     <div class="auth-buttons">
-                        <a href="plans.html" class="btn btn-primary">View Plans <i class="fas fa-arrow-right"></i></a>
-                        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                        <a href="#pricing" class="btn btn-primary">View Plans <i class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-outline">Contact Us</a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <img src="https://i.ibb.co/bRvQKmjB/Chat-GPT-Image-May-20-2025-10-33-40-PM.png" alt="WemX Hosting Dashboard" style="border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);" />
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
-                       
-                        <h3></h3>
-                        <p></p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Why Choose SwiftPeak</h2>
+                <h2>Why Choose Swift Peak Hosting</h2>
                 <p>We provide the best WemX hosting experience with premium features designed for optimal performance and ease of use.</p>
             </div>
             <div class="features-grid">
@@ -639,20 +653,14 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>High-Performance Servers</h3>
-                    <p></p>
+                    <p>Powered by enterprise-grade hardware </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Advanced Security</h3>
-                    <p></p>
-                </div>
+               
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3> Expert Support</h3>
+                    <h3>Expert Support</h3>
                     <p>Our dedicated support team is available around the clock to help with any issues you might encounter.</p>
                 </div>
                 <div class="feature-card">
@@ -665,10 +673,10 @@
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-globe"></i>
-                 </div>
-    <h3>Global CDN</h3>
-    <p>We use Cloudflare CDN to deliver lightning-fast content to your clients worldwide.</p>
-</div>
+                    </div>
+                    <h3>Global CDN</h3>
+                    <p>We use Cloudflare CDN to deliver lightning-fast content to your clients worldwide.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -684,109 +692,34 @@
                 <div class="plan-card">
                     <div class="plan-header">
                         <div class="plan-name">Starter</div>
-                        <div class="plan-price">$19.99<span>/month</span></div>
+                        <div class="plan-price">$25.99 <span>/First Month</span></div>
                     </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> <span>2 CPU Cores</span></li>
-                        <li><i class="fas fa-check"></i> <span>4GB RAM</span></li>
-                        <li><i class="fas fa-check"></i> <span>50GB NVMe Storage</span></li>
-                        <li><i class="fas fa-check"></i> <span>2TB Bandwidth</span></li>
-                        <li><i class="fas fa-check"></i> <span>Free WemX Installation</span></li>
-                        <li><i class="fas fa-check"></i> <span>24/7 Support</span></li>
-                    </ul>
-                    <a href="signup.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
-                </div>
-                <div class="plan-card">
-                    <div class="popular-tag">Popular</div>
-                    <div class="plan-header">
-                        <div class="plan-name">Professional</div>
-                        <div class="plan-price">$39.99<span>/month</span></div>
+                    <div class="plan-details">
+                        <p class="plan-description">First month price includes the installation fee.</p>
+                        <p class="plan-regular-price">$9.99 <span>/month after the first month</span></p>
                     </div>
                     <ul class="plan-features">
                         <li><i class="fas fa-check"></i> <span>4 CPU Cores</span></li>
-                        <li><i class="fas fa-check"></i> <span>8GB RAM</span></li>
-                        <li><i class="fas fa-check"></i> <span>100GB NVMe Storage</span></li>
-                        <li><i class="fas fa-check"></i> <span>5TB Bandwidth</span></li>
-                        <li><i class="fas fa-check"></i> <span>Free WemX Installation</span></li>
-                        <li><i class="fas fa-check"></i> <span>Priority Support</span></li>
+                        <li><i class="fas fa-check"></i> <span>4GB RAM</span></li>
+                        <li><i class="fas fa-check"></i> <span>50GB SSD Storage</span></li>
+                        <li><i class="fas fa-check"></i> <span>35TB Bandwidth</span></li>
+                        <li><i class="fas fa-check"></i> <span>WemX Installation</span></li>
+                        <li><i class="fas fa-check"></i> <span>Support</span></li>
                     </ul>
-                    <a href="signup.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Get Started</a>
                 </div>
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <div class="plan-name">Enterprise</div>
-                        <div class="plan-price">$79.99<span>/month</span></div>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> <span>8 CPU Cores</span></li>
-                        <li><i class="fas fa-check"></i> <span>16GB RAM</span></li>
-                        <li><i class="fas fa-check"></i> <span>250GB NVMe Storage</span></li>
-                        <li><i class="fas fa-check"></i> <span>10TB Bandwidth</span></li>
-                        <li><i class="fas fa-check"></i> <span>Free WemX Installation</span></li>
-                        <li><i class="fas fa-check"></i> <span>Dedicated Support</span></li>
-                    </ul>
-                    <a href="signup.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Hear from businesses that have chosen CloudHost for their WemX hosting needs.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>SwiftPeak has been instrumental in scaling our hosting business. Their managed WemX solutions saved us countless hours of setup and configuration time.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="/api/placeholder/50/50" alt="Client">
-                        <div class="author-info">
-                            <h4>Michael Johnson</h4>
-                            <p>TechServe Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Since switching to SwiftPeak, our client satisfaction has increased dramatically. The speed and reliability of their servers is unmatched in the industry.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="/api/placeholder/50/50" alt="Client">
-                        <div class="author-info">
-                            <h4>Sarah Williams</h4>
-                            <p>WebPro Hosting</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>The support team at SwiftPeak is exceptional. They've helped us resolve complex issues quickly and efficiently, even during off-hours.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="/api/placeholder/50/50" alt="Client">
-                        <div class="author-info">
-                            <h4>David Chen</h4>
-                            <p>HostMaster Solutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 
     <!-- Call to Action -->
-    <section class="cta">
+    <section class="cta" id="contact">
         <div class="container">
             <h2>Ready to Launch Your WemX Hosting Business?</h2>
             <p>Get started today with SwiftPeak's premium WemX hosting solutions and take your business to the next level.</p>
             <div class="cta-buttons">
-                <a href="signup.html" class="btn btn-white">Sign Up Now <i class="fas fa-arrow-right"></i></a>
-                <a href="contact.html" class="btn btn-outline-white">Contact Sales</a>
+                <a href="#pricing" class="btn btn-white">Sign Up Now <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="btn btn-outline-white">Contact Sales</a>
             </div>
         </div>
     </section>
@@ -818,21 +751,21 @@
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partners</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Support</h3>
                     <ul>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="support.html">Help Center</a></li>
-                        <li><a href="status.html">System Status</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -841,4 +774,5 @@
             </div>
         </div>
     </footer>
-</body
+</body>
+</html>
