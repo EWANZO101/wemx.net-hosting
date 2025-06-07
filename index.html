@@ -1,778 +1,491 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swift Peak Hosting LTD - Premium WemX Hosting Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <style>
-        :root {
-            --primary: #2d80c4;
-            --primary-hover: #246aa4;
-            --secondary: #3498db;
-            --dark: #111827;
-            --darker: #0c1321;
-            --text: #e5e7eb;
-            --text-muted: #9ca3af;
-            --accent: #10b981;
+    <title>Swift Peak Hosting LTD - Premium Cloud Hosting</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Custom styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: rgba(12, 19, 33, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .nav-items {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-items a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-items a:hover {
-            color: var(--secondary);
-        }
-        
-        .nav-items a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        .nav-items a:hover::after {
-            width: 100%;
-        }
-        
-        .auth-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .btn-outline:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        
-        .hero-text {
-            flex: 1;
-            max-width: 600px;
-        }
-        
-        .hero-text h1 {
-            font-size: 48px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--text) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-text p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-        
-        .hero-image {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background-color: var(--darker);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, var(--text) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-        
-        .section-title p {
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .feature-icon i {
-            font-size: 24px;
-            color: white;
-        }
-        
-        .feature-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card p {
-            color: var(--text-muted);
-        }
-        
-        /* Plans Section */
-        .plans {
-            padding: 100px 0;
-        }
-        
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .plan-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
-            border-radius: 12px;
-            padding: 40px 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .popular-tag {
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .plan-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .plan-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .plan-name {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .plan-price {
-            font-size: 48px;
-            font-weight: 700;
-            margin: 20px 0;
-            color: var(--text);
-        }
-        
-        .plan-price span {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-        
-        .plan-details {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .plan-description {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        
-        .plan-regular-price {
-            color: var(--accent);
-            font-size: 18px;
-            font-weight: 600;
-        }
-        
-        .plan-features {
-            margin-bottom: 30px;
-            list-style: none;
-        }
-        
-        .plan-features li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .plan-features i {
-            color: var(--accent);
-        }
-        
-        .plan-features li span {
-            color: var(--text-muted);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-            background-color: var(--darker);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .testimonial-content {
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .testimonial-content::before {
-            content: '"';
-            font-size: 80px;
-            font-family: serif;
-            color: rgba(255, 255, 255, 0.1);
-            position: absolute;
-            top: -40px;
-            left: -10px;
-            z-index: -1;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        
-        /* Call to Action */
-        .cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            text-align: center;
-        }
-        
-        .cta h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .cta p {
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .btn-white {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        .btn-white:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-outline-white {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-outline-white:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--darker);
-            padding: 80px 0 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .footer-column h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        .footer-column p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .social-links a i {
-            color: var(--text);
-            font-size: 18px;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .footer-bottom p {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .nav-items {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .hero-content {
-                flex-direction: column;
-            }
-            
-            .hero-text h1 {
-                font-size: 36px;
-            }
-            
-            .hero-image {
-                margin-top: 40px;
-            }
-            
-            .feature-card, .plan-card, .testimonial-card {
-                margin-bottom: 30px;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                max-width: 300px;
-                margin: 0 auto;
-            }
+            transition: all 0.3s ease;
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Swift<span>Peak Hosting</span></a>
-                <div class="nav-items">
-                    <a href="#home">Home</a>
-                    <a href="#pricing">Plans</a>
-                    <a href="#features">Features</a>
-                    <a href="#contact">Contact</a>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 border-b border-gray-700 fixed w-full z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-blue-400 font-bold text-xl">Swift Peak Hosting</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Plans</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="auth-buttons">
-                    <a href="login.html" class="btn btn-outline">Login</a>
-                    <a href="sighnup.html" class="btn btn-primary">Sign Up</a>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                        <a href="#" class="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">Sign Up</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Premium WemX Hosting Solutions</h1>
-                    <p>Unleash the power of your WemX panel with SwiftPeak's reliable, high-performance cloud hosting solutions. Experience lightning-fast speeds, 99.9% uptime, and dedicated support.</p>
-                    <div class="auth-buttons">
-                        <a href="#pricing" class="btn btn-primary">View Plans <i class="fas fa-arrow-right"></i></a>
-                        <a href="#contact" class="btn btn-outline">Contact Us</a>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Plans</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="flex items-center px-5">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-user-circle text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <div class="text-base font-medium text-white">Guest User</div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://i.ibb.co/bRvQKmjB/Chat-GPT-Image-May-20-2025-10-33-40-PM.png" alt="WemX Hosting Dashboard" style="border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);" />
+                <div class="mt-3 px-2 space-y-1">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Login</a>
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                        <span class="block">Premium Cloud Hosting</span>
+                        <span class="block text-blue-400">for Wemx Panel</span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        Experience blazing-fast performance with our optimized cloud infrastructure. Perfect for game servers, web applications, and more.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition duration-150">
+                                Get Started
+                            </a>
+                            <a href="#" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-400 bg-gray-800 hover:bg-gray-700 md:py-4 md:text-lg md:px-10 transition duration-150">
+                                View Plans
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                        <div class="relative block w-full bg-gray-800 rounded-lg overflow-hidden">
+                            <img class="w-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="Server rack">
+                            <div class="absolute inset-0 bg-blue-600 opacity-20"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center p-6 bg-gray-900 bg-opacity-75 rounded-lg">
+                                    <i class="fas fa-server text-blue-400 text-5xl mb-4"></i>
+                                    <h3 class="text-xl font-bold text-white">99.9% Uptime Guarantee</h3>
+                                    <p class="text-gray-300 mt-2">Enterprise-grade infrastructure</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Swift Peak Hosting</h2>
-                <p>We provide the best WemX hosting experience with premium features designed for optimal performance and ease of use.</p>
+    <section class="py-16 bg-gray-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                    Why Choose Swift Peak Hosting?
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-400">
+                    We provide the best infrastructure optimized for Wemx Panel with premium support.
+                </p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-server"></i>
+
+            <div class="mt-12 grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                        <i class="fas fa-bolt text-xl"></i>
                     </div>
-                    <h3>Managed WemX Installation</h3>
-                    <p>We handle the complete setup and configuration of your WemX panel so you can focus on your business.</p>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">Lightning Fast SSD</h3>
+                        <p class="mt-2 text-gray-400">
+                            NVMe SSD storage for ultra-fast read/write speeds, reducing load times significantly.
+                        </p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
+
+                <!-- Feature 2 -->
+                <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                        <i class="fas fa-shield-alt text-xl"></i>
                     </div>
-                    <h3>High-Performance Servers</h3>
-                    <p>Powered by enterprise-grade hardware </p>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">DDoS Protection</h3>
+                        <p class="mt-2 text-gray-400">
+                            Enterprise-grade DDoS protection to keep your services online during attacks.
+                        </p>
+                    </div>
                 </div>
-               
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+
+                <!-- Feature 3 -->
+                <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                        <i class="fas fa-globe text-xl"></i>
                     </div>
-                    <h3>Expert Support</h3>
-                    <p>Our dedicated support team is available around the clock to help with any issues you might encounter.</p>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">Global Locations</h3>
+                        <p class="mt-2 text-gray-400">
+                            Multiple datacenter locations worldwide to reduce latency for your users.
+                        </p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-arrows-alt"></i>
+
+                <!-- Feature 4 -->
+                <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                        <i class="fas fa-headset text-xl"></i>
                     </div>
-                    <h3>Scalable Resources</h3>
-                    <p>Easily upgrade your hosting plan as your business grows without any downtime or complications.</p>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">24/7 Support</h3>
+                        <p class="mt-2 text-gray-400">
+                            Our expert support team is available around the clock to assist you.
+                        </p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
+
+                <!-- Feature 5 -->
+                <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                        <i class="fas fa-sliders-h text-xl"></i>
                     </div>
-                    <h3>Global CDN</h3>
-                    <p>We use Cloudflare CDN to deliver lightning-fast content to your clients worldwide.</p>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">Easy Control Panel</h3>
+                        <p class="mt-2 text-gray-400">
+                            Intuitive Wemx Panel interface for easy management of your services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                        <i class="fas fa-backup text-xl"></i>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">Automatic Backups</h3>
+                        <p class="mt-2 text-gray-400">
+                            Daily automated backups to ensure your data is always safe and recoverable.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Plans Section -->
-    <section class="plans" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Hosting Plans</h2>
-                <p>Choose the perfect WemX hosting plan for your business needs. All plans include free WemX installation and setup.</p>
-            </div>
-            <div class="plans-grid">
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <div class="plan-name">Starter</div>
-                        <div class="plan-price">$25.99 <span>/First Month</span></div>
-                    </div>
-                    <div class="plan-details">
-                        <p class="plan-description">First month price includes the installation fee.</p>
-                        <p class="plan-regular-price">$9.99 <span>/month after the first month</span></p>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> <span>4 CPU Cores</span></li>
-                        <li><i class="fas fa-check"></i> <span>4GB RAM</span></li>
-                        <li><i class="fas fa-check"></i> <span>50GB SSD Storage</span></li>
-                        <li><i class="fas fa-check"></i> <span>35TB Bandwidth</span></li>
-                        <li><i class="fas fa-check"></i> <span>WemX Installation</span></li>
-                        <li><i class="fas fa-check"></i> <span>Support</span></li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" style="width: 100%;">Get Started</a>
+    <!-- CTA Section -->
+    <section class="gradient-bg py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                <span class="block">Ready to experience premium hosting?</span>
+                <span class="block text-blue-400">Get started in minutes.</span>
+            </h2>
+            <div class="mt-8 flex justify-center">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                        Create Account
+                    </a>
                 </div>
+                <div class="ml-3 inline-flex">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-400 bg-gray-800 hover:bg-gray-700">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-  
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Frequently Asked Questions
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-400 lg:mx-auto">
+                    Everything you need to know about our services.
+                </p>
+            </div>
 
-    <!-- Call to Action -->
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2>Ready to Launch Your WemX Hosting Business?</h2>
-            <p>Get started today with SwiftPeak's premium WemX hosting solutions and take your business to the next level.</p>
-            <div class="cta-buttons">
-                <a href="#pricing" class="btn btn-white">Sign Up Now <i class="fas fa-arrow-right"></i></a>
-                <a href="#" class="btn btn-outline-white">Contact Sales</a>
+            <div class="mt-12">
+                <div class="space-y-4" id="accordion-flush" data-accordion="collapse" data-active-classes="bg-gray-800 text-white" data-inactive-classes="text-gray-400">
+                    <!-- FAQ Item 1 -->
+                    <h2 id="accordion-flush-heading-1">
+                        <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+                            <span>What makes Swift Peak Hosting different from other providers?</span>
+                            <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                        <div class="py-5 border-b border-gray-700">
+                            <p class="mb-2 text-gray-300">Swift Peak Hosting specializes in optimized cloud infrastructure specifically for Wemx Panel, offering better performance, reliability, and support than generic hosting providers. Our infrastructure is fine-tuned for low latency and high throughput.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <h2 id="accordion-flush-heading-2">
+                        <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
+                            <span>What kind of support do you offer?</span>
+                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                        <div class="py-5 border-b border-gray-700">
+                            <p class="mb-2 text-gray-300">We provide 24/7/365 support through our ticketing system with an average response time of under 30 minutes. Our support team consists of experienced system administrators who can help with both Wemx Panel and server-related issues.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <h2 id="accordion-flush-heading-3">
+                        <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
+                            <span>Can I migrate my existing services to Swift Peak Hosting?</span>
+                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+                        <div class="py-5 border-b border-gray-700">
+                            <p class="mb-2 text-gray-300">Yes! We offer free migration services for new customers. Our team will handle the entire migration process with minimal downtime. Simply open a ticket after signing up and we'll guide you through the process.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <h2 id="accordion-flush-heading-4">
+                        <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
+                            <span>What is your uptime guarantee?</span>
+                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
+                        <div class="py-5 border-b border-gray-700">
+                            <p class="mb-2 text-gray-300">We offer a 99.9% uptime SLA on all our services. In the rare event we don't meet this guarantee, we provide service credits based on the downtime experienced. Our actual uptime consistently exceeds this guarantee.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <h2 id="accordion-flush-heading-5">
+                        <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700" data-accordion-target="#accordion-flush-body-5" aria-expanded="false" aria-controls="accordion-flush-body-5">
+                            <span>How do backups work?</span>
+                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-5" class="hidden" aria-labelledby="accordion-flush-heading-5">
+                        <div class="py-5 border-b border-gray-700">
+                            <p class="mb-2 text-gray-300">We perform automated daily backups of all customer data with 7-day retention. Backups are stored in geographically separate locations for redundancy. You can also trigger manual backups through the Wemx Panel at any time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Section -->
+    <section class="py-12 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-3 lg:gap-8">
+                <div class="border border-gray-700 rounded-lg p-6 bg-gray-800">
+                    <h3 class="text-lg font-medium text-white mb-4">Terms of Service</h3>
+                    <p class="text-gray-400 mb-4">
+                        By using our services, you agree to our Terms of Service which outline the rules and guidelines for using our hosting platform.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">View Full TOS <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="mt-8 lg:mt-0 border border-gray-700 rounded-lg p-6 bg-gray-800">
+                    <h3 class="text-lg font-medium text-white mb-4">Privacy Policy</h3>
+                    <p class="text-gray-400 mb-4">
+                        We are committed to protecting your privacy. Our Privacy Policy explains how we collect, use, and safeguard your information.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">View Privacy Policy <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="mt-8 lg:mt-0 border border-gray-700 rounded-lg p-6 bg-gray-800">
+                    <h3 class="text-lg font-medium text-white mb-4">Acceptable Use Policy</h3>
+                    <p class="text-gray-400 mb-4">
+                        Our AUP defines the permitted uses of our services to ensure a safe and reliable environment for all customers.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">View AUP <span aria-hidden="true">&rarr;</span></a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>SwiftPeak Hosting Ltd</h3>
-                    <p>Premium WemX hosting solutions for businesses of all sizes. Experience reliable, high-performance hosting with exceptional support.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <span class="text-blue-400 font-bold text-xl">Swift Peak Hosting LTD</span>
+                    <p class="text-gray-400 text-base">
+                        Premium cloud hosting solutions optimized for Wemx Panel.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">WemX Hosting</a></li>
-                        <li><a href="#">Managed WemX</a></li>
-                        <li><a href="#">WemX Setup</a></li>
-                        <li><a href="#">WemX Migration</a></li>
-                        <li><a href="#">Custom Solutions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Partners</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">System Status</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Solutions</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Game Hosting</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Web Hosting</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">VPS Hosting</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Dedicated Servers</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Support</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Guides</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">API Status</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Company</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">About</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Careers</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Press</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Legal</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Privacy</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Terms</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Cookie Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">GDPR</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 SwiftPeak Hosting Ltd. All rights reserved.</p>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 Swift Peak Hosting LTD. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
