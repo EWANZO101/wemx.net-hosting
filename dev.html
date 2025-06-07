@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WemX CloudHosting - Maintenance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* For better digit spacing */
+    .timer-digit {
+      min-width: 3rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen px-4">
+  <div class="max-w-xl text-center">
+    <img src="https://yourdomain.com/logo.png" alt="WemX CloudHosting Logo" class="mx-auto mb-8 w-32" />
+    <h1 class="text-5xl font-bold mb-4">We'll Be Back Soon</h1>
+    <p class="text-lg mb-6 text-gray-300">
+      Our site is currently undergoing scheduled maintenance.<br />
+      Thank you for your patience. We’re working hard to improve your experience.
+    </p>
+
+    <div class="mb-8">
+      <svg class="mx-auto w-16 h-16 text-blue-500 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+      </svg>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">Expected back online in:</h2>
+      <div id="countdown" class="flex justify-center space-x-6 text-blue-400 font-mono text-3xl">
+        <div>
+          <div id="days" class="timer-digit">0</div>
+          <div class="text-sm text-gray-400">Days</div>
+        </div>
+        <div>
+          <div id="hours" class="timer-digit">00</div>
+          <div class="text-sm text-gray-400">Hours</div>
+        </div>
+        <div>
+          <div id="minutes" class="timer-digit">00</div>
+          <div class="text-sm text-gray-400">Minutes</div>
+        </div>
+        <div>
+          <div id="seconds" class="timer-digit">00</div>
+          <div class="text-sm text-gray-400">Seconds</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-sm text-gray-400">
+      For urgent inquiries, please contact us at
+      <a href="mailto:support@wemxcloudhosting.com" class="text-blue-400 hover:underline">support@wemxcloudhosting.com</a>.
+    </p>
+  </div>
+
+  <script>
+    // Target date: Monday, 9 June 2025, 18:00:00 local time
+    const targetDate = new Date('2025-06-09T18:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        // Time's up
+        document.getElementById('countdown').innerHTML = '<span class="text-green-400 text-xl font-semibold">We are now back online!</span>';
+        clearInterval(timerInterval);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown(); // initial call
+    const timerInterval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
