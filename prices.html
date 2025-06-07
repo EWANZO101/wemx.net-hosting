@@ -4,233 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEMX - Pricing Plans</title>
-    <style>
-        :root {
-            --primary: #4f46e5;
-            --secondary: #10b981;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f1f5f9;
-            color: var(--dark);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .plans-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        .plan-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 350px;
-            transition: transform 0.3s ease;
-        }
-        
-        .plan-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .plan-header {
-            padding: 1.5rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), #6366f1);
-            color: white;
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-period {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .plan-features {
-            padding: 1.5rem;
-        }
-        
-        .feature-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .feature-item {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-        
-        .feature-item:last-child {
-            border-bottom: none;
-        }
-        
-        .check-icon {
-            color: var(--secondary);
-            margin-right: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .plan-button {
-            display: block;
-            width: 100%;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 6px;
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .plan-button:hover {
-            background-color: #4338ca;
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .popular-plan {
-            position: relative;
-            border: 2px solid var(--primary);
-        }
-        
-        @media (max-width: 768px) {
-            .plans-container {
-                flex-direction: column;
-                align-items: center;
+    <!-- Flowbite CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a"},
+                        wemx: {
+                            dark: '#0f172a',
+                            accent: '#7c3aed',
+                            purple: '#8b5cf6',
+                        }
+                    }
+                }
             }
         }
-    </style>
+    </script>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Choose Your WEMX Plan</h1>
-            <p class="subtitle">Select the perfect plan for your needs. All plans come with our 30-day money-back guarantee.</p>
-        </header>
-        
-        <div class="plans-container">
-            <!-- Basic Plan -->
-            <div class="plan-card">
-                <div class="plan-header">
-                    <div class="plan-name">Basic</div>
-                    <div class="plan-price">$9.99</div>
-                    <div class="plan-period">per month</div>
-                </div>
-                <div class="plan-features">
-                    <ul class="feature-list">
-                        <!-- Empty features - to be filled in -->
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 1</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 2</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 3</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 4</li>
-                    </ul>
-                    <button class="plan-button">Get Started</button>
-                </div>
-            </div>
-            
-            <!-- Popular Plan -->
-            <div class="plan-card popular-plan">
-                <div class="popular-badge">Most Popular</div>
-                <div class="plan-header">
-                    <div class="plan-name">Pro</div>
-                    <div class="plan-price">$19.99</div>
-                    <div class="plan-period">per month</div>
-                </div>
-                <div class="plan-features">
-                    <ul class="feature-list">
-                        <!-- Empty features - to be filled in -->
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 1</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 2</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 3</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 4</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 5</li>
-                    </ul>
-                    <button class="plan-button">Get Started</button>
-                </div>
-            </div>
-            
-            <!-- Enterprise Plan -->
-            <div class="plan-card">
-                <div class="plan-header">
-                    <div class="plan-name">Enterprise</div>
-                    <div class="plan-price">$49.99</div>
-                    <div class="plan-period">per month</div>
-                </div>
-                <div class="plan-features">
-                    <ul class="feature-list">
-                        <!-- Empty features - to be filled in -->
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 1</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 2</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 3</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 4</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 5</li>
-                        <li class="feature-item"><span class="check-icon">✓</span> Feature 6</li>
-                    </ul>
-                    <button class="plan-button">Get Started</button>
+<body class="bg-gray-900 min-h-screen">
+    <div class="container mx-auto px-4 py-16">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl font-extrabold text-white mb-4">WEMX Hosting Plans</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Choose the perfect hosting solution for your needs. Scale as you grow with our flexible plans.</p>
+        </div>
+
+        <!-- Pricing Toggle -->
+        <div class="flex justify-center mb-16">
+            <div class="relative bg-gray-800 rounded-lg p-1">
+                <div class="flex">
+                    <button type="button" class="relative py-2 px-6 text-sm font-medium text-white rounded-md focus:z-20 bg-wemx-accent">
+                        Monthly billing
+                    </button>
+                    <button type="button" class="ml-1 relative py-2 px-6 text-sm font-medium text-gray-400 rounded-md hover:text-white focus:z-20">
+                        Yearly billing
+                    </button>
                 </div>
             </div>
         </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid gap-8 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+            <!-- Starter Plan -->
+            <div class="flex flex-col p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-wemx-accent transition-all duration-300">
+                <h3 class="text-xl font-semibold text-white">Starter</h3>
+                <div class="my-4">
+                    <span class="text-4xl font-extrabold text-white">$9.99</span>
+                    <span class="text-gray-400">/month</span>
+                </div>
+                <p class="text-gray-400 mb-6">Perfect for small projects and personal websites</p>
+                
+                <ul class="mb-8 space-y-4 text-left">
+                    <!-- Empty features - add your own -->
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 1</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 2</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 3</span>
+                    </li>
+                </ul>
+                
+                <button class="text-white bg-wemx-accent hover:bg-wemx-purple focus:ring-4 focus:ring-wemx-purple font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all mt-auto">
+                    Get started
+                </button>
+            </div>
+
+            <!-- Popular Business Plan -->
+            <div class="flex flex-col p-6 bg-gray-800 rounded-lg border-2 border-wemx-accent transform scale-105 z-10 shadow-lg shadow-wemx-accent/20">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-xl font-semibold text-white">Business</h3>
+                    <span class="bg-wemx-accent text-white text-xs font-medium px-2.5 py-0.5 rounded">Popular</span>
+                </div>
+                <div class="my-4">
+                    <span class="text-4xl font-extrabold text-white">$29.99</span>
+                    <span class="text-gray-400">/month</span>
+                </div>
+                <p class="text-gray-400 mb-6">Ideal for growing businesses and high-traffic sites</p>
+                
+                <ul class="mb-8 space-y-4 text-left">
+                    <!-- Empty features - add your own -->
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 1</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 2</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 3</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 4</span>
+                    </li>
+                </ul>
+                
+                <button class="text-white bg-wemx-accent hover:bg-wemx-purple focus:ring-4 focus:ring-wemx-purple font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all mt-auto">
+                    Get started
+                </button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="flex flex-col p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-wemx-accent transition-all duration-300">
+                <h3 class="text-xl font-semibold text-white">Enterprise</h3>
+                <div class="my-4">
+                    <span class="text-4xl font-extrabold text-white">$99.99</span>
+                    <span class="text-gray-400">/month</span>
+                </div>
+                <p class="text-gray-400 mb-6">For large-scale applications and enterprises</p>
+                
+                <ul class="mb-8 space-y-4 text-left">
+                    <!-- Empty features - add your own -->
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 1</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 2</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 3</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 4</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-gray-400">Feature 5</span>
+                    </li>
+                </ul>
+                
+                <button class="text-white bg-wemx-accent hover:bg-wemx-purple focus:ring-4 focus:ring-wemx-purple font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all mt-auto">
+                    Get started
+                </button>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-16 text-center text-gray-400">
+            <p>Need something custom? <a href="#" class="text-wemx-accent hover:underline">Contact our sales team</a> for enterprise solutions.</p>
+        </div>
     </div>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
