@@ -1,167 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEMX - Pricing Plans</title>
-    <!-- Flowbite CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a"},
-                        wemx: {
-                            dark: '#0f172a',
-                            accent: '#7c3aed',
-                            purple: '#8b5cf6',
-                        }
-                    }
-                }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WEMX - Pricing Plans</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              "50": "#eff6ff",
+              "100": "#dbeafe",
+              "200": "#bfdbfe",
+              "300": "#93c5fd",
+              "400": "#60a5fa",
+              "500": "#3b82f6",
+              "600": "#2563eb",
+              "700": "#1d4ed8",
+              "800": "#1e40af",
+              "900": "#1e3a8a"
+            },
+            wemx: {
+              dark: '#0f172a',
+              accent: '#7c3aed',
+              purple: '#8b5cf6'
             }
+          }
         }
-    </script>
+      }
+    };
+  </script>
 </head>
-<body class="bg-gray-900 min-h-screen">
-    <div class="container mx-auto px-4 py-16">
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <h1 class="text-4xl font-extrabold text-white mb-4">WEMX Hosting Plans</h1>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Choose the perfect hosting solution for your needs. Scale as you grow with our flexible plans.</p>
-        </div>
 
-        <!-- Pricing Toggle -->
-        <div class="flex justify-center mb-16">
-            <div class="relative bg-gray-800 rounded-lg p-1">
-                <div class="flex">
-                    <button type="button" class="relative py-2 px-6 text-sm font-medium text-white rounded-md focus:z-20 bg-wemx-accent">
-                        Monthly billing
-                    </button>
-                    <button type="button" class="ml-1 relative py-2 px-6 text-sm font-medium text-gray-400 rounded-md hover:text-white focus:z-20">
-                        Yearly billing
-                    </button>
-                </div>
-            </div>
-        </div>
+<body class="bg-gray-900 text-white min-h-screen">
+  <div class="container mx-auto px-4 py-16">
 
-        <!-- Pricing Cards -->
-        <div class="grid gap-8 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-            <!-- Starter Plan -->
-            <div class="flex flex-col p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-wemx-accent transition-all duration-300">
-                <h3 class="text-xl font-semibold text-white">Starter</h3>
-                <div class="my-4">
-                    <span class="text-4xl font-extrabold text-white">$9.99</span>
-                    <span class="text-gray-400">/month</span>
-                </div>
-                <p class="text-gray-400 mb-6">Perfect for small projects and personal websites</p>
-                
-                <ul class="mb-8 space-y-4 text-left">
-                    <!-- Empty features - add your own -->
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 1</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 2</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 3</span>
-                    </li>
-                </ul>
-                
-                <button class="text-white bg-wemx-accent hover:bg-wemx-purple focus:ring-4 focus:ring-wemx-purple font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all mt-auto">
-                    Get started
-                </button>
-            </div>
-
-            <!-- Popular Business Plan -->
-            <div class="flex flex-col p-6 bg-gray-800 rounded-lg border-2 border-wemx-accent transform scale-105 z-10 shadow-lg shadow-wemx-accent/20">
-                <div class="flex justify-between items-start">
-                    <h3 class="text-xl font-semibold text-white">Business</h3>
-                    <span class="bg-wemx-accent text-white text-xs font-medium px-2.5 py-0.5 rounded">Popular</span>
-                </div>
-                <div class="my-4">
-                    <span class="text-4xl font-extrabold text-white">$29.99</span>
-                    <span class="text-gray-400">/month</span>
-                </div>
-                <p class="text-gray-400 mb-6">Ideal for growing businesses and high-traffic sites</p>
-                
-                <ul class="mb-8 space-y-4 text-left">
-                    <!-- Empty features - add your own -->
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 1</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 2</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 3</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 4</span>
-                    </li>
-                </ul>
-                
-                <button class="text-white bg-wemx-accent hover:bg-wemx-purple focus:ring-4 focus:ring-wemx-purple font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all mt-auto">
-                    Get started
-                </button>
-            </div>
-
-            <!-- Enterprise Plan -->
-            <div class="flex flex-col p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-wemx-accent transition-all duration-300">
-                <h3 class="text-xl font-semibold text-white">Enterprise</h3>
-                <div class="my-4">
-                    <span class="text-4xl font-extrabold text-white">$99.99</span>
-                    <span class="text-gray-400">/month</span>
-                </div>
-                <p class="text-gray-400 mb-6">For large-scale applications and enterprises</p>
-                
-                <ul class="mb-8 space-y-4 text-left">
-                    <!-- Empty features - add your own -->
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 1</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 2</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 3</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 4</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-400">Feature 5</span>
-                    </li>
-                </ul>
-                
-                <button class="text-white bg-wemx-accent hover:bg-wemx-purple focus:ring-4 focus:ring-wemx-purple font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all mt-auto">
-                    Get started
-                </button>
-            </div>
-        </div>
-
-        <!-- Additional Info -->
-        <div class="mt-16 text-center text-gray-400">
-            <p>Need something custom? <a href="#" class="text-wemx-accent hover:underline">Contact our sales team</a> for enterprise solutions.</p>
-        </div>
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-extrabold mb-4">WEMX Hosting Plans</h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">Choose the perfect hosting solution for your needs. Scale as you grow with our flexible plans.</p>
     </div>
 
-    <!-- Flowbite JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!-- Billing Toggle -->
+    <div class="flex justify-center mb-16">
+      <div class="relative bg-gray-800 rounded-lg p-1 inline-flex">
+        <button type="button" class="py-2 px-6 text-sm font-medium text-white bg-wemx-accent rounded-md focus:z-20">Monthly billing</button>
+        <button type="button" class="py-2 px-6 text-sm font-medium text-gray-400 hover:text-white rounded-md focus:z-20 ml-1">Yearly billing</button>
+      </div>
+    </div>
+
+    <!-- Pricing Plans -->
+    <div class="grid gap-8 lg:grid-cols-3">
+      
+      <!-- Plan 1 – WemX Ready VPS -->
+      <div class="flex flex-col p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-wemx-accent transition-all duration-300">
+        <h3 class="text-xl font-semibold mb-2">Plan 1 – WemX Ready VPS</h3>
+        <div class="my-4">
+          <span class="text-4xl font-extrabold">£10.99</span>
+          <span class="text-gray-400">/month</span>
+        </div>
+        <p class="text-gray-400 mb-6">Perfect for quick, effortless WemX setup</p>
+        <ul class="mb-8 space-y-4 text-left">
+          <li class="flex items-center space-x-3">
+            <CheckIcon /><span class="text-gray-400">2 vCPU Cores</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <CheckIcon /><span class="text-gray-400">4 GB RAM</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <CheckIcon /><span class="text-gray-400">50 GB SSD Storage</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <CheckIcon /><span class="text-gray-400">100 Mbps Up/Down</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <CheckIcon /><span class="text-gray-400">Fully WemX Ready</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <CheckIcon /><span class="text-gray-400">Simple setup in 12–24 hrs</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <CheckIcon /><span class="text-gray-400">Domain + License = You're live!</span>
+          </li>
+        </ul>
+        <div class="text-sm text-gray-500 mb-4">
+          <p><strong class="text-white">£20</strong> first month (install & setup)</p>
+          <p>Then <strong class="text-white">£10.99/mo</strong></p>
+        </div>
+        <button class="mt-auto bg-wemx-accent hover:bg-wemx-purple text-sm font-medium rounded-lg px-5 py-2.5 transition-all">
+          Get started
+        </button>
+      </div>
+
+      <!-- Business Plan -->
+      <div class="flex flex-col p-6 bg-gray-800 rounded-lg border-2 border-wemx-accent transform scale-105 z-10 shadow-lg shadow-wemx-accent/20">
+        <div class="flex justify-between items-start">
+          <h3 class="text-xl font-semibold">Business</h3>
+          <span class="bg-wemx-accent text-white text-xs font-medium px-2.5 py-0.5 rounded">Popular</span>
+        </div>
+        <div class="my-4">
+          <span class="text-4xl font-extrabold">$29.99</span>
+          <span class="text-gray-400">/month</span>
+        </div>
+        <p class="text-gray-400 mb-6">Ideal for growing businesses and high-traffic sites</p>
+        <ul class="mb-8 space-y-4 text-left">
+          <li><CheckIcon /> <span class="text-gray-400">Feature 1</span></li>
+          <li><CheckIcon /> <span class="text-gray-400">Feature 2</span></li>
+          <li><CheckIcon /> <span class="text-gray-400">Feature 3</span></li>
+          <li><CheckIcon /> <span class="text-gray-400">Feature 4</span></li>
+        </ul>
+        <button class="mt-auto bg-wemx-accent hover:bg-wemx-purple text-sm font-medium rounded-lg px-5 py-2.5 transition-all">
+          Get started
+        </button>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="flex flex-col p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-wemx-accent transition-all duration-300">
+        <h3 class="text-xl font-semibold mb-2">Enterprise</h3>
+        <div class="my-4">
+          <span class="text-4xl font-extrabold">$99.99</span>
+          <span class="text-gray-400">/month</span>
+        </div>
+        <p class="text-gray-400 mb-6">For large-scale applications and enterprises</p>
+        <ul class="mb-8 space-y-4 text-left">
+          <li><CheckIcon /> <span class="text-gray-400">Feature 1</span></li>
+          <li><CheckIcon /> <span class="text-gray-400">Feature 2</span></li>
+          <li><CheckIcon /> <span class="text-gray-400">Feature 3</span></li>
+          <li><CheckIcon /> <span class="text-gray-400">Feature 4</span></li>
+          <li><CheckIcon /> <span class="text-gray-400">Feature 5</span></li>
+        </ul>
+        <button class="mt-auto bg-wemx-accent hover:bg-wemx-purple text-sm font-medium rounded-lg px-5 py-2.5 transition-all">
+          Get started
+        </button>
+      </div>
+    </div>
+
+    <!-- Additional Info -->
+    <div class="mt-16 text-center text-gray-400">
+      <p>Need something custom? <a href="#" class="text-wemx-accent hover:underline">Contact our sales team</a> for enterprise solutions.</p>
+    </div>
+  </div>
+
+  <!-- SVG Icon -->
+  <svg style="display: none;">
+    <symbol id="check" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+    </symbol>
+  </svg>
+  <script>
+    function CheckIcon() {
+      return `<svg class="w-5 h-5 text-green-500 inline-block mr-2" aria-hidden="true"><use xlink:href="#check"></use></svg>`;
+    }
+
+    // Replace all <CheckIcon /> with actual SVG
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.innerHTML = document.body.innerHTML.replace(/<CheckIcon\s*\/>/g, CheckIcon());
+    });
+  </script>
+
+  <!-- Flowbite JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
