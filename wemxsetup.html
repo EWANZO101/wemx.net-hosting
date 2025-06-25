@@ -1,79 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WemX Setup</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Flowbite CSS CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+  
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    h2 {
-      color: #2c3e50;
-    }
-    form {
-      margin-top: 1rem;
-    }
-    input[type="text"] {
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      width: 100%;
-      max-width: 400px;
-      display: block;
-    }
-    button {
-      padding: 0.6rem 1.2rem;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    button:hover {
-      background-color: #2980b9;
-    }
-    .success {
-      color: green;
-    }
-    .error {
-      color: red;
+      background-color: #121212; /* Dark background */
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-6 text-gray-300">
 
-  {% if step == 1 %}
-    <h2>Add a DNS A record</h2>
-    <p>Please create a DNS A record pointing your domain to: <strong>{{ server_ip }}</strong></p>
-    <form method="post">
-      <button type="submit">I’ve added the record</button>
-    </form>
+  <div class="w-full max-w-md bg-gray-900 rounded-lg shadow-lg p-8 space-y-6">
 
-  {% elif step == 2 %}
-    <h2>Enter Your Domain</h2>
-    {% if error %}
-      <p class="error">{{ error }}</p>
+    {% if step == 1 %}
+      <h2 class="text-2xl font-semibold text-blue-400">Add a DNS A record</h2>
+      <p>
+        Please create a DNS A record pointing your domain to:
+        <strong class="text-white">{{ server_ip }}</strong>
+      </p>
+      <form method="post" class="mt-4">
+        <button type="submit" class="w-full btn btn-primary">
+          I’ve added the record
+        </button>
+      </form>
+
+    {% elif step == 2 %}
+      <h2 class="text-2xl font-semibold text-blue-400">Enter Your Domain</h2>
+      {% if error %}
+        <p class="text-red-500 font-medium mt-2">{{ error }}</p>
+      {% endif %}
+      <form method="post" class="mt-4 space-y-4">
+        <input
+          type="text"
+          name="domain"
+          required
+          placeholder="panel.yourdomain.com"
+          class="input input-bordered w-full bg-gray-800 text-gray-200 placeholder-gray-500"
+        />
+        <button type="submit" class="w-full btn btn-primary">
+          Check DNS
+        </button>
+      </form>
+
+    {% elif step == 3 %}
+      <h2 class="text-2xl font-semibold text-blue-400">WemX Setup</h2>
+      <form method="post" class="mt-4 space-y-4">
+        <input
+          type="text"
+          name="license"
+          required
+          placeholder="Your WemX License Key"
+          class="input input-bordered w-full bg-gray-800 text-gray-200 placeholder-gray-500"
+        />
+        <input
+          type="text"
+          name="wemx_domain"
+          required
+          placeholder="Your WemX Panel Domain"
+          class="input input-bordered w-full bg-gray-800 text-gray-200 placeholder-gray-500"
+        />
+        <button type="submit" class="w-full btn btn-primary">
+          Deploy Panel
+        </button>
+      </form>
+
+    {% elif step == 4 %}
+      <h2 class="text-3xl font-semibold text-green-500 flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Deployment Complete!</span>
+      </h2>
+      <p class="mt-4 text-gray-300">
+        Your WemX Panel is now live at:
+        <a href="https://{{ domain }}" target="_blank" class="text-blue-400 underline hover:text-blue-600">
+          https://{{ domain }}
+        </a>
+      </p>
     {% endif %}
-    <form method="post">
-      <input type="text" name="domain" required placeholder="panel.yourdomain.com">
-      <button type="submit">Check DNS</button>
-    </form>
 
-  {% elif step == 3 %}
-    <h2>WemX Setup</h2>
-    <form method="post">
-      <input type="text" name="license" required placeholder="Your WemX License Key">
-      <input type="text" name="wemx_domain" required placeholder="Your WemX Panel Domain">
-      <button type="submit">Deploy Panel</button>
-    </form>
+  </div>
 
-  {% elif step == 4 %}
-    <h2 class="success">✅ Deployment Complete!</h2>
-    <p>Your WemX Panel is now live at: <a href="https://{{ domain }}" target="_blank">https://{{ domain }}</a></p>
-  {% endif %}
-
+  <!-- Flowbite JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 </body>
 </html>
