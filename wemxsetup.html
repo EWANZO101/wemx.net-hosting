@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WemX Setup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    form {
+      margin-top: 1rem;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 400px;
+      display: block;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  {% if step == 1 %}
+    <h2>Add a DNS A record</h2>
+    <p>Please create a DNS A record pointing your domain to: <strong>{{ server_ip }}</strong></p>
+    <form method="post">
+      <button type="submit">I’ve added the record</button>
+    </form>
+
+  {% elif step == 2 %}
+    <h2>Enter Your Domain</h2>
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+      <input type="text" name="domain" required placeholder="panel.yourdomain.com">
+      <button type="submit">Check DNS</button>
+    </form>
+
+  {% elif step == 3 %}
+    <h2>WemX Setup</h2>
+    <form method="post">
+      <input type="text" name="license" required placeholder="Your WemX License Key">
+      <input type="text" name="wemx_domain" required placeholder="Your WemX Panel Domain">
+      <button type="submit">Deploy Panel</button>
+    </form>
+
+  {% elif step == 4 %}
+    <h2 class="success">✅ Deployment Complete!</h2>
+    <p>Your WemX Panel is now live at: <a href="https://{{ domain }}" target="_blank">https://{{ domain }}</a></p>
+  {% endif %}
+
+</body>
+</html>
