@@ -6,22 +6,40 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #121212;
+      color: #e0e0e0;
       padding: 40px;
       max-width: 700px;
       margin: auto;
       line-height: 1.6;
       border-radius: 10px;
-      background: white;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background: #1e1e1e;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 
     h2 {
-      color: #333;
+      color: #ffffff;
+    }
+
+    a {
+      color: #4ea8ff;
+    }
+
+    strong {
+      color: #ffffff;
+    }
+
+    label {
+      color: #ccc;
     }
 
     .checkbox {
       margin-top: 20px;
+    }
+
+    input[type="checkbox"] {
+      accent-color: #28a745;
+      transform: scale(1.2);
     }
 
     button {
@@ -29,15 +47,20 @@
       padding: 10px 20px;
       font-size: 16px;
       border: none;
-      background-color: #007bff;
+      background-color: #444;
       color: white;
       border-radius: 5px;
       cursor: not-allowed;
+      transition: background-color 0.3s ease;
     }
 
     button:enabled {
       cursor: pointer;
       background-color: #28a745;
+    }
+
+    button:hover:enabled {
+      background-color: #218838;
     }
   </style>
 </head>
