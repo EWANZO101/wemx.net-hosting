@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WEMX Cloud Hosting Notice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .checkbox {
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: not-allowed;
+    }
+
+    button:enabled {
+      cursor: pointer;
+      background-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <h2>Important Notice – WEMX Cloud Hosting</h2>
+  <p>
+    Please note that all WEMX Cloud Hosting installations can take from <strong>2 to 12 hours</strong> to complete.
+    Certain parts of the installation process cannot be fully automated.
+  </p>
+  <p>
+    If you have not received your WEMX installation within this time frame, you may open a support ticket.
+  </p>
+  <p>
+    We will send you an email within the 12-hour window containing a link that requires your action. For your safety, security, and to comply with GDPR, you will be asked to enter your <strong>WEMX domain</strong> and <strong>WEMX license key</strong>.
+  </p>
+  <p>
+    After submitting this information, please wait on the page. It will notify you when your WEMX store is live.
+    If this does not happen, please open a ticket. We aim to respond within 2 to 12 hours.
+  </p>
+  <p><strong>Please read and understand this notice to avoid unnecessary tickets.</strong></p>
+
+  <div class="checkbox">
+    <input type="checkbox" id="readCheckbox">
+    <label for="readCheckbox"> I have read and understood this notice.</label>
+  </div>
+
+  <button id="submitBtn" disabled>Continue</button>
+
+  <script>
+    const checkbox = document.getElementById('readCheckbox');
+    const button = document.getElementById('submitBtn');
+
+    checkbox.addEventListener('change', () => {
+      button.disabled = !checkbox.checked;
+    });
+  </script>
+</body>
+</html>
