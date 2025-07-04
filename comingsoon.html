@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon | SnailyCAD</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #4f46e5, #3b82f6);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+
+    .subscribe-form input[type="email"] {
+      padding: 10px;
+      width: 70%;
+      border: none;
+      border-radius: 6px 0 0 6px;
+      outline: none;
+    }
+
+    .subscribe-form button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #10b981;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .subscribe-form {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .subscribe-form {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .subscribe-form input[type="email"], 
+      .subscribe-form button {
+        width: 100%;
+        border-radius: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚧 Coming Soon</h1>
+    <p>Something awesome is in the works at SnailyCAD. Be the first to know when we launch.</p>
+    <form class="subscribe-form">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+</body>
+</html>
