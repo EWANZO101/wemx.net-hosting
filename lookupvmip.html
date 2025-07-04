@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VM IP Lookup</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    input, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      border: none;
+      margin: 0.25rem;
+    }
+    button {
+      background-color: #4f46e5;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4338ca;
+    }
+    #result {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #22c55e;
+    }
+  </style>
+</head>
+<body>
+  <h1>VM IP Lookup</h1>
+  <input type="text" id="vmid" placeholder="Enter your VM ID" />
+  <button id="lookup">Lookup IP</button>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("lookup").addEventListener("click", async () => {
+      const vmid = document.getElementById("vmid").value.trim();
+      if (!vmid) {
+        document.getElementById("result").textContent = "Please enter your VM ID.";
+        return;
+      }
+
+      try {
+        const res = await fetch("vms.json");
+        const data = await res.json();
+
+        if (data[vmid]) {
+          document.getElementById("result").textContent = `Your IP is: ${data[vmid]}`;
+        } else {
+          document.getElementById("result").textContent = "VM ID not found.";
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById("result").textContent = "Error loading VM data.";
+      }
+    });
+  </script>
+</body>
+</html>
