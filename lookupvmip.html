@@ -1,51 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VM IP Lookup</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #0f0f0f;
-      color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    h1 {
-      margin-bottom: 1rem;
-    }
-    input, button {
-      padding: 0.5rem;
-      font-size: 1rem;
-      border-radius: 0.5rem;
-      border: none;
-      margin: 0.25rem;
-    }
-    button {
-      background-color: #4f46e5;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #4338ca;
-    }
-    #result {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: #22c55e;
-    }
-  </style>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Flowbite CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </head>
-<body>
-  <h1>VM IP Lookup</h1>
-  <input type="text" id="vmid" placeholder="Enter your VM ID (e.g., vm101)" />
-  <button id="lookup">Lookup IP</button>
-  <p id="result"></p>
+<body class="bg-gray-950 text-gray-100 flex flex-col items-center justify-center min-h-screen px-4">
+
+  <div class="max-w-md w-full bg-gray-900 rounded-2xl shadow-xl p-6 space-y-4">
+    <h1 class="text-2xl font-bold text-center text-white">🔍 VM IP Lookup</h1>
+    <p class="text-sm text-gray-300 text-center">
+      Enter your <span class="font-semibold">VM ID</span> below (e.g., <code class="bg-gray-800 px-1 rounded">vm101</code>) to find your assigned IP address.
+    </p>
+
+    <div class="flex flex-col space-y-2">
+      <input id="vmid" type="text" placeholder="Enter your VM ID (e.g., vm101)" class="rounded-lg border border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:ring-purple-600 focus:border-purple-600 p-3" />
+
+      <button id="lookup" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg p-3 transition-colors">
+        Lookup IP
+      </button>
+    </div>
+
+    <div id="result" class="text-center text-green-400 font-medium"></div>
+
+    <div class="mt-4 text-sm text-gray-400 text-center">
+      Example VM IDs you can search:
+      <div class="mt-1 space-x-2">
+        <code class="bg-gray-800 px-2 py-1 rounded">vm101</code>
+        <code class="bg-gray-800 px-2 py-1 rounded">vm103</code>
+        <code class="bg-gray-800 px-2 py-1 rounded">vm104</code>
+        <code class="bg-gray-800 px-2 py-1 rounded">vm105</code>
+      </div>
+    </div>
+  </div>
 
   <script>
     const vmData = {
@@ -57,15 +49,20 @@
 
     document.getElementById("lookup").addEventListener("click", () => {
       const vmid = document.getElementById("vmid").value.trim();
+      const result = document.getElementById("result");
+
       if (!vmid) {
-        document.getElementById("result").textContent = "Please enter your VM ID.";
+        result.textContent = "⚠️ Please enter your VM ID.";
+        result.className = "text-center text-yellow-400 font-medium";
         return;
       }
 
       if (vmData[vmid]) {
-        document.getElementById("result").textContent = `Your IP is: ${vmData[vmid]}`;
+        result.textContent = `✅ Your IP is: ${vmData[vmid]}`;
+        result.className = "text-center text-green-400 font-medium";
       } else {
-        document.getElementById("result").textContent = "VM ID not found.";
+        result.textContent = "❌ VM ID not found. Please check and try again.";
+        result.className = "text-center text-red-400 font-medium";
       }
     });
   </script>
