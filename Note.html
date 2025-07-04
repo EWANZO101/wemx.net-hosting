@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>WEMX Cloud Hosting Notice</title>
   <style>
     body {
@@ -62,6 +62,17 @@
     button:hover:enabled {
       background-color: #218838;
     }
+
+    /* Style for the goButton */
+    #goButton {
+      background-color: #007bff;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    #goButton:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -83,14 +94,15 @@
   <p><strong>Please read and understand this notice to avoid unnecessary tickets.</strong></p>
 
   <div class="checkbox">
-    <input type="checkbox" id="readCheckbox">
+    <input type="checkbox" id="readCheckbox" />
     <label for="readCheckbox"> I have read and understood this notice.</label>
   </div>
-<button id="submitBtn" disabled>Continue</button>
+  <button id="submitBtn" disabled>Continue</button>
 
-<!-- New button that navigates somewhere -->
-<button id="goButton" onclick="window.location.href='https://wemxcloud.swiftpeakhosting.com/store/view/1'"></button>
-
+  <!-- New button with visible text -->
+  <button id="goButton" onclick="window.location.href='https://wemxcloud.swiftpeakhosting.com/store/view/1'">
+    Go to WEMX Store
+  </button>
 
   <script>
     const checkbox = document.getElementById('readCheckbox');
