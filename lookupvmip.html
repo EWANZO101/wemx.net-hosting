@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VM IP Lookup</title>
   <style>
     body {
@@ -43,30 +43,29 @@
 </head>
 <body>
   <h1>VM IP Lookup</h1>
-  <input type="text" id="vmid" placeholder="Enter your VM ID" />
+  <input type="text" id="vmid" placeholder="Enter your VM ID (e.g., vm101)" />
   <button id="lookup">Lookup IP</button>
   <p id="result"></p>
 
   <script>
-    document.getElementById("lookup").addEventListener("click", async () => {
+    const vmData = {
+      "vm101": "5.231.32.113",
+      "vm103": "5.231.32.115",
+      "vm104": "5.231.32.116",
+      "vm105": "5.231.32.117"
+    };
+
+    document.getElementById("lookup").addEventListener("click", () => {
       const vmid = document.getElementById("vmid").value.trim();
       if (!vmid) {
         document.getElementById("result").textContent = "Please enter your VM ID.";
         return;
       }
 
-      try {
-        const res = await fetch("vms.json");
-        const data = await res.json();
-
-        if (data[vmid]) {
-          document.getElementById("result").textContent = `Your IP is: ${data[vmid]}`;
-        } else {
-          document.getElementById("result").textContent = "VM ID not found.";
-        }
-      } catch (err) {
-        console.error(err);
-        document.getElementById("result").textContent = "Error loading VM data.";
+      if (vmData[vmid]) {
+        document.getElementById("result").textContent = `Your IP is: ${vmData[vmid]}`;
+      } else {
+        document.getElementById("result").textContent = "VM ID not found.";
       }
     });
   </script>
