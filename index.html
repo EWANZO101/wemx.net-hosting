@@ -68,13 +68,10 @@
 
         <!-- Mobile button -->
         <div class="md:hidden flex items-center">
-          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition" aria-controls="mobile-menu" aria-expanded="false">
+          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition" onclick="toggleMobileMenu()">
             <span class="sr-only">Open main menu</span>
             <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
@@ -174,6 +171,17 @@
         </div>
 
         <!-- Feature 2 -->
+        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+            <i class="fas fa-shield-alt text-xl"></i>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-lg font-medium text-white">Secure & Reliable</h3>
+            <p class="mt-2 text-gray-400">
+              Advanced security measures and DDoS protection keep your data safe.
+            </p>
+          </div>
+        </div>
 
         <!-- Feature 3 -->
         <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
@@ -215,6 +223,19 @@
         </div>
 
         <!-- Feature 6 -->
+        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+            <i class="fas fa-database text-xl"></i>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-lg font-medium text-white">Daily Backups</h3>
+            <p class="mt-2 text-gray-400">
+              Automated daily backups ensure your data is always protected.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FAQ Section -->
@@ -230,79 +251,69 @@
       </div>
 
       <div class="mt-12">
-        <div class="space-y-4" id="accordion-flush" data-accordion="collapse" data-active-classes="bg-gray-800 text-white" data-inactive-classes="text-gray-400">
+        <div class="space-y-4">
           <!-- FAQ Item 1 -->
-          <h2 id="accordion-flush-heading-1">
-            <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700 hover:text-white transition" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+          <div class="border border-gray-700 rounded-lg">
+            <button type="button" class="flex justify-between items-center py-5 px-6 w-full font-medium text-left text-gray-400 hover:text-white transition" onclick="toggleFAQ(1)">
               <span>What is cloud hosting?</span>
-              <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6 shrink-0 transform transition-transform" id="faq-icon-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </button>
-          </h2>
-          <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
-            <div class="py-5 border-b border-gray-700">
-              <p class="mb-2 text-gray-300">At Swift Peak Hosting, we've partnered with WemX.net to provide a seamless and hassle-free solution for hosting your WemX panel. Our team will handle the full installation and hosting setup—no technical experience required. With just a few simple copy-and-paste steps on your end, you'll be up and running in under an hour.</p>
+            <div id="faq-body-1" class="hidden px-6 pb-5">
+              <p class="text-gray-300">At Swift Peak Hosting, we've partnered with WemX.net to provide a seamless and hassle-free solution for hosting your WemX panel. Our team will handle the full installation and hosting setup—no technical experience required. With just a few simple copy-and-paste steps on your end, you'll be up and running in under an hour.</p>
             </div>
           </div>
 
           <!-- FAQ Item 2 -->
-          <h2 id="accordion-flush-heading-2">
-            <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700 hover:text-white transition" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
+          <div class="border border-gray-700 rounded-lg">
+            <button type="button" class="flex justify-between items-center py-5 px-6 w-full font-medium text-left text-gray-400 hover:text-white transition" onclick="toggleFAQ(2)">
               <span>What kind of support do you offer?</span>
-              <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6 shrink-0 transform transition-transform" id="faq-icon-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </button>
-          </h2>
-          <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
-            <div class="py-5 border-b border-gray-700">
-              <p class="mb-2 text-gray-300">We provide 24/7/365 support through our ticketing system with an average response time of under 30 minutes - 2 hours. Our support team consists of experienced system administrators who can help with both Wemx Panel and server-related issues.</p>
+            <div id="faq-body-2" class="hidden px-6 pb-5">
+              <p class="text-gray-300">We provide 24/7/365 support through our ticketing system with an average response time of under 30 minutes - 2 hours. Our support team consists of experienced system administrators who can help with both Wemx Panel and server-related issues.</p>
             </div>
           </div>
 
           <!-- FAQ Item 3 -->
-          <h2 id="accordion-flush-heading-3">
-            <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700 hover:text-white transition" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
+          <div class="border border-gray-700 rounded-lg">
+            <button type="button" class="flex justify-between items-center py-5 px-6 w-full font-medium text-left text-gray-400 hover:text-white transition" onclick="toggleFAQ(3)">
               <span>Can I migrate my existing services to Swift Peak Hosting?</span>
-              <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6 shrink-0 transform transition-transform" id="faq-icon-3" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </button>
-          </h2>
-          <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
-            <div class="py-5 border-b border-gray-700">
-              <p class="mb-2 text-gray-300">Yes! We offer free migration services for new customers. Our team will handle the entire migration process with minimal downtime. Simply open a ticket after signing up and we'll guide you through the process.</p>
+            <div id="faq-body-3" class="hidden px-6 pb-5">
+              <p class="text-gray-300">Yes! We offer free migration services for new customers. Our team will handle the entire migration process with minimal downtime. Simply open a ticket after signing up and we'll guide you through the process.</p>
             </div>
           </div>
 
           <!-- FAQ Item 4 -->
-          <h2 id="accordion-flush-heading-4">
-            <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700 hover:text-white transition" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
+          <div class="border border-gray-700 rounded-lg">
+            <button type="button" class="flex justify-between items-center py-5 px-6 w-full font-medium text-left text-gray-400 hover:text-white transition" onclick="toggleFAQ(4)">
               <span>What is your uptime guarantee?</span>
-              <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6 shrink-0 transform transition-transform" id="faq-icon-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </button>
-          </h2>
-          <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
-            <div class="py-5 border-b border-gray-700">
-              <p class="mb-2 text-gray-300">We offer a 99.9% uptime SLA on all our services. In the rare event we don't meet this guarantee, we provide service credits based on the downtime experienced. Our actual uptime consistently exceeds this guarantee.</p>
+            <div id="faq-body-4" class="hidden px-6 pb-5">
+              <p class="text-gray-300">We offer a 99.9% uptime SLA on all our services. In the rare event we don't meet this guarantee, we provide service credits based on the downtime experienced. Our actual uptime consistently exceeds this guarantee.</p>
             </div>
           </div>
 
           <!-- FAQ Item 5 -->
-          <h2 id="accordion-flush-heading-5">
-            <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-400 border-b border-gray-700 hover:text-white transition" data-accordion-target="#accordion-flush-body-5" aria-expanded="false" aria-controls="accordion-flush-body-5">
+          <div class="border border-gray-700 rounded-lg">
+            <button type="button" class="flex justify-between items-center py-5 px-6 w-full font-medium text-left text-gray-400 hover:text-white transition" onclick="toggleFAQ(5)">
               <span>How do backups work?</span>
-              <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6 shrink-0 transform transition-transform" id="faq-icon-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </button>
-          </h2>
-          <div id="accordion-flush-body-5" class="hidden" aria-labelledby="accordion-flush-heading-5">
-            <div class="py-5 border-b border-gray-700">
-              <p class="mb-2 text-gray-300">We perform automated daily backups of all customer data with 7-day retention. Backups are stored in geographically separate locations for redundancy. You can also trigger manual backups through the Wemx Panel at any time.</p>
+            <div id="faq-body-5" class="hidden px-6 pb-5">
+              <p class="text-gray-300">We perform automated daily backups of all customer data with 7-day retention. Backups are stored in geographically separate locations for redundancy. You can also trigger manual backups through the Wemx Panel at any time.</p>
             </div>
           </div>
         </div>
@@ -368,4 +379,28 @@
         <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
           <div class="md:grid md:grid-cols-2 md:gap-8">
             <div>
-              <h3
+              <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Services</h3>
+              <ul class="mt-4 space-y-4">
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Cloud Hosting</a></li>
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Wemx Panel</a></li>
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Game Servers</a></li>
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Web Hosting</a></li>
+              </ul>
+            </div>
+            <div class="mt-12 md:mt-0">
+              <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Support</h3>
+              <ul class="mt-4 space-y-4">
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Documentation</a></li>
+                <li><a href="https://tickets.swiftpeakhosting.com" class="text-base text-gray-300 hover:text-white transition">Tickets</a></li>
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Status Page</a></li>
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Knowledge Base</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+              <ul class="mt-4 space-y-4">
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">About</a></li>
+                <li><a href="#" class="text-base text-gray-300 hover:text-white transition">Blog</a></li>
+                <li><a href="#" class="text-base text-gray-300
