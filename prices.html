@@ -1,183 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WEMX - Hosting Plans</title>
-
-  <!-- TailwindCSS & Flowbite -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-
-  <!-- Tailwind Config -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            wemx: {
-              dark: '#0f172a',
-              accent: '#7c3aed',
-              purple: '#8b5cf6',
-            }
-          }
-        }
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPS Categories</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f8fa;
+      margin: 0;
+      padding: 0;
     }
-  </script>
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #e9eef3;
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      color: #222;
+      transition: background 0.3s;
+    }
+    li:hover {
+      background: #dce3eb;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
-<body class="bg-gray-900 text-white min-h-screen">
-
-  <main class="max-w-6xl mx-auto px-4 py-16">
-
-    <!-- Header -->
-    <header class="text-center mb-12">
-      <h1 class="text-5xl font-extrabold mb-4">WEMX Hosting Plans</h1>
-      <p class="text-lg text-gray-400">Choose the perfect hosting solution for your needs. Scale as you grow.</p>
-    </header>
-
-    <!-- Notice -->
-    <section class="bg-gray-800 p-6 rounded-lg mb-12 shadow-md border border-gray-700">
-      <h2 class="text-2xl font-semibold mb-4 text-white">📢 Important Notice – WEMX Cloud Hosting</h2>
-      <div class="space-y-3 text-gray-300">
-        <p>All WEMX installations take <strong class="text-white">2 to 12 hours</strong>. Some steps are manual for security and compliance.</p>
-        <p>You’ll receive an email requiring your <strong>WEMX domain</strong> and <strong>license key</strong>. Follow the instructions provided to activate your store.</p>
-        <p>Stay on the page after submitting; if nothing happens, open a support ticket.</p>
-        <p><strong class="text-red-400">Please read this carefully to avoid unnecessary delays.</strong></p>
-      </div>
-    </section>
-
-    <!-- Billing Options -->
-    <div class="flex justify-center mb-10">
-      <div class="inline-flex bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
-        <button class="px-6 py-2 text-sm font-medium bg-wemx-accent text-white">Monthly Billing</button>
-        <button class="px-6 py-2 text-sm font-medium text-gray-400 hover:text-white">Yearly – Coming Soon</button>
-      </div>
-    </div>
-
-    <!-- Pricing Cards -->
-    <section class="grid md:grid-cols-3 gap-8">
-
-      <!-- Plan 1 -->
-      <article class="flex flex-col bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-wemx-accent transition-all">
-        <h3 class="text-xl font-bold">Plan 1 – WemX Ready VPS</h3>
-        <p class="mt-2 text-gray-400">Quick, effortless WemX setup</p>
-        <div class="mt-4 mb-6">
-          <span class="text-4xl font-extrabold">£5.99</span>
-          <span class="text-gray-400">/month</span>
-        </div>
-        <ul class="space-y-1 text-gray-300 text-sm mb-4">
-          <li>✅ 2 Cores CPU</li>
-          <li>✅ 4 GB RAM</li>
-          <li>✅ 50 GB SSD</li>
-          <li>✅ 100 Mbps Bandwidth</li>
-          <li>✅ Fully WemX Ready</li>
-        </ul>
-        <p class="text-sm text-gray-400 mb-4">
-          First month: <strong class="text-white">£10.99</strong><br />
-          Then: <strong class="text-white">£5.99/mo</strong>
-        </p>
-        <a href="Note.html" class="mt-auto inline-block bg-wemx-accent hover:bg-wemx-purple text-white text-sm font-semibold px-5 py-2 rounded-lg text-center">Get Started</a>
-        <details class="mt-4 text-gray-400 text-sm">
-          <summary class="text-wemx-accent cursor-pointer">More info</summary>
-          <p class="mt-2">Post-order, expect a setup email with instructions including DNS and license key submission.</p>
-        </details>
-      </article>
-
-      <!-- Business Plan -->
-      <article class="relative flex flex-col bg-gray-800 rounded-lg p-6 border-2 border-wemx-accent shadow-lg scale-105 z-10">
-        <div class="flex justify-between items-center mb-2">
-          <h3 class="text-xl font-bold">Business</h3>
-          <span class="bg-wemx-accent text-xs font-semibold px-2 py-1 rounded">Popular</span>
-        </div>
-        <p class="text-gray-400">(COMING SOON) Great for growing businesses</p>
-        <div class="mt-4 mb-6">
-          <span class="text-4xl font-extrabold">£10.99</span>
-          <span class="text-gray-400">/month</span>
-        </div>
-        <ul class="space-y-1 text-gray-300 text-sm mb-4">
-          <li>✅ 4 Cores CPU</li>
-          <li>✅ 6 GB RAM</li>
-          <li>✅ 100 GB SSD</li>
-          <li>✅ 250 Mbps Bandwidth</li>
-          <li>✅ Fully WemX Ready</li>
-        </ul>
-        <p class="text-sm text-gray-400 mb-4">
-          First month: <strong class="text-white">£15.99</strong><br />
-          Then: <strong class="text-white">£10.99/mo</strong>
-        </p>
-        <button class="mt-auto bg-wemx-accent text-white text-sm font-semibold px-5 py-2 rounded-lg opacity-60 cursor-not-allowed" disabled>Coming Soon</button>
-        <details class="mt-4 text-gray-400 text-sm">
-          <summary class="text-wemx-accent cursor-pointer">More info</summary>
-          <p class="mt-2">You'll get deployment instructions including DNS settings and license form.</p>
-        </details>
-      </article>
-
-      <!-- Enterprise Plan -->
-      <article class="flex flex-col bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-wemx-accent transition-all">
-        <h3 class="text-xl font-bold">(COMING SOON) Enterprise</h3>
-        <p class="text-gray-400 mt-2">For high-demand applications</p>
-        <div class="mt-4 mb-6">
-          <span class="text-4xl font-extrabold">£15.99</span>
-          <span class="text-gray-400">/month</span>
-        </div>
-        <ul class="space-y-1 text-gray-300 text-sm mb-4">
-          <li>✅ 6 Cores CPU</li>
-          <li>✅ 8 GB RAM</li>
-          <li>✅ 150 GB SSD</li>
-          <li>✅ 500 Mbps Bandwidth</li>
-          <li>✅ Fully WemX Ready</li>
-        </ul>
-        <p class="text-sm text-gray-400 mb-4">
-          First month: <strong class="text-white">£20.00</strong><br />
-          Then: <strong class="text-white">£15.99/mo</strong>
-        </p>
-        <button class="mt-auto bg-wemx-accent text-white text-sm font-semibold px-5 py-2 rounded-lg opacity-60 cursor-not-allowed" disabled>Coming Soon</button>
-        <details class="mt-4 text-gray-400 text-sm">
-          <summary class="text-wemx-accent cursor-pointer">More info</summary>
-          <p class="mt-2">Includes setup instructions via email. Ensure domain and license are ready.</p>
-        </details>
-      </article>
-
-    </section>
-
-    <!-- Notice Confirmation -->
-    <section class="mt-12 text-center">
-      <label class="inline-flex items-center gap-2 text-gray-300">
-        <input type="checkbox" id="readCheckbox" class="accent-wemx-accent w-5 h-5" />
-        I have read and understood this notice.
-      </label>
-      <br />
-      <button id="submitBtn" disabled class="mt-4 px-6 py-2 rounded bg-gray-600 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed enabled:bg-green-600 hover:enabled:bg-green-700 transition">Continue</button>
-    </section>
-
-    <!-- Footer Info -->
-    <footer class="mt-16 text-center text-sm text-gray-500">
-      <p>Need a custom solution? <a href="#" class="text-wemx-accent hover:underline">Contact our sales team</a>.</p>
-    </footer>
-
-  </main>
-
-  <!-- Scripts -->
-  <script>
-    const checkbox = document.getElementById('readCheckbox');
-    const button = document.getElementById('submitBtn');
-
-    checkbox.addEventListener('change', () => {
-      button.disabled = !checkbox.checked;
-    });
-
-    button.addEventListener('click', () => {
-      if (!button.disabled) {
-        window.location.href = 'https://wemxcloud.swiftpeakhosting.com/store/view/1';
-      }
-    });
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<body>
+  <div class="container">
+    <h1>Our VPS Categories</h1>
+    <ul>
+      <li>Windows Server 2019</li>
+      <li>Ubuntu Server VPS</li>
+      <li>SnailyCAD VPS</li>
+      <li>WeMX VPS</li>
+    </ul>
+  </div>
 </body>
-
 </html>
