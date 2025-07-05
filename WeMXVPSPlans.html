@@ -5,43 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WeMX VPS Plans</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-200 min-h-screen flex flex-col items-center justify-center p-6">
+<body class="bg-gray-950 text-gray-200 min-h-screen flex flex-col items-center justify-center p-6">
 
-  <h1 class="text-4xl font-extrabold text-center mb-8 text-purple-400">WeMX VPS Plans</h1>
+  <h1 class="text-4xl font-extrabold text-center mb-10 text-purple-400">WeMX VPS Plans</h1>
 
-  <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl w-full">
-    
-    <div class="bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-between transition-transform transform hover:-translate-y-1 hover:shadow-purple-700/40">
-      <h2 class="text-2xl font-semibold text-purple-300 mb-2">Basic</h2>
-      <div class="text-4xl font-bold text-white mb-4">$5.99<span class="text-lg font-medium text-gray-400">/mo</span></div>
-      <ul class="text-left mb-6 space-y-2 text-gray-300">
-        <li>✅ 2 vCPU</li>
-        <li>✅ 4 GB RAM</li>
-        <li>✅ 50 GB SSD Storage</li>
-        <li>✅ 100 TB Bandwidth</li>
-        <li>✅ Optimized for WeMX</li>
-      </ul>
-      <a href="https://wemxcloud.swiftpeakhosting.com/store/view/1" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-800 transition">
+  <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl w-full">
+
+    <!-- Basic Plan -->
+    <div class="bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col justify-between transition hover:-translate-y-1 hover:shadow-purple-700/40">
+      <div>
+        <h2 class="text-2xl font-bold text-purple-300 mb-3 text-center">Basic</h2>
+        <div class="text-center text-4xl font-extrabold text-white mb-4">$5.99<span class="text-lg font-medium text-gray-400">/mo</span></div>
+        <ul class="space-y-2 text-gray-300 mb-6">
+          <li>✅ 2 vCPU</li>
+          <li>✅ 4 GB RAM</li>
+          <li>✅ 50 GB SSD Storage</li>
+          <li>✅ 100 TB Bandwidth</li>
+          <li>✅ Optimized for WeMX</li>
+        </ul>
+      </div>
+      <a href="https://wemxcloud.swiftpeakhosting.com/store/view/1"
+        class="inline-flex justify-center items-center w-full px-5 py-3 text-sm font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-800 transition disabled:opacity-50 disabled:cursor-not-allowed">
         Order Now
       </a>
     </div>
 
-    <div class="bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-between transition-transform transform hover:-translate-y-1 hover:shadow-purple-700/40">
-      <h2 class="text-2xl font-semibold text-purple-300 mb-2">Custom</h2>
-      <div class="text-4xl font-bold text-white mb-4">$/<span class="text-lg font-medium text-gray-400">mo</span></div>
-      <ul class="text-left mb-6 space-y-2 text-gray-300">
-        <li>✅ 4 vCPU</li>
-        <li>✅ 8 GB RAM</li>
-        <li>✅ 100 GB SSD Storage</li>
-        <li>✅ 3 TB Bandwidth</li>
-        <li>✅ Optimized for WeMX</li>
-      </ul>
-      <a href="#" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-800 transition">
-        Order Now
-      </a>
+    <!-- Custom Plan (Coming Soon) -->
+    <div class="bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col justify-between opacity-80">
+      <div>
+        <h2 class="text-2xl font-bold text-purple-300 mb-3 text-center">Custom</h2>
+        <div class="text-center text-4xl font-extrabold text-white mb-4">TBA<span class="text-lg font-medium text-gray-400">/mo</span></div>
+        <ul class="space-y-2 text-gray-300 mb-6">
+          <li>✅ 4 vCPU</li>
+          <li>✅ 8 GB RAM</li>
+          <li>✅ 100 GB SSD Storage</li>
+          <li>✅ 3 TB Bandwidth</li>
+          <li>✅ Optimized for WeMX</li>
+        </ul>
+      </div>
+      <button disabled
+        class="inline-flex justify-center items-center w-full px-5 py-3 text-sm font-semibold text-white bg-gray-700 rounded-lg cursor-not-allowed transition">
+        Coming Soon
+      </button>
+    </div>
+
+    <!-- Additional Plan Placeholder (Coming Soon) -->
+    <div class="bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col justify-between opacity-80">
+      <div>
+        <h2 class="text-2xl font-bold text-purple-300 mb-3 text-center">Pro</h2>
+        <div class="text-center text-4xl font-extrabold text-white mb-4">TBA<span class="text-lg font-medium text-gray-400">/mo</span></div>
+        <ul class="space-y-2 text-gray-300 mb-6">
+          <li>✅ 8 vCPU</li>
+          <li>✅ 16 GB RAM</li>
+          <li>✅ 250 GB SSD Storage</li>
+          <li>✅ Unlimited Bandwidth</li>
+          <li>✅ Optimized for WeMX</li>
+        </ul>
+      </div>
+      <button disabled
+        class="inline-flex justify-center items-center w-full px-5 py-3 text-sm font-semibold text-white bg-gray-700 rounded-lg cursor-not-allowed transition">
+        Coming Soon
+      </button>
     </div>
 
   </div>
