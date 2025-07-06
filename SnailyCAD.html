@@ -2,122 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SnailyCAD Pricing Plans</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    :root {
+      --bg-color: #121212;
+      --card-bg: #1f1f1f;
+      --card-border: #333;
+      --primary-color: #6366f1; /* Indigo 500 */
+      --primary-hover: #4f46e5; /* Indigo 600 */
+      --text-primary: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --btn-radius: 8px;
+      --shadow: rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
       margin: 0;
       padding: 0;
+      background: var(--bg-color);
+      color: var(--text-primary);
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
+    h1 {
+      margin-top: 48px;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: var(--primary-color);
+      text-align: center;
+      user-select: none;
+    }
+
     .pricing-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1100px;
+      width: 90%;
+      margin: 48px auto 80px;
+      padding: 0 8px;
     }
+
     .plan {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 30px;
-      text-align: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 36px 28px 40px;
+      box-shadow: 0 8px 24px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .plan:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px var(--primary-hover);
+      border-color: var(--primary-color);
+    }
+
+    .plan.enterprise {
+      border-color: var(--primary-color);
+      background: linear-gradient(135deg, #1e1b3c 0%, #3b327e 100%);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+    }
+
     .plan h2 {
-      margin-top: 0;
+      margin: 0 0 12px 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      user-select: none;
     }
+
     .price {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 10px 0;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin: 8px 0 24px 0;
+      user-select: none;
     }
+
     .features {
-      text-align: left;
-      margin-top: 20px;
       list-style: none;
       padding: 0;
+      margin: 0 0 32px 0;
+      flex-grow: 1;
+      color: var(--text-secondary);
+      font-weight: 500;
+      user-select: none;
     }
+
     .features li {
-      padding: 8px 0;
-      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
     }
+
+    .features li:last-child {
+      border-bottom: none;
+    }
+
+    .features li::before {
+      content: '✔';
+      color: #34d399; /* Emerald 400 */
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .features li:has(:contains("❌"))::before {
+      content: '✘';
+      color: #ef4444; /* Red 500 */
+    }
+
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4f46e5;
+      padding: 14px 28px;
+      background-color: var(--primary-color);
       color: white;
-      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      border-radius: var(--btn-radius);
       text-decoration: none;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
     }
-    .enterprise {
-      background: #f0f4ff;
-      border: 2px solid #4f46e5;
+
+    .btn:hover,
+    .btn:focus-visible {
+      background-color: var(--primary-hover);
+      box-shadow: 0 6px 18px rgba(79, 70, 229, 0.7);
+      outline: none;
+    }
+
+    /* Fix for "❌" icon - making sure it's red */
+    .features li:nth-child(5):contains('❌')::before {
+      color: #ef4444;
+      content: '✘';
+    }
+
+    /* Responsive typography */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .price {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1 style="text-align:center; padding-top: 40px;">SnailyCAD Pricing Plans</h1>
+  <h1>SnailyCAD Pricing Plans</h1>
 
   <div class="pricing-container">
 
     <div class="plan">
       <h2>Free – Community Edition</h2>
-      <p class="price">$0 /mo</p>
+      <p class="price">$10.99 /mo</p>
       <ul class="features">
-        <li>✅ Self-hosted only</li>
-        <li>✅ Core dispatch features</li>
-        <li>✅ 10-unit limit</li>
-        <li>✅ 1 department</li>
-        <li>❌ No support or cloud hosting</li>
+        <li>50 GB HDD</li>
+        <li>4 GB RAM</li>
+        <li>4 cores</li>
+        <li>100MBPS</li>
+        <li>cloud hosting</li>
       </ul>
-      <a href="#" class="btn">Get Started</a>
+      <a href="https://wemxcloud.swiftpeakhosting.com/store/view/3" class="btn" aria-label="Get Started with Free Community Edition">Get Started</a>
     </div>
-
-    <div class="plan">
-      <h2>Pro – Cloud Hosted</h2>
-      <p class="price">$29 /mo</p>
-      <ul class="features">
-        <li>✅ Hosted by SnailyCAD</li>
-        <li>✅ Unlimited units/departments</li>
-        <li>✅ Custom UI/themes</li>
-        <li>✅ Nightly backups</li>
-        <li>🛠️ Community support</li>
-      </ul>
-      <a href="#" class="btn">Upgrade</a>
-    </div>
-
-    <div class="plan">
-      <h2>Team – RP Servers</h2>
-      <p class="price">$99 /mo</p>
-      <ul class="features">
-        <li>✅ Everything in Pro</li>
-        <li>✅ 5 active dispatchers</li>
-        <li>✅ Webhook & Discord Bot</li>
-        <li>✅ Audit logs</li>
-        <li>🛠️ Email support (24-48h)</li>
-      </ul>
-      <a href="#" class="btn">Start Trial</a>
-    </div>
-
-    <div class="plan enterprise">
-      <h2>Enterprise – Gov/LEA</h2>
-      <p class="price">Contact Us</p>
-      <ul class="features">
-        <li>✅ Dedicated manager</li>
-        <li>✅ SAML/SSO & custom modules</li>
-        <li>✅ On-prem or secure cloud</li>
-        <li>✅ Advanced analytics</li>
-        <li>🛠️ 24/7 priority support</li>
-      </ul>
-      <a href="#" class="btn">Contact Sales</a>
-    </div>
-
-  </div>
-
 </body>
 </html>
