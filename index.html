@@ -112,12 +112,15 @@
   <!-- Spacer for fixed navbar -->
   <div class="h-16"></div>
 
- 
-      <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
-  <span class="font-medium">Scheduled maintenance</span> is planned for the 10th to 11 th Some services may be temporarily unavailable during this time.
-</div>
+  <!-- Maintenance Alert -->
+  <div id="maintenance-alert" class="flex items-center max-w-2xl mx-auto p-4 my-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-yellow-900 dark:text-yellow-300 dark:border-yellow-800" role="alert">
+    <svg class="flex-shrink-0 w-5 h-5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M8.257 3.099c.765-1.36 2.682-1.36 3.447 0l6.349 11.3c.75 1.335-.213 3-1.724 3H3.632c-1.511 0-2.474-1.665-1.724-3l6.349-11.3ZM11 13a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-1-2a.75.75 0 0 0 .75-.75V7a.75.75 0 0 0-1.5 0v3.25c0 .414.336.75.75.75Z"/>
+    </svg>
+    <div class="text-sm font-medium">
+      Scheduled maintenance is planned for the 10th to 11th. Some services may be temporarily unavailable during this time.
     </div>
-    <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-yellow-50 text-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-400 p-1.5 hover:bg-yellow-100 inline-flex items-center justify-center h-8 w-8 dark:bg-yellow-900 dark:text-yellow-300 dark:hover:bg-yellow-800" data-dismiss-target="#maintenance-alert" aria-label="Close">
+    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-yellow-50 text-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-400 p-1.5 hover:bg-yellow-100 inline-flex items-center justify-center h-8 w-8 dark:bg-yellow-900 dark:text-yellow-300 dark:hover:bg-yellow-800" aria-label="Close" onclick="closeMaintenanceAlert()">
       <svg class="w-3 h-3" fill="none" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1l12 12M13 1L1 13"/>
       </svg>
@@ -172,83 +175,29 @@
         </p>
       </div>
 
-      <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Feature 1 -->
-        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
-          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-            <i class="fas fa-bolt text-xl"></i>
+      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl">
+          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white mb-4">
+            <i class="fas fa-tachometer-alt"></i>
           </div>
-          <div class="mt-6">
-            <h3 class="text-lg font-medium text-white">Lightning Fast</h3>
-            <p class="mt-2 text-gray-400">
-              Our high-performance servers ensure your applications run at maximum speed.
-            </p>
-          </div>
+          <h3 class="text-lg font-medium text-white">Blazing Performance</h3>
+          <p class="mt-2 text-gray-400">Our cloud servers are optimized for speed and reliability.</p>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
-          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-            <i class="fas fa-shield-alt text-xl"></i>
+        <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl">
+          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white mb-4">
+            <i class="fas fa-shield-alt"></i>
           </div>
-          <div class="mt-6">
-            <h3 class="text-lg font-medium text-white">Secure & Reliable</h3>
-            <p class="mt-2 text-gray-400">
-              Advanced security measures and DDoS protection keep your data safe.
-            </p>
-          </div>
+          <h3 class="text-lg font-medium text-white">Top-Notch Security</h3>
+          <p class="mt-2 text-gray-400">Protect your data with our robust security protocols.</p>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
-          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-            <i class="fas fa-globe text-xl"></i>
+        <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl">
+          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white mb-4">
+            <i class="fas fa-headset"></i>
           </div>
-          <div class="mt-6">
-            <h3 class="text-lg font-medium text-white">Global Cloudflare CDN</h3>
-            <p class="mt-2 text-gray-400">
-              Content delivered at lightning speed through our global network.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
-          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-            <i class="fas fa-headset text-xl"></i>
-          </div>
-          <div class="mt-6">
-            <h3 class="text-lg font-medium text-white">24/7 Support</h3>
-            <p class="mt-2 text-gray-400">
-              Our expert support team is available around the clock to assist you.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature 5 -->
-        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
-          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-            <i class="fas fa-sliders-h text-xl"></i>
-          </div>
-          <div class="mt-6">
-            <h3 class="text-lg font-medium text-white">Easy Control Panel</h3>
-            <p class="mt-2 text-gray-400">
-              Intuitive Wemx Panel interface for easy management of your services.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature 6 -->
-        <div class="feature-card bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
-          <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-            <i class="fas fa-database text-xl"></i>
-          </div>
-          <div class="mt-6">
-            <h3 class="text-lg font-medium text-white">Daily Backups</h3>
-            <p class="mt-2 text-gray-400">
-              Automated daily backups ensure your data is always protected.
-            </p>
-          </div>
+          <h3 class="text-lg font-medium text-white">24/7 Support</h3>
+          <p class="mt-2 text-gray-400">Our dedicated support team is always ready to help you.</p>
         </div>
       </div>
     </div>
