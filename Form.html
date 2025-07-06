@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  <script src="https://tickets.swiftpeakhosting.com/assets/form/form.js" defer></script>
+  <style>
+    /* Reset & base */
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Button styling */
+    #zammad-feedback-form {
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #4f46e5, #3b82f6);
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(59, 130, 246, 0.3);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #zammad-feedback-form:hover,
+    #zammad-feedback-form:focus {
+      background: linear-gradient(135deg, #4338ca, #2563eb);
+      box-shadow: 0 12px 20px rgba(37, 99, 235, 0.5);
+      outline: none;
+    }
+
+    /* Responsive text size */
+    @media (max-width: 400px) {
+      #zammad-feedback-form {
+        width: 90vw;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="zammad-feedback-form" aria-label="Open feedback form">Give Feedback</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      $('#zammad-feedback-form').ZammadForm({
+        messageTitle: 'Feedback Form',
+        messageSubmit: 'Submit',
+        messageThankYou: 'Thank you for your inquiry (#%s)! We\'ll contact you as soon as possible.',
+        modal: true
+      });
+    });
+  </script>
+
+</body>
+</html>
