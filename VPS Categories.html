@@ -2,63 +2,69 @@
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VPS Categories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VPS Pricing - Dark Mode</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Flowbite -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <!-- Flowbite CSS -->
+  <link href="https://unpkg.com/flowbite@2.3.0/dist/flowbite.min.css" rel="stylesheet" />
 
-  <!-- Dark mode config -->
+  <!-- Tailwind Dark Mode Config -->
   <script>
     tailwind.config = {
       darkMode: 'class',
     };
   </script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+<body class="bg-gray-900 text-white font-sans">
 
-  <header class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-b-3xl shadow-lg">
-    <h1 class="text-4xl font-extrabold text-center text-white">Our VPS Categories</h1>
-    <p class="text-center text-gray-200 mt-2">Choose the right VPS for your needs</p>
-  </header>
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-10">VPS Hosting Plans</h1>
 
-  <main class="max-w-4xl mx-auto p-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- Windows Server 2019 -->
-      <a href="windows-server-2019/example.html" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1 p-5 flex flex-col items-center text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-blue-500 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M3 4h18v16H3z"/></svg>
-        <h2 class="text-xl font-semibold">Windows Server 2019</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">Reliable Windows hosting for your business workloads.</p>
-      </a>
+      <!-- Basic Plan -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">Basic</h2>
+        <p class="text-3xl font-bold mb-4">£5.99</p>
+        <ul class="space-y-2 mb-6">
+          <li>✅ Dedicated CPU: 2 Core</li>
+          <li>✅ RAM: 2 GB</li>
+          <li>✅ HDD Storage: 100 GB</li>
+          <li>✅ HDD Boot Storage: 50 GB</li>
+          <li>✅ Bandwidth: 250 GB</li>
+          <li>✅ OS: Windows / Linux</li>
+        </ul>
+        <a href="example.html" class="block">
+          <button class="w-full py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+            Choose Plan
+          </button>
+        </a>
+      </div>
 
-      <!-- Ubuntu Server VPS -->
-      <a href="ubuntu-server-vps/example.html" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1 p-5 flex flex-col items-center text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-orange-500 dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-        <h2 class="text-xl font-semibold">Ubuntu Server VPS</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">Lightweight, secure, and stable Ubuntu server hosting.</p>
-      </a>
+      <!-- Standard Plan -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">Standard</h2>
+        <p class="text-3xl font-bold mb-4">10.99</p>
+        <ul class="space-y-2 mb-6">
+          <li>✅ Dedicated CPU: 4 Cores</li>
+          <li>✅ RAM: 5 GB</li>
+          <li>✅ HDD Storage: 120 GB</li>
+          <li>✅ HDD Boot Storage: 50 GB</li>
+          <li>✅ Bandwidth: 500 GB</li>
+          <li>✅ OS: Windows / Linux</li>
+        </ul>
+        <a href="example.html" class="block">
+          <button class="w-full py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+            Choose Plan
+          </button>
+        </a>
+      </div>
 
-      <!-- SnailyCAD VPS -->
-      <a href="SnailyCAD-VPS-Plans.html" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1 p-5 flex flex-col items-center text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v4H4zm0 6h16v4H4zm0 6h16v4H4z"/></svg>
-        <h2 class="text-xl font-semibold">SnailyCAD VPS</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">Optimized VPS for hosting SnailyCAD with stability.</p>
-      </a>
-
-      <!-- WeMX VPS -->
-      <a href="WeMXVPSPlans.html" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1 p-5 flex flex-col items-center text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-purple-500 dark:text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18h12v-2H6v2zM6 6h12v2H6V6zm0 5h12v2H6v-2z"/></svg>
-        <h2 class="text-xl font-semibold">WeMX VPS</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">VPS tuned for WeMX and lightweight services.</p>
-      </a>
-
-    </div>
-  </main>
-
+  
+  <!-- Flowbite JS -->
+  <script src="https://unpkg.com/flowbite@2.3.0/dist/flowbite.min.js"></script>
 </body>
 </html>
