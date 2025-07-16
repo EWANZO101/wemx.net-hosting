@@ -69,30 +69,6 @@
           <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition pulse-glow">Sign Up</a>
           <a href="https://wemxcloud.swiftpeakhosting.com/admin" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm font-medium transition">Admin</a>
         </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content Placeholder -->
-  <div class="pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-animation">Welcome to Swift Peak Hosting LTD</h1>
-    <p class="text-gray-300 text-lg mb-6">Premium Cloud Hosting you can trust, with fast speeds and dedicated support.</p>
-    <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg font-medium transition pulse-glow">Get Started</a>
-  </div>
-
-<script src="https://tickets.swiftpeakhosting.com/assets/chat/chat-no-jquery.min.js"></script>
-<script>
-(function() {
-  new ZammadChat({
-    fontSize: '12px',
-    chatId: 1
-  });
-})();
-</script>
-
-  <!-- Flowbite JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-
 
         <!-- Mobile button -->
         <div class="md:hidden flex items-center">
@@ -106,6 +82,29 @@
       </div>
     </div>
   </nav>
+
+  <!-- Main Content -->
+  <div class="pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-animation">Welcome to Swift Peak Hosting LTD</h1>
+    <p class="text-gray-300 text-lg mb-6">Premium Cloud Hosting you can trust, with fast speeds and dedicated support.</p>
+    <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg font-medium transition pulse-glow">Get Started</a>
+  </div>
+
+  <!-- Zammad Live Chat -->
+  <script src="https://tickets.swiftpeakhosting.com/assets/chat/chat-no-jquery.min.js"></script>
+  <script>
+    (function() {
+      new ZammadChat({
+        fontSize: '12px',
+        flat: true,
+        chatId: 1,
+        debug: true // enables console debugging if it doesn't show
+      });
+    })();
+  </script>
+
+  <!-- Flowbite JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
   <!-- Mobile menu -->
   <div class="md:hidden hidden" id="mobile-menu">
