@@ -14,11 +14,10 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Custom styles -->
   <style>
     .gradient-bg {
       background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(17, 24, 39, 0.85) 100%),
-                  url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+      url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center;
       background-size: cover;
     }
     .feature-card:hover {
@@ -44,85 +43,89 @@
 
 <body class="bg-gray-900 text-gray-100">
 
-  <!-- Navbar -->
-  <nav class="bg-gray-800 border-b border-gray-700 fixed w-full z-20 backdrop-blur-sm bg-opacity-95">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-4">
-          <i class="fas fa-server text-blue-400 text-xl"></i>
-          <span class="text-blue-400 font-bold text-xl">Swift Peak Hosting</span>
-        </div>
-
-        <div class="hidden md:flex items-center space-x-4">
-          <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition">Home</a>
-          <a href="VPS Categories.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition">Plans</a>
-          <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition">About Us</a>
-          <a href="Contactus.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition">Contact</a>
-          <a href="https://tickets.swiftpeakhosting.com" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition">Tickets</a>
-          <a href="https://wemxcloud.swiftpeakhosting.com/auth/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition">Login</a>
-          <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition pulse-glow">Sign Up</a>
-          <a href="https://wemxcloud.swiftpeakhosting.com/admin" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm font-medium transition">Admin</a>
-        </div>
-
-        <div class="md:hidden flex items-center">
-          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition" onclick="toggleMobileMenu()">
-            <span class="sr-only">Open main menu</span>
-            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
+<!-- Navbar -->
+<nav class="bg-gray-800 border-b border-gray-700 fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-server text-blue-400 text-xl"></i>
+        <span class="text-blue-400 font-bold text-xl">Swift Peak Hosting</span>
+      </div>
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="hover:bg-gray-700 px-3 py-2 rounded">Home</a>
+        <a href="VPS Categories.html" class="hover:bg-gray-700 px-3 py-2 rounded">Plans</a>
+        <a href="#" class="hover:bg-gray-700 px-3 py-2 rounded">About Us</a>
+        <a href="Contactus.html" class="hover:bg-gray-700 px-3 py-2 rounded">Contact</a>
+        <a href="https://tickets.swiftpeakhosting.com" class="hover:bg-gray-700 px-3 py-2 rounded">Tickets</a>
+      </div>
+      <div class="hidden md:flex space-x-2">
+        <a href="https://wemxcloud.swiftpeakhosting.com/auth/login" class="hover:bg-gray-700 px-3 py-2 rounded">Login</a>
+        <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white pulse-glow">Sign Up</a>
+      </div>
+      <div class="md:hidden">
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Mobile Menu -->
-  <div class="md:hidden hidden" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800 border-b border-gray-700">
-      <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-      <a href="VPS Categories.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Plans</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About Us</a>
-      <a href="Contactus.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-      <a href="https://tickets.swiftpeakhosting.com" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Tickets</a>
-      <a href="https://wemxcloud.swiftpeakhosting.com/auth/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</a>
-      <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sign Up</a>
-      <a href="https://wemxcloud.swiftpeakhosting.com/admin" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Admin</a>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden bg-gray-800 border-b border-gray-700 md:hidden">
+  <a href="#" class="block px-4 py-2">Home</a>
+  <a href="VPS Categories.html" class="block px-4 py-2">Plans</a>
+  <a href="#" class="block px-4 py-2">About Us</a>
+  <a href="Contactus.html" class="block px-4 py-2">Contact</a>
+  <a href="https://tickets.swiftpeakhosting.com" class="block px-4 py-2">Tickets</a>
+  <a href="https://wemxcloud.swiftpeakhosting.com/auth/login" class="block px-4 py-2">Login</a>
+  <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="block px-4 py-2 bg-blue-600 text-white">Sign Up</a>
+</div>
+
+<!-- Hero Section -->
+<section class="gradient-bg pt-32 pb-20 flex flex-col items-center text-center min-h-screen">
+  <h1 class="text-4xl md:text-5xl font-bold hero-animation">Welcome to Swift Peak Hosting LTD</h1>
+  <p class="text-gray-300 mt-4 mb-6">Premium Cloud Hosting you can trust, with fast speeds and dedicated support.</p>
+  <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-md text-lg font-medium text-white pulse-glow">Get Started</a>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold">Why Choose Swift Peak Hosting?</h2>
+    <p class="text-gray-400 mt-2">Optimized for Wemx Panel with premium infrastructure and support</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      <div class="feature-card p-6 bg-gray-800 rounded shadow hover:shadow-lg">
+        <i class="fas fa-tachometer-alt text-blue-400 text-3xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Blazing Performance</h3>
+        <p class="text-gray-400">Optimized servers for speed and reliability.</p>
+      </div>
+      <div class="feature-card p-6 bg-gray-800 rounded shadow hover:shadow-lg">
+        <i class="fas fa-headset text-blue-400 text-3xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+        <p class="text-gray-400">Dedicated support team available anytime.</p>
+      </div>
+      <div class="feature-card p-6 bg-gray-800 rounded shadow hover:shadow-lg">
+        <i class="fas fa-lock text-blue-400 text-3xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Secure & Reliable</h3>
+        <p class="text-gray-400">Advanced security and DDoS protection included.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Spacer for navbar -->
-  <div class="h-16"></div>
+<!-- Zammad Live Chat -->
+<script src="https://tickets.swiftpeakhosting.com/assets/chat/chat-no-jquery.min.js"></script>
+<script>
+  new ZammadChat({
+    fontSize: '12px',
+    flat: true,
+    chatId: 1,
+    debug: false
+  });
+</script>
 
-  <!-- Main Content -->
-  <div class="pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-animation">Welcome to Swift Peak Hosting LTD</h1>
-    <p class="text-gray-300 text-lg mb-6">Premium Cloud Hosting you can trust, with fast speeds and dedicated support.</p>
-    <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg font-medium transition pulse-glow">Get Started</a>
-  </div>
-
-  <!-- Zammad Live Chat -->
-  <script src="https://tickets.swiftpeakhosting.com/assets/chat/chat-no-jquery.min.js"></script>
-  <script>
-    (function() {
-      new ZammadChat({
-        fontSize: '12px',
-        flat: true,
-        chatId: 1,
-        debug: true
-      });
-    })();
-  </script>
-
-  <!-- Flowbite JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-
-  <!-- Mobile Menu Toggle Script -->
-  <script>
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    }
-  </script>
-
+<!-- Flowbite JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
