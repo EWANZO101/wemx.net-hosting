@@ -51,7 +51,7 @@
 
         async function checkPanels() {
             for (const url of urls) {
-                statusElement.textContent = `Checking ${url}...`;
+                statusElement.textContent = `Attempting connection...`;
                 try {
                     const success = await testURL(url);
                     if (success) {
