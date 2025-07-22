@@ -6,23 +6,141 @@
     <title>Firewall Redirect Panel</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes progressBar {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        
+        .animate-slide-in { animation: slideInUp 0.6s ease-out; }
+        .animate-fade-in-scale { animation: fadeInScale 0.4s ease-out; }
+        .pulse-glow { animation: pulse-glow 2s infinite; }
+        .gradient-border {
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .progress-animation {
+            animation: progressBar 0.8s ease-out;
+        }
+        
+        .glassmorphism {
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
-
-    <div class="max-w-md w-full p-6 bg-gray-800 rounded-lg shadow-lg">
-        <h1 class="text-2xl font-bold mb-4 text-center">Firewall Redirect Panel</h1>
-        <p class="text-center mb-4">Checking which panel you are whitelisted on, please wait...</p>
-
-        <div id="spinner" class="flex justify-center mb-4">
-            <svg aria-hidden="true" class="w-10 h-10 text-gray-600 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100 50.5C100 78.3 77.6 100.5 50 100.5S0 78.3 0 50.5 22.4 0.5 50 0.5 100 22.7 100 50.5ZM9.1 50.5c0 22.6 18.3 40.9 40.9 40.9s40.9-18.3 40.9-40.9S72.6 9.6 50 9.6 9.1 27.9 9.1 50.5Z" fill="currentColor"/>
-                <path d="M93.9 39.1c2.2-.5 3.6-2.6 3.1-4.8-.5-2.2-2.6-3.6-4.8-3.1-21.2 5-36 24-36 45.7 0 2.3 1.8 4.1 4.1 4.1s4.1-1.8 4.1-4.1c0-17.5 12.1-32.4 29.5-37.8Z" fill="currentFill"/>
-            </svg>
-        </div>
-
-        <p id="status" class="text-center text-gray-400">Attempting connection...</p>
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex flex-col items-center justify-center min-h-screen overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
     </div>
-
+    
+    <div class="relative z-10 max-w-lg w-full mx-4">
+        <!-- Main Panel -->
+        <div class="glassmorphism rounded-2xl shadow-2xl p-8 gradient-border pulse-glow animate-fade-in-scale">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <div class="mb-4">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Firewall Access Portal
+                </h1>
+                <p class="text-gray-300 text-sm font-medium">
+                    Secure connection validation in progress
+                </p>
+            </div>
+            
+            <!-- Progress Section -->
+            <div class="mb-8">
+                <div class="relative">
+                    <!-- Progress Bar Background -->
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-4 overflow-hidden">
+                        <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+                    </div>
+                    
+                    <!-- Current Panel Indicator -->
+                    <div id="panelIndicator" class="text-center text-sm text-gray-400 mb-4">
+                        Initializing connection test...
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Loading Animation -->
+            <div id="loadingSection" class="text-center mb-6">
+                <div class="relative inline-block">
+                    <div id="spinner" class="w-16 h-16 mx-auto mb-4">
+                        <div class="absolute inset-0 rounded-full border-4 border-gray-600"></div>
+                        <div class="absolute inset-0 rounded-full border-4 border-blue-500 border-t-transparent animate-spin"></div>
+                        <div class="absolute inset-2 rounded-full border-2 border-purple-500 border-b-transparent animate-spin animation-reverse" style="animation-duration: 1.5s;"></div>
+                    </div>
+                </div>
+                <p id="status" class="text-lg font-medium text-gray-300 animate-slide-in">
+                    Establishing secure connection...
+                </p>
+            </div>
+            
+            <!-- Connection Status Grid -->
+            <div id="connectionGrid" class="grid grid-cols-5 gap-2 mb-6 opacity-50 transition-opacity duration-500">
+                <!-- Connection status dots will be populated by JavaScript -->
+            </div>
+            
+            <!-- Success/Error State -->
+            <div id="resultSection" class="hidden text-center">
+                <div id="successIcon" class="hidden w-16 h-16 mx-auto mb-4 bg-green-500 rounded-full flex items-center justify-center animate-fade-in-scale">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <div id="errorIcon" class="hidden w-16 h-16 mx-auto mb-4 bg-red-500 rounded-full flex items-center justify-center animate-fade-in-scale">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+                <p id="resultMessage" class="text-lg font-medium"></p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center mt-6 text-gray-400 text-sm animate-slide-in" style="animation-delay: 0.3s;">
+            <p>Secure Access Management System</p>
+        </div>
+    </div>
+    
     <script>
         const urls = [
             "http://5.231.32.113:5000/",
@@ -36,40 +154,111 @@
             "http://5.231.32.121:5000/",
             "http://5.231.32.122:5000/"
         ];
-
+        
         const statusElement = document.getElementById('status');
-
+        const progressBar = document.getElementById('progressBar');
+        const panelIndicator = document.getElementById('panelIndicator');
+        const connectionGrid = document.getElementById('connectionGrid');
+        const loadingSection = document.getElementById('loadingSection');
+        const resultSection = document.getElementById('resultSection');
+        
+        // Initialize connection grid
+        function initializeConnectionGrid() {
+            connectionGrid.innerHTML = '';
+            urls.forEach((url, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'w-4 h-4 rounded-full bg-gray-600 transition-all duration-300';
+                dot.id = `dot-${index}`;
+                connectionGrid.appendChild(dot);
+            });
+        }
+        
+        function updateConnectionDot(index, status) {
+            const dot = document.getElementById(`dot-${index}`);
+            if (dot) {
+                if (status === 'testing') {
+                    dot.className = 'w-4 h-4 rounded-full bg-blue-500 animate-pulse transition-all duration-300';
+                } else if (status === 'success') {
+                    dot.className = 'w-4 h-4 rounded-full bg-green-500 transition-all duration-300';
+                } else if (status === 'failed') {
+                    dot.className = 'w-4 h-4 rounded-full bg-red-500 transition-all duration-300';
+                }
+            }
+        }
+        
         function testURL(url) {
             return new Promise((resolve, reject) => {
                 const img = new Image();
-                img.src = url + "favicon.ico?" + Date.now(); // cache buster
+                img.src = url + "favicon.ico?" + Date.now();
                 img.onload = () => resolve(true);
                 img.onerror = () => reject(false);
-                setTimeout(() => reject(false), 5000); // 5-second timeout
+                setTimeout(() => reject(false), 5000);
             });
         }
-
+        
         async function checkPanels() {
-            for (const url of urls) {
-                statusElement.textContent = `Attempting connection...`;
+            initializeConnectionGrid();
+            connectionGrid.style.opacity = '1';
+            
+            for (let i = 0; i < urls.length; i++) {
+                const url = urls[i];
+                const progress = ((i) / urls.length) * 100;
+                
+                // Update UI
+                progressBar.style.width = `${progress}%`;
+                panelIndicator.textContent = `Testing panel ${i + 1} of ${urls.length}`;
+                statusElement.textContent = `Validating access to panel ${i + 1}...`;
+                updateConnectionDot(i, 'testing');
+                
                 try {
                     const success = await testURL(url);
                     if (success) {
-                        statusElement.textContent = `Redirecting to ${url}...`;
-                        window.location.href = url;
+                        updateConnectionDot(i, 'success');
+                        
+                        // Success animation
+                        progressBar.style.width = '100%';
+                        progressBar.className += ' bg-green-500';
+                        
+                        setTimeout(() => {
+                            loadingSection.classList.add('hidden');
+                            resultSection.classList.remove('hidden');
+                            document.getElementById('successIcon').classList.remove('hidden');
+                            document.getElementById('resultMessage').textContent = `Redirecting to secure panel...`;
+                            document.getElementById('resultMessage').className = 'text-lg font-medium text-green-400';
+                            
+                            setTimeout(() => {
+                                window.location.href = url;
+                            }, 1500);
+                        }, 800);
                         return;
                     }
                 } catch (error) {
+                    updateConnectionDot(i, 'failed');
                     console.log(`Failed: ${url}`);
                 }
+                
+                // Small delay between tests for better UX
+                await new Promise(resolve => setTimeout(resolve, 300));
             }
-            document.getElementById('spinner').style.display = 'none';
-            statusElement.textContent = "Checking firewall panel whitelists...";
+            
+            // All panels failed
+            progressBar.style.width = '100%';
+            progressBar.className = progressBar.className.replace('from-blue-500 to-purple-500', 'from-red-500 to-red-600');
+            
+            setTimeout(() => {
+                loadingSection.classList.add('hidden');
+                resultSection.classList.remove('hidden');
+                document.getElementById('errorIcon').classList.remove('hidden');
+                document.getElementById('resultMessage').textContent = 'No accessible panels found. Please check your network connection.';
+                document.getElementById('resultMessage').className = 'text-lg font-medium text-red-400';
+            }, 800);
         }
-
-        checkPanels();
+        
+        // Start the process
+        setTimeout(() => {
+            checkPanels();
+        }, 1000);
     </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
