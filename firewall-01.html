@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Redirect Panel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+
+    <div class="max-w-md w-full p-6 bg-gray-800 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-4 text-center">Firewall Redirect Panel</h1>
+        <p class="text-center mb-4">Checking which panel you are whitelisted on, please wait...</p>
+
+        <div id="spinner" class="flex justify-center mb-4">
+            <svg aria-hidden="true" class="w-10 h-10 text-gray-600 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 50.5C100 78.3 77.6 100.5 50 100.5S0 78.3 0 50.5 22.4 0.5 50 0.5 100 22.7 100 50.5ZM9.1 50.5c0 22.6 18.3 40.9 40.9 40.9s40.9-18.3 40.9-40.9S72.6 9.6 50 9.6 9.1 27.9 9.1 50.5Z" fill="currentColor"/>
+                <path d="M93.9 39.1c2.2-.5 3.6-2.6 3.1-4.8-.5-2.2-2.6-3.6-4.8-3.1-21.2 5-36 24-36 45.7 0 2.3 1.8 4.1 4.1 4.1s4.1-1.8 4.1-4.1c0-17.5 12.1-32.4 29.5-37.8Z" fill="currentFill"/>
+            </svg>
+        </div>
+
+        <p id="status" class="text-center text-gray-400">Attempting connection...</p>
+    </div>
+
+    <script>
+        const urls = [
+            "https://panel1.example.com/check",
+            "https://panel2.example.com/check",
+            "https://panel3.example.com/check"
+        ];
+
+        async function checkPanels() {
+            const statusElement = document.getElementById('status');
+            for (const url of urls) {
+                statusElement.textContent = `Checking ${url}...`;
+                try {
+                    const response = await fetch(url, { mode: 'no-cors' });
+                    // If fetch doesn't throw, assume accessible (simplified)
+                    window.location.href = url;
+                    return;
+                } catch (error) {
+                    console.log(`Error checking ${url}:`, error);
+                }
+            }
+            statusElement.textContent = "You are not whitelisted on any panel.";
+            document.getElementById('spinner').style.display = 'none';
+        }
+
+        checkPanels();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>
