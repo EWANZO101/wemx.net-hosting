@@ -3,64 +3,326 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VPS Categories</title>
-
+  <title>VPS Categories - Professional Hosting Solutions</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Flowbite -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-
   <!-- Dark mode config -->
   <script>
     tailwind.config = {
       darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out',
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          backdropBlur: {
+            xs: '2px',
+          }
+        }
+      }
     };
   </script>
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    @keyframes pulseSoft {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .glass-dark {
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(75, 85, 99, 0.3);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover-effect {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .card-hover-effect:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+  </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-
-  <header class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-b-3xl shadow-lg">
-    <h1 class="text-4xl font-extrabold text-center text-white">Our VPS Categories</h1>
-    <p class="text-center text-gray-200 mt-2">Choose the right VPS for your needs</p>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 text-gray-900 dark:text-white overflow-x-hidden">
+  <!-- Background Pattern -->
+  <div class="fixed inset-0 opacity-5 dark:opacity-10">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #6366f1 2px, transparent 0), radial-gradient(circle at 75px 75px, #8b5cf6 2px, transparent 0); background-size: 100px 100px;"></div>
+  </div>
+  
+  <!-- Header -->
+  <header class="relative z-10 pt-8 pb-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Main Title -->
+      <div class="animate-fade-in-up">
+        <h1 class="text-5xl md:text-6xl font-black mb-4 leading-tight">
+          <span class="gradient-text">VPS</span>
+          <span class="text-gray-800 dark:text-white"> Categories</span>
+        </h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6"></div>
+      </div>
+      
+      <!-- Subtitle -->
+      <div class="animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: both;">
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
+          Enterprise-grade hosting solutions tailored for your specific needs
+        </p>
+      </div>
+      
+      <!-- Stats -->
+      <div class="animate-fade-in-up mt-12 grid grid-cols-3 gap-6 max-w-lg mx-auto" style="animation-delay: 0.4s; animation-fill-mode: both;">
+        <div class="text-center">
+          <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">99.9%</div>
+          <div class="text-sm text-gray-500 dark:text-gray-400">Uptime</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">24/7</div>
+          <div class="text-sm text-gray-500 dark:text-gray-400">Support</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-green-600 dark:text-green-400">SSD</div>
+          <div class="text-sm text-gray-500 dark:text-gray-400">Storage</div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main class="max-w-4xl mx-auto p-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-
+  <!-- Main Content -->
+  <main class="relative z-10 max-w-6xl mx-auto px-6 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
       <!-- Windows Server 2019 (Disabled) -->
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow p-5 flex flex-col items-center text-center opacity-50 cursor-not-allowed">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-blue-500 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M3 4h18v16H3z"/></svg>
-        <h2 class="text-xl font-semibold">Windows Server 2019</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">Temporarily unavailable due to maintenance.</p>
-        <span class="mt-2 text-sm text-red-500 font-semibold">Under Maintenance</span>
+      <div class="animate-fade-in-up group" style="animation-delay: 0.6s; animation-fill-mode: both;">
+        <div class="glass-dark rounded-2xl p-8 h-full flex flex-col items-center text-center opacity-60 cursor-not-allowed relative overflow-hidden">
+          <!-- Background Decoration -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+          
+          <!-- Icon -->
+          <div class="relative mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 4h18c0.55 0 1 0.45 1 1v14c0 0.55-0.45 1-1 1H3c-0.55 0-1-0.45-1-1V5c0-0.55 0.45-1 1-1zm1 2v12h16V6H4zm2 2h12v2H6V8zm0 3h8v2H6v-2z"/>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <h3 class="text-2xl font-bold mb-3 text-white">Windows Server 2019</h3>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            Enterprise Windows hosting with full administrative access and dedicated resources.
+          </p>
+          
+          <!-- Status Badge -->
+          <div class="mt-auto">
+            <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-red-500/20 text-red-300 border border-red-500/30">
+              <svg class="w-4 h-4 mr-2 animate-pulse-soft" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+              </svg>
+              Under Maintenance
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- Ubuntu Server VPS (Disabled) -->
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow p-5 flex flex-col items-center text-center opacity-50 cursor-not-allowed">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-orange-500 dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-        <h2 class="text-xl font-semibold">Ubuntu Server VPS</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">Temporarily unavailable due to maintenance.</p>
-        <span class="mt-2 text-sm text-red-500 font-semibold">Under Maintenance</span>
+      <div class="animate-fade-in-up group" style="animation-delay: 0.7s; animation-fill-mode: both;">
+        <div class="glass-dark rounded-2xl p-8 h-full flex flex-col items-center text-center opacity-60 cursor-not-allowed relative overflow-hidden">
+          <!-- Background Decoration -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+          
+          <!-- Icon -->
+          <div class="relative mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <h3 class="text-2xl font-bold mb-3 text-white">Ubuntu Server VPS</h3>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            Powerful Linux hosting with root access, perfect for developers and system administrators.
+          </p>
+          
+          <!-- Status Badge -->
+          <div class="mt-auto">
+            <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-red-500/20 text-red-300 border border-red-500/30">
+              <svg class="w-4 h-4 mr-2 animate-pulse-soft" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+              </svg>
+              Under Maintenance
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- SnailyCAD VPS -->
-      <a href="snailycadnote.html" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1 p-5 flex flex-col items-center text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v4H4zm0 6h16v4H4zm0 6h16v4H4z"/></svg>
-        <h2 class="text-xl font-semibold">SnailyCAD VPS</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">Optimized VPS for hosting SnailyCAD with stability.</p>
-      </a>
+      <div class="animate-fade-in-up group" style="animation-delay: 0.8s; animation-fill-mode: both;">
+        <a href="snailycadnote.html" class="block h-full card-hover-effect">
+          <div class="glass-dark rounded-2xl p-8 h-full flex flex-col items-center text-center relative overflow-hidden group-hover:shadow-2xl group-hover:shadow-green-500/20">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/20 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
+            
+            <!-- Icon -->
+            <div class="relative mb-6 animate-float">
+              <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-green-500/50 transition-shadow duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 4h16v4H4zm0 6h16v4H4zm0 6h16v4H4z"/>
+                </svg>
+              </div>
+              <!-- Glow Effect -->
+              <div class="absolute inset-0 bg-green-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            <!-- Content -->
+            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-green-300 transition-colors duration-300">SnailyCAD VPS</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+              Specialized hosting optimized for SnailyCAD deployments with enhanced stability and performance.
+            </p>
+            
+            <!-- Features -->
+            <div class="w-full mb-6 space-y-2">
+              <div class="flex items-center text-sm text-gray-400 justify-center">
+                <svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Pre-configured Environment
+              </div>
+              <div class="flex items-center text-sm text-gray-400 justify-center">
+                <svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Automatic Updates
+              </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-auto w-full">
+              <div class="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl text-white font-semibold text-center group-hover:from-green-400 group-hover:to-emerald-500 transition-all duration-300 shadow-lg group-hover:shadow-green-500/30">
+                Explore Plans
+                <svg class="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
 
       <!-- WeMX VPS -->
-      <a href="WeMXVPSPlans.html" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1 p-5 flex flex-col items-center text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-purple-500 dark:text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18h12v-2H6v2zM6 6h12v2H6V6zm0 5h12v2H6v-2z"/></svg>
-        <h2 class="text-xl font-semibold">WeMX VPS</h2>
-        <p class="text-gray-600 dark:text-gray-300 mt-2">VPS tuned for WeMX and lightweight services.</p>
-      </a>
-
+      <div class="animate-fade-in-up group" style="animation-delay: 0.9s; animation-fill-mode: both;">
+        <a href="WeMXVPSPlans.html" class="block h-full card-hover-effect">
+          <div class="glass-dark rounded-2xl p-8 h-full flex flex-col items-center text-center relative overflow-hidden group-hover:shadow-2xl group-hover:shadow-purple-500/20">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
+            
+            <!-- Icon -->
+            <div class="relative mb-6 animate-float" style="animation-delay: 1s;">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-purple-500/50 transition-shadow duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 18h12v-2H6v2zM6 6h12v2H6V6zm0 5h12v2H6v-2z"/>
+                </svg>
+              </div>
+              <!-- Glow Effect -->
+              <div class="absolute inset-0 bg-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            <!-- Content -->
+            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors duration-300">WeMX VPS</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+              High-performance hosting perfectly tuned for WeMX and other lightweight service applications.
+            </p>
+            
+            <!-- Features -->
+            <div class="w-full mb-6 space-y-2">
+              <div class="flex items-center text-sm text-gray-400 justify-center">
+                <svg class="w-4 h-4 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Lightweight & Fast
+              </div>
+              <div class="flex items-center text-sm text-gray-400 justify-center">
+                <svg class="w-4 h-4 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Optimized Configuration
+              </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-auto w-full">
+              <div class="px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl text-white font-semibold text-center group-hover:from-purple-400 group-hover:to-violet-500 transition-all duration-300 shadow-lg group-hover:shadow-purple-500/30">
+                View Options
+                <svg class="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
     </div>
   </main>
 
+  <!-- Footer CTA -->
+  <footer class="relative z-10 text-center py-16 px-6">
+    <div class="max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 1s; animation-fill-mode: both;">
+      <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Need Help Choosing?</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-8">Our technical experts are standing by to help you select the perfect VPS solution for your specific requirements.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+          Contact Support
+        </button>
+        <button class="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300">
+          Live Chat
+        </button>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
