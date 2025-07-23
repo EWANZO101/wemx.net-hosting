@@ -1,190 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SnailyCAD Pricing Plans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnailyCAD Activation Timeline - SwiftPeak Hosting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'pulse-ring': 'pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite',
+            'float': 'float 3s ease-in-out infinite',
+          }
+        }
+      }
+    };
+  </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-    :root {
-      --bg-color: #121212;
-      --card-bg: #1f1f1f;
-      --card-border: #333;
-      --primary-color: #6366f1; /* Indigo 500 */
-      --primary-hover: #4f46e5; /* Indigo 600 */
-      --text-primary: #e0e0e0;
-      --text-secondary: #a0a0a0;
-      --btn-radius: 8px;
-      --shadow: rgba(0, 0, 0, 0.6);
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg-color);
-      color: var(--text-primary);
-      font-family: 'Inter', Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      margin-top: 48px;
-      font-weight: 700;
-      font-size: 2.8rem;
-      color: var(--primary-color);
-      text-align: center;
-      user-select: none;
-    }
-
-    .pricing-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      max-width: 1100px;
-      width: 90%;
-      margin: 48px auto 80px;
-      padding: 0 8px;
-    }
-
-    .plan {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 36px 28px 40px;
-      box-shadow: 0 8px 24px var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .plan:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px var(--primary-hover);
-      border-color: var(--primary-color);
-    }
-
-    .plan.enterprise {
-      border-color: var(--primary-color);
-      background: linear-gradient(135deg, #1e1b3c 0%, #3b327e 100%);
-      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
-    }
-
-    .plan h2 {
-      margin: 0 0 12px 0;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: var(--text-primary);
-      user-select: none;
-    }
-
-    .price {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--primary-color);
-      margin: 8px 0 24px 0;
-      user-select: none;
-    }
-
-    .features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 32px 0;
-      flex-grow: 1;
-      color: var(--text-secondary);
-      font-weight: 500;
-      user-select: none;
-    }
-
-    .features li {
-      padding: 10px 0;
-      border-bottom: 1px solid #2a2a2a;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1rem;
-    }
-
-    .features li:last-child {
-      border-bottom: none;
-    }
-
-    .features li::before {
-      content: '✔';
-      color: #34d399; /* Emerald 400 */
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .features li:has(:contains("❌"))::before {
-      content: '✘';
-      color: #ef4444; /* Red 500 */
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background-color: var(--primary-color);
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-align: center;
-      border-radius: var(--btn-radius);
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      user-select: none;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-    }
-
-    .btn:hover,
-    .btn:focus-visible {
-      background-color: var(--primary-hover);
-      box-shadow: 0 6px 18px rgba(79, 70, 229, 0.7);
-      outline: none;
-    }
-
-    /* Fix for "❌" icon - making sure it's red */
-    .features li:nth-child(5):contains('❌')::before {
-      color: #ef4444;
-      content: '✘';
-    }
-
-    /* Responsive typography */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-      .price {
-        font-size: 2rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
+    
+    @keyframes pulseRing {
+      0% {
+        transform: scale(0.33);
+      }
+      40%, 50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.2);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .glass {
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(75, 85, 99, 0.3);
+    }
+    
+    .gradient-border {
+      background: linear-gradient(135deg, #10b981, #059669) padding-box,
+                  linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6) border-box;
+      border: 2px solid transparent;
     }
   </style>
 </head>
-<body>
-
-  <h1>SnailyCAD Pricing Plans</h1>
-
-  <div class="pricing-container">
-
-    <div class="plan">
-      <h2>Community Edition</h2>
-      <p class="price">$10.99 /mo</p>
-      <ul class="features">
-        <li>50 GB HDD</li>
-        <li>4 GB RAM</li>
-        <li>4 cores</li>
-        <li>100MBPS</li>
-        <li>cloud hosting</li>
-      </ul>
-      <a href="https://wemxcloud.swiftpeakhosting.com/store/view/2" class="btn" aria-label="Get Started with Free Community Edition">Get Started</a>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-100 p-6 relative overflow-hidden">
+  
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #10b981 2px, transparent 0), radial-gradient(circle at 75px 75px, #3b82f6 2px, transparent 0); background-size: 100px 100px;"></div>
+  </div>
+  
+  <!-- Background Glow -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto">
+    
+    <!-- Header -->
+    <div class="text-center mb-12 animate-slide-up">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl mb-6 animate-float">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black mb-4">
+        <span class="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">SnailyCAD</span>
+        <span class="text-white"> Activation</span>
+      </h1>
+      <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-4"></div>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Your professional CAD solution is being prepared. Here's what you need to know about the activation process.
+      </p>
     </div>
+
+    <!-- Main Content -->
+    <div class="grid lg:grid-cols-3 gap-8">
+      
+      <!-- Timeline Card -->
+      <div class="lg:col-span-2 glass rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.2s; animation-fill-mode: both;">
+        
+        <!-- Status Indicator -->
+        <div class="flex items-center mb-8">
+          <div class="relative">
+            <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+            <div class="absolute inset-0 w-4 h-4 bg-green-500 rounded-full animate-pulse-ring"></div>
+          </div>
+          <div class="ml-4">
+            <h2 class="text-2xl font-bold text-white">Activation Timeline</h2>
+            <p class="text-green-400 font-semibold">Processing your order</p>
+          </div>
+        </div>
+
+        <!-- Timeline Steps -->
+        <div class="space-y-6 mb-8">
+          
+          <!-- Step 1 -->
+          <div class="flex items-start">
+            <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-white mb-1">Payment Confirmation</h3>
+              <p class="text-gray-300">Your payment has been received and the activation window has started.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex items-start">
+            <div class="flex-shrink-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-4 mt-1">
+              <svg class="w-4 h-4 text-white animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" class="opacity-25"></circle>
+                <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" class="opacity-75"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-white mb-1">Environment Provisioning</h3>
+              <p class="text-gray-300">Your dedicated environment is being configured. Temporary errors during this phase are normal.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex items-start opacity-60">
+            <div class="flex-shrink-0 w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-4 mt-1">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-white mb-1">Activation Complete</h3>
+              <p class="text-gray-300">You'll receive a confirmation email when your instance is ready to use.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Estimate -->
+        <div class="bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-xl p-6 border border-green-500/20">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h4 class="font-semibold text-white">Expected Activation Time</h4>
+              <p class="text-gray-300"><span class="text-green-400 font-bold">2-12 hours</span> after payment confirmation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Important Notices -->
+      <div class="space-y-6">
+        
+        <!-- Cloudflare Notice -->
+        <div class="glass rounded-2xl p-6 animate-slide-up border-l-4 border-yellow-500" style="animation-delay: 0.4s; animation-fill-mode: both;">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-yellow-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-yellow-400 mb-2">Cloudflare Configuration</h3>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Add your Cloudflare code in the checkout notes to ensure proper domain protection setup.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Notice -->
+        <div class="glass rounded-2xl p-6 animate-slide-up border-l-4 border-red-500" style="animation-delay: 0.6s; animation-fill-mode: both;">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-red-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-red-400 mb-2">Documentation Service</h3>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Free trial for SnailyCAD documentation editing has ended. We no longer provide document editing services.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="glass rounded-2xl p-6 animate-slide-up text-center" style="animation-delay: 0.8s; animation-fill-mode: both;">
+          <h3 class="font-bold text-white mb-4">Access Your Panel</h3>
+          <a href="https://wemx.swiftpeakhosting.com/SnailyCAD" target="_blank" 
+             class="inline-flex items-center px-6 py-3 gradient-border rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-green-500/25 transform hover:-translate-y-1 transition-all duration-300 group">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            Open SnailyCAD Panel
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-16 animate-fade-in" style="animation-delay: 1s; animation-fill-mode: both;">
+      <div class="inline-flex items-center justify-center space-x-2 text-gray-400 mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        <span class="text-lg font-semibold">SwiftPeak Hosting</span>
+      </div>
+      <p class="text-gray-500 text-sm">Professional CAD Solutions • Enterprise-Grade Infrastructure</p>
+      
+      <!-- Support Links -->
+      <div class="flex justify-center space-x-6 mt-6">
+        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors duration-200 text-sm">Support Center</a>
+        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors duration-200 text-sm">Documentation</a>
+        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors duration-200 text-sm">Status Page</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
