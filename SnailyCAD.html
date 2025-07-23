@@ -30,59 +30,39 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    
+
     @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
+
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-    
+
     @keyframes pulseRing {
-      0% {
-        transform: scale(0.33);
-        opacity: 1;
-      }
-      80%, 100% {
-        transform: scale(1.2);
-        opacity: 0;
-      }
+      0% { transform: scale(0.33); opacity: 1; }
+      80%, 100% { transform: scale(1.2); opacity: 0; }
     }
-    
+
     @keyframes gradientShift {
-      0%, 100% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
-    
+
     .glass {
       background: rgba(17, 24, 39, 0.8);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(75, 85, 99, 0.3);
     }
-    
+
     .glass-light {
       background: rgba(31, 41, 55, 0.6);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(75, 85, 99, 0.2);
     }
-    
+
     .gradient-text {
       background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
       background-size: 200% 200%;
@@ -91,15 +71,15 @@
       background-clip: text;
       animation: gradientShift 3s ease-in-out infinite;
     }
-    
+
     .card-hover {
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
+
     .card-hover:hover {
       transform: translateY(-12px) scale(1.02);
     }
-    
+
     .popular-glow {
       box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3), 
                   0 10px 40px rgba(99, 102, 241, 0.2),
@@ -107,44 +87,38 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white font-inter overflow-x-hidden">
-  
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white font-inter overflow-x-hidden relative">
+
   <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-5">
+  <div class="absolute inset-0 opacity-5 z-0">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #6366f1 2px, transparent 0), radial-gradient(circle at 75px 75px, #8b5cf6 2px, transparent 0); background-size: 100px 100px;"></div>
   </div>
-  
+
   <!-- Background Glow Effects -->
-  <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-  
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl z-0"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl z-0"></div>
+
   <div class="relative z-10">
-    
-    <!-- Header Section -->
+
+    <!-- Header -->
     <header class="text-center py-16 px-6">
       <div class="max-w-4xl mx-auto animate-slide-up">
-        
-        <!-- Logo/Icon -->
         <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mb-8 animate-float">
           <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
           </svg>
         </div>
-        
-        <!-- Main Heading -->
+
         <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">
-          <span class="gradient-text">SnailyCAD</span>
-          <span class="text-white"> Pricing</span>
+          <span class="gradient-text">SnailyCAD</span> <span class="text-white">Pricing</span>
         </h1>
-        
+
         <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full mb-8"></div>
-        
-        <!-- Subtitle -->
+
         <p class="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed mb-8">
           Choose the perfect plan for your roleplay server. Professional CAD solutions for FiveM, GTA RP, and gaming communities.
         </p>
-        
-        <!-- Trust Indicators -->
+
         <div class="grid grid-cols-3 gap-6 max-w-lg mx-auto mt-12">
           <div class="text-center">
             <div class="text-2xl font-bold text-indigo-400">99.9%</div>
@@ -162,53 +136,39 @@
       </div>
     </header>
 
-    <!-- Pricing Plans -->
+    <!-- Pricing Section -->
     <main class="max-w-7xl mx-auto px-6 pb-20">
-      <div class="grid lg:grid-cols-3 gap-8 lg:gap-6">
-        
-       <!-- Community Edition -->
-<div class="animate-slide-up card-hover" style="animation-delay: 0.2s; animation-fill-mode: both;">
-  <div class="glass rounded-2xl p-8 h-full flex flex-col relative">
-    <!-- Plan Header -->
-    <div class="text-center mb-8">
-      <h3 class="text-2xl font-bold text-white mb-2">Community</h3>
-      <p class="text-gray-400 mb-6">Perfect for small roleplay servers starting out</p>
-      <div class="relative">
-        <span class="text-4xl font-black text-white">$10.99</span>
-        <span class="text-gray-400 text-lg">/month</span>
+      <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 lg:gap-6">
+        <!-- Pricing Card -->
+        <div class="animate-slide-up card-hover" style="animation-delay: 0.2s; animation-fill-mode: both;">
+          <div class="glass rounded-2xl p-8 h-full flex flex-col">
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold text-white mb-2">Community</h3>
+              <p class="text-gray-400 mb-6">Perfect for small roleplay servers starting out</p>
+              <div class="relative">
+                <span class="text-4xl font-black text-white">$10.99</span>
+                <span class="text-gray-400 text-lg">/month</span>
+              </div>
+            </div>
+
+            <div class="flex-grow mb-8">
+              <ul class="space-y-4 text-white">
+                <li class="flex items-center"><svg class="w-6 h-6 text-green-400 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Custom Subdomain</li>
+                <li class="flex items-center"><svg class="w-6 h-6 text-green-400 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>50GB Storage</li>
+                <li class="flex items-center"><svg class="w-6 h-6 text-green-400 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Support</li>
+              </ul>
+            </div>
+
+            <a href="https://wemxcloud.swiftpeakhosting.com/store/view/2" class="w-full block text-center bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105">
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        <!-- Add more pricing cards here if needed -->
       </div>
-    </div>
+    </main>
 
-    <!-- Features List -->
-    <div class="flex-grow mb-8">
-      <ul class="space-y-4 text-white">
-        <li class="flex items-center">
-          <svg class="w-6 h-6 text-green-400 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          Custom Subdomain
-        </li>
-        <li class="flex items-center">
-          <svg class="w-6 h-6 text-green-400 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          50GB Storage
-        </li>
-        <li class="flex items-center">
-          <svg class="w-6 h-6 text-green-400 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          Support
-        </li>
-      </ul>
-    </div>
-
-    <!-- CTA Button -->
-    <a href="https://wemxcloud.swiftpeakhosting.com/store/view/2" class="w-full block text-center bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105">
-      Get Started
-    </a>
-  </div>
-</div>
     <!-- Footer -->
     <footer class="text-center py-16 px-6 border-t border-gray-800">
       <div class="max-w-4xl mx-auto animate-fade-in" style="animation-delay: 1s; animation-fill-mode: both;">
@@ -218,21 +178,16 @@
           </svg>
           <span class="text-2xl font-bold">SwiftPeak Hosting</span>
         </div>
-        <p class="text-gray-500 mb-8 max-w-2xl mx-auto">
-          Powering gaming communities and roleplay servers worldwide with professional CAD solutions.
-        </p>
-        
-        <!-- Support Links -->
+        <p class="text-gray-500 mb-8 max-w-2xl mx-auto">Powering gaming communities and roleplay servers worldwide with professional CAD solutions.</p>
+
         <div class="flex flex-wrap justify-center gap-8 mb-8">
           <a href="https://tickets.swiftpeakhosting.com/" class="text-gray-400 hover:text-indigo-400 transition-colors duration-200">Contact Support</a>
           <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-200">Documentation</a>
           <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-200">System Status</a>
           <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-200">Terms of Service</a>
         </div>
-        
-        <div class="text-gray-600 text-sm">
-          © 2024 SwiftPeak Hosting. All rights reserved.
-        </div>
+
+        <div class="text-gray-600 text-sm">© 2024 SwiftPeak Hosting. All rights reserved.</div>
       </div>
     </footer>
   </div>
