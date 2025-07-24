@@ -1,52 +1,213 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VM IP Lookup</title>
-  <!-- TailwindCSS CDN -->
+  <title>VM IP Lookup | Professional Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Flowbite CDN -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'pulse-subtle': 'pulseSubtle 2s infinite',
+            'shimmer': 'shimmer 3s infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.8' }
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    .glass-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    
+    .gradient-bg {
+      background: radial-gradient(ellipse at top, #1e293b 0%, #0f172a 50%, #020617 100%);
+    }
+    
+    .shimmer-button {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      background-size: 200% 100%;
+    }
+    
+    .input-glow:focus {
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1), 0 0 20px rgba(99, 102, 241, 0.2);
+    }
+    
+    .result-card {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+    
+    .error-card {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    
+    .warning-card {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.05) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+  </style>
 </head>
-<body class="bg-gray-950 text-gray-100 flex flex-col items-center justify-center min-h-screen px-4">
-
-  <div class="max-w-md w-full bg-gray-900 rounded-2xl shadow-xl p-6 space-y-4">
-    <h1 class="text-2xl font-bold text-center text-white">🔍 VM IP Lookup</h1>
-    <p class="text-sm text-gray-300 text-center">
-      Enter your <span class="font-semibold">VM ID</span> below (e.g., <code class="bg-gray-800 px-1 rounded">vm101</code>) to find your assigned IP address.
-    </p>
-
-    <div class="flex flex-col space-y-2">
-      <input id="vmid" type="text" placeholder="Enter your VM ID (e.g., vm101)" class="rounded-lg border border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:ring-purple-600 focus:border-purple-600 p-3" />
-
-      <button id="lookup" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg p-3 transition-colors">
-        Lookup IP
-      </button>
-    </div>
-
-    <div id="result" class="text-center text-green-400 font-medium"></div>
-
-    <div class="mt-4 text-sm text-gray-400 text-center">
-      Example VM IDs you can search:
-      <div class="mt-1 space-x-2">
-        <code class="bg-gray-800 px-2 py-1 rounded">vm101</code>
-        <code class="bg-gray-800 px-2 py-1 rounded">vm103</code>
-        <code class="bg-gray-800 px-2 py-1 rounded">vm104</code>
-        <code class="bg-gray-800 px-2 py-1 rounded">vm105</code>
-      </div>
-    </div>
+<body class="gradient-bg min-h-screen text-slate-100 overflow-x-hidden">
+  <!-- Ambient Background Elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-pulse-subtle"></div>
+    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse-subtle" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-subtle" style="animation-delay: 2s;"></div>
   </div>
 
-  <!-- Image and red note -->
-  <div class="mt-6 flex flex-col items-center space-y-2">
-    <a href="https://ibb.co/7x2F0v2g" target="_blank" rel="noopener">
-      <img src="https://i.ibb.co/NgZzGxZ1/Screenshot-2025-07-06-202158.png" alt="Screenshot-2025-07-06-202158" class="rounded-xl border border-gray-800 shadow-lg max-w-full h-auto">
-    </a>
-    <p class="text-red-400 text-sm text-center max-w-xs">
-      ⚠️ Please make sure you type the VM ID found in your Dash-Manage area, like the example above.
-    </p>
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8">
+    <!-- Main Container -->
+    <div class="w-full max-w-lg animate-fade-in">
+      <!-- Header -->
+      <div class="text-center mb-8 animate-slide-up">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mb-4 shadow-2xl">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+          </svg>
+        </div>
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent mb-2">
+          VM IP Lookup
+        </h1>
+        <p class="text-slate-400 text-lg font-medium">Professional Network Discovery</p>
+      </div>
+
+      <!-- Main Card -->
+      <div class="glass-card rounded-3xl p-8 shadow-2xl mb-6 animate-slide-up" style="animation-delay: 0.1s;">
+        <div class="space-y-6">
+          <!-- Description -->
+          <div class="text-center">
+            <p class="text-slate-300 leading-relaxed">
+              Enter your <span class="font-semibold text-indigo-300">Virtual Machine ID</span> to retrieve the assigned IP address
+            </p>
+            <div class="mt-3 inline-flex items-center space-x-2 bg-slate-800/50 rounded-full px-4 py-2">
+              <span class="text-xs text-slate-400">Format:</span>
+              <code class="text-xs bg-slate-700/50 text-indigo-300 px-2 py-1 rounded font-mono">vm101</code>
+            </div>
+          </div>
+
+          <!-- Input Section -->
+          <div class="space-y-4">
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                </svg>
+              </div>
+              <input 
+                id="vmid" 
+                type="text" 
+                placeholder="Enter your VM ID" 
+                class="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-600/50 rounded-2xl text-white placeholder-slate-400 focus:border-indigo-500 focus:ring-0 focus:outline-none input-glow transition-all duration-300 text-lg font-medium"
+                autocomplete="off"
+              />
+            </div>
+            
+            <button 
+              id="lookup" 
+              class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-indigo-500/30 shimmer-button animate-shimmer text-lg relative overflow-hidden group"
+            >
+              <span class="relative z-10 flex items-center justify-center space-x-2">
+                <svg class="w-5 h-5 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <span>Lookup IP Address</span>
+              </span>
+            </button>
+          </div>
+
+          <!-- Result Area -->
+          <div id="result-container" class="hidden">
+            <div id="result" class="rounded-2xl p-4 text-center font-medium transition-all duration-300"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Examples Section -->
+      <div class="glass-card rounded-3xl p-6 animate-slide-up" style="animation-delay: 0.2s;">
+        <h3 class="text-slate-300 font-semibold mb-4 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Available VM IDs
+        </h3>
+        <div class="grid grid-cols-2 gap-3">
+          <button class="vm-example bg-slate-800/30 hover:bg-slate-700/50 border border-slate-600/30 hover:border-indigo-500/50 rounded-xl px-4 py-3 transition-all duration-300 group" data-vmid="vm101">
+            <code class="text-indigo-300 font-mono text-sm group-hover:text-indigo-200">vm101</code>
+          </button>
+          <button class="vm-example bg-slate-800/30 hover:bg-slate-700/50 border border-slate-600/30 hover:border-indigo-500/50 rounded-xl px-4 py-3 transition-all duration-300 group" data-vmid="vm103">
+            <code class="text-indigo-300 font-mono text-sm group-hover:text-indigo-200">vm103</code>
+          </button>
+          <button class="vm-example bg-slate-800/30 hover:bg-slate-700/50 border border-slate-600/30 hover:border-indigo-500/50 rounded-xl px-4 py-3 transition-all duration-300 group" data-vmid="vm104">
+            <code class="text-indigo-300 font-mono text-sm group-hover:text-indigo-200">vm104</code>
+          </button>
+          <button class="vm-example bg-slate-800/30 hover:bg-slate-700/50 border border-slate-600/30 hover:border-indigo-500/50 rounded-xl px-4 py-3 transition-all duration-300 group" data-vmid="vm105">
+            <code class="text-indigo-300 font-mono text-sm group-hover:text-indigo-200">vm105</code>
+          </button>
+        </div>
+      </div>
+
+      <!-- Reference Image and Warning -->
+      <div class="mt-8 space-y-4 animate-slide-up" style="animation-delay: 0.3s;">
+        <div class="glass-card rounded-3xl p-6">
+          <h3 class="text-slate-300 font-semibold mb-4 flex items-center">
+            <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            Dashboard Reference
+          </h3>
+          <a href="https://ibb.co/7x2F0v2g" target="_blank" rel="noopener" class="block group">
+            <img 
+              src="https://i.ibb.co/NgZzGxZ1/Screenshot-2025-07-06-202158.png" 
+              alt="VM Dashboard Screenshot" 
+              class="rounded-2xl border border-slate-600/30 shadow-lg w-full transition-transform duration-300 group-hover:scale-[1.02]"
+            >
+          </a>
+        </div>
+
+        <div class="warning-card rounded-2xl p-4">
+          <div class="flex items-start space-x-3">
+            <svg class="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+            <p class="text-amber-200 font-medium leading-relaxed">
+              <span class="font-semibold">Important:</span> Use the exact VM ID shown in your dashboard's Manage area, as demonstrated in the reference image above.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -57,24 +218,103 @@
       "vm105": "5.231.32.117"
     };
 
-    document.getElementById("lookup").addEventListener("click", () => {
-      const vmid = document.getElementById("vmid").value.trim();
-      const result = document.getElementById("result");
+    const vmidInput = document.getElementById("vmid");
+    const lookupButton = document.getElementById("lookup");
+    const resultContainer = document.getElementById("result-container");
+    const resultDiv = document.getElementById("result");
 
+    function showResult(message, type) {
+      resultContainer.classList.remove("hidden");
+      resultDiv.textContent = message;
+      
+      // Reset classes
+      resultDiv.className = "rounded-2xl p-4 text-center font-medium transition-all duration-300";
+      
+      if (type === "success") {
+        resultDiv.classList.add("result-card", "text-emerald-300");
+      } else if (type === "error") {
+        resultDiv.classList.add("error-card", "text-red-300");
+      } else if (type === "warning") {
+        resultDiv.classList.add("warning-card", "text-amber-300");
+      }
+      
+      // Animate in
+      resultDiv.style.transform = "translateY(10px)";
+      resultDiv.style.opacity = "0";
+      setTimeout(() => {
+        resultDiv.style.transform = "translateY(0)";
+        resultDiv.style.opacity = "1";
+      }, 10);
+    }
+
+    function performLookup() {
+      const vmid = vmidInput.value.trim();
+      
       if (!vmid) {
-        result.textContent = "⚠️ Please enter your VM ID.";
-        result.className = "text-center text-yellow-400 font-medium";
+        showResult("⚠️ Please enter a VM ID to continue", "warning");
         return;
       }
+      
+      // Add loading state
+      lookupButton.innerHTML = `
+        <span class="relative z-10 flex items-center justify-center space-x-2">
+          <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+          <span>Searching...</span>
+        </span>
+      `;
+      
+      // Simulate network delay for better UX
+      setTimeout(() => {
+        if (vmData[vmid]) {
+          showResult(`✅ IP Address Found: ${vmData[vmid]}`, "success");
+        } else {
+          showResult(`❌ VM ID "${vmid}" not found in the database`, "error");
+        }
+        
+        // Reset button
+        lookupButton.innerHTML = `
+          <span class="relative z-10 flex items-center justify-center space-x-2">
+            <svg class="w-5 h-5 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <span>Lookup IP Address</span>
+          </span>
+        `;
+      }, 800);
+    }
 
-      if (vmData[vmid]) {
-        result.textContent = `✅ Your IP is: ${vmData[vmid]}`;
-        result.className = "text-center text-green-400 font-medium";
-      } else {
-        result.textContent = "❌ VM ID not found. Please check and try again.";
-        result.className = "text-center text-red-400 font-medium";
+    // Event listeners
+    lookupButton.addEventListener("click", performLookup);
+    
+    vmidInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        performLookup();
       }
     });
+
+    // Example VM ID buttons
+    document.querySelectorAll(".vm-example").forEach(button => {
+      button.addEventListener("click", () => {
+        const vmid = button.dataset.vmid;
+        vmidInput.value = vmid;
+        
+        // Add visual feedback
+        button.style.transform = "scale(0.95)";
+        setTimeout(() => {
+          button.style.transform = "scale(1)";
+        }, 150);
+        
+        // Auto-focus input
+        vmidInput.focus();
+      });
+    });
+
+    // Auto-focus input on load
+    setTimeout(() => {
+      vmidInput.focus();
+    }, 600);
   </script>
 </body>
 </html>
