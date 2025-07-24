@@ -35,73 +35,124 @@
       backdrop-filter: blur(16px);
       border: 1px solid rgba(148, 163, 184, 0.1);
     }
-
-    /* Enhanced Services Dropdown Styles */
-    .services-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%) translateY(8px);
-      width: 800px;
-      max-width: 90vw;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-      border-radius: 1.5rem;
-      box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.25),
-        0 0 0 1px rgba(255, 255, 255, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateX(-50%) translateY(20px) scale(0.95);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 50;
-      overflow: hidden;
+    
+    .feature-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
     }
-
-    .services-dropdown::before {
-      content: '';
+    
+    .feature-card:hover {
+      transform: translateY(-8px) rotateX(5deg);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-animation {
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotateY(0deg); }
+      25% { transform: translateY(-15px) rotateY(2deg); }
+      50% { transform: translateY(-10px) rotateY(0deg); }
+      75% { transform: translateY(-20px) rotateY(-2deg); }
+    }
+    
+    .pulse-glow {
+      animation: pulse-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes pulse-glow {
+      from { 
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
+        transform: scale(1);
+      }
+      to { 
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.5);
+        transform: scale(1.02);
+      }
+    }
+    
+    .typing-animation {
+      overflow: hidden;
+      border-right: 3px solid #3b82f6;
+      white-space: nowrap;
+      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #3b82f6; }
+    }
+    
+    .matrix-bg {
       position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 16px;
-      height: 16px;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-      border: 1px solid rgba(148, 163, 184, 0.15);
-      border-bottom: none;
-      border-right: none;
-      transform: translateX(-50%) rotate(45deg);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
       z-index: -1;
     }
-
-    .services-dropdown.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(8px) scale(1);
+    
+    .network-animation {
+      animation: network-pulse 4s ease-in-out infinite;
     }
-
+    
+    @keyframes network-pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+    
+    .slide-in-left {
+      animation: slideInLeft 1s ease-out;
+    }
+    
+    @keyframes slideInLeft {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .slide-in-right {
+      animation: slideInRight 1s ease-out;
+    }
+    
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
-
-    .service-item {
-      group: service;
-      position: relative;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.3));
+    
+    .service-card {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
       border: 1px solid rgba(148, 163, 184, 0.1);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.4s ease;
+      position: relative;
       overflow: hidden;
     }
-
-    .service-item::before {
+    
+    .service-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -111,197 +162,112 @@
       background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
       transition: left 0.5s ease;
     }
-
-    .service-item:hover::before {
+    
+    .service-card:hover::before {
       left: 100%;
     }
-
-    .service-item:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.05));
+    
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       border-color: rgba(59, 130, 246, 0.3);
-      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
     }
-
-    .service-icon {
-      width: 3rem;
-      height: 3rem;
-      margin-bottom: 1rem;
-      border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    
+    .stats-counter {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .parallax-bg {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    .tech-stack-icon {
+      transition: all 0.3s ease;
+      filter: grayscale(100%);
+    }
+    
+    .tech-stack-icon:hover {
+      filter: grayscale(0%);
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .cta-button {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
-
-    .service-icon::before {
+    
+    .cta-button::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: inherit;
-      opacity: 0.1;
-      transition: opacity 0.3s ease;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .cta-button:hover::before {
+      left: 100%;
     }
 
-    .service-item:hover .service-icon {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    .service-item:hover .service-icon::before {
-      opacity: 0.2;
-    }
-
-    .service-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 0.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .service-description {
-      font-size: 0.875rem;
-      color: rgb(148, 163, 184);
-      line-height: 1.4;
-      transition: color 0.3s ease;
-    }
-
-    .service-item:hover .service-description {
-      color: rgb(203, 213, 225);
-    }
-
-    .service-badge {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      color: white;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.375rem;
-      text-transform: uppercase;
-      letter-spacing: 0.025em;
-    }
-
-    .coming-soon-badge {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-    }
-
-    /* Enhanced dropdown trigger animation */
-    .services-trigger {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .services-trigger:hover {
-      color: rgb(59, 130, 246) !important;
-    }
-
-    .services-trigger .fa-chevron-down {
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .services-trigger:hover .fa-chevron-down {
-      transform: rotate(180deg);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .services-dropdown {
-        width: 600px;
-      }
-      
-      .services-grid {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-        gap: 0.75rem;
-      }
-      
-      .service-item {
-        padding: 1.25rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .services-dropdown {
-        width: 95vw;
-        transform: translateX(-50%) translateY(8px);
-      }
-      
-      .services-grid {
-        padding: 1rem;
-      }
-      
-      .service-item {
-        padding: 1rem;
-      }
-    }
-
-    /* Stagger animation for service items */
-    .service-item:nth-child(1) { animation-delay: 0ms; }
-    .service-item:nth-child(2) { animation-delay: 50ms; }
-    .service-item:nth-child(3) { animation-delay: 100ms; }
-    .service-item:nth-child(4) { animation-delay: 150ms; }
-    .service-item:nth-child(5) { animation-delay: 200ms; }
-    .service-item:nth-child(6) { animation-delay: 250ms; }
-
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .services-dropdown.show .service-item {
-      animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    /* Navigation base styles */
-    .glass-nav {
-      background: rgba(15, 23, 42, 0.8);
+    /* Enhanced Maintenance Alert Styles */
+    .maintenance-alert {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1));
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      box-shadow: 0 8px 32px rgba(251, 191, 36, 0.1);
+      animation: slideDown 0.5s ease-out;
     }
-
-    .nav-link {
-      color: rgb(148, 163, 184);
-      font-weight: 500;
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
-      position: relative;
+    
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
-
-    .nav-link:hover {
-      color: white;
-      background: rgba(71, 85, 105, 0.5);
+    
+    .maintenance-alert.closing {
+      animation: slideUp 0.3s ease-in forwards;
     }
-
-    .nav-link.active {
-      color: white;
-      background: rgba(71, 85, 105, 0.5);
+    
+    @keyframes slideUp {
+      to { transform: translateY(-100%); opacity: 0; }
+    }
+    
+    .maintenance-pulse {
+      animation: maintenance-pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes maintenance-pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
     }
   </style>
 </head>
 
-<body class="bg-slate-900 text-slate-100 overflow-x-hidden min-h-screen">
+<body class="bg-slate-900 text-slate-100 overflow-x-hidden">
+  <!-- Matrix Background Effect -->
+  <div class="matrix-bg"></div>
+
   <!-- Enhanced Fixed Navbar -->
   <nav class="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300" id="navbar">
-    <div class="glass-nav">
+    <div class="glass-effect border-b border-slate-700/50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <!-- Enhanced Logo -->
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 slide-in-left">
             <div class="relative">
-              <i class="fas fa-cloud text-blue-400 text-2xl"></i>
-              <i class="fas fa-server absolute -top-1 -right-1 text-purple-400 text-sm"></i>
+              <i class="fas fa-cloud text-blue-400 text-2x2 network-animation"></i>
+              <i class="fas fa-server absolute -top-1 -right-1 text-purple-400 text-sm network-animation" style="animation-delay: 1s;"></i>
             </div>
             <div class="flex flex-col">
               <span class="text-blue-400 font-bold text-xl">Swift Peak Hosting</span>
@@ -310,109 +276,65 @@
           </div>
 
           <!-- Desktop Navigation -->
-          <div class="hidden lg:flex items-center space-x-2">
-            <a href="#" class="nav-link active">
+          <div class="hidden lg:flex items-center space-x-4">
+            <a href="#" class="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-700/50 transition-all duration-300 relative group">
               Home
+              <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
             
-            <!-- Enhanced Services Dropdown -->
+            <!-- Services Dropdown -->
             <div class="relative group">
-              <button class="nav-link services-trigger flex items-center">
-                Services 
-                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              <button class="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-700/50 transition-all duration-300 flex items-center">
+                Services <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
               </button>
-              
-              <!-- Enhanced Dropdown Menu -->
-              <div class="services-dropdown" id="services-dropdown">
-                <div class="services-grid">
-                  <!-- Cloud Hosting -->
-                  <a href="#services" class="service-item">
-                    <div class="service-badge coming-soon-badge">Coming Soon</div>
-                    <div class="service-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
-                      <i class="fas fa-cloud text-white text-lg"></i>
-                    </div>
-                    <h3 class="service-title">Premium Cloud Hosting</h3>
-                    <p class="service-description">Enterprise-grade cloud infrastructure with guaranteed performance and 99.9% SLA.</p>
+              <div class="absolute top-full left-0 mt-2 w-72 glass-effect rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                <div class="p-3">
+                  <a href="#services" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-cloud mr-3 text-blue-400 w-4"></i>Cloud Hosting
                   </a>
-
-                  <!-- SnailyCAD Hosting -->
-                  <a href="https://wemx.swiftpeakhosting.com/snailycadnote" class="service-item">
-                    <div class="service-badge">Available</div>
-                    <div class="service-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-                      <i class="fas fa-gamepad text-white text-lg"></i>
-                    </div>
-                    <h3 class="service-title">SnailyCAD Hosting</h3>
-                    <p class="service-description">Specialized hosting environment optimized for SnailyCAD applications with expert support.</p>
+                  <a href="https://wemx.swiftpeakhosting.com/snailycadnote" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-gamepad mr-3 text-yellow-400 w-4"></i>SnailyCAD Hosting
                   </a>
-
-                  <!-- WemX Panel -->
-                  <a href="https://wemx.swiftpeakhosting.com/WeMXVPSPlans" class="service-item">
-                    <div class="service-badge">Available</div>
-                    <div class="service-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
-                      <i class="fas fa-cogs text-white text-lg"></i>
-                    </div>
-                    <h3 class="service-title">WemX Panel Solutions</h3>
-                    <p class="service-description">Complete WemX Panel hosting with professional setup and ongoing management.</p>
+                  <a href="https://wemx.swiftpeakhosting.com/WeMXVPSPlans" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-cogs mr-3 text-purple-400 w-4"></i>WemX Panel Solutions
                   </a>
-
-                  <!-- Network Infrastructure -->
-                  <a href="#services" class="service-item">
-                    <div class="service-badge coming-soon-badge">Coming Soon</div>
-                    <div class="service-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
-                      <i class="fas fa-network-wired text-white text-lg"></i>
-                    </div>
-                    <h3 class="service-title">Network Infrastructure</h3>
-                    <p class="service-description">Advanced networking solutions including load balancing and secure remote access.</p>
+                  <a href="#services" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-network-wired mr-3 text-green-400 w-4"></i>(Coming Soon)Network Infrastructure
                   </a>
-
-                  <!-- IT Consulting -->
-                  <a href="#services" class="service-item">
-                    <div class="service-badge coming-soon-badge">Coming Soon</div>
-                    <div class="service-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
-                      <i class="fas fa-user-tie text-white text-lg"></i>
-                    </div>
-                    <h3 class="service-title">IT Consulting</h3>
-                    <p class="service-description">Expert guidance for cloud migration, infrastructure planning, and technology strategy.</p>
+                  <a href="#services" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-user-tie mr-3 text-indigo-400 w-4"></i>(Coming Soon)IT Consulting
                   </a>
-
-                  <!-- Managed Services -->
-                  <a href="#services" class="service-item">
-                    <div class="service-badge coming-soon-badge">Coming Soon</div>
-                    <div class="service-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
-                      <i class="fas fa-shield-alt text-white text-lg"></i>
-                    </div>
-                    <h3 class="service-title">Managed Services</h3>
-                    <p class="service-description">Complete infrastructure management with 24/7 monitoring and maintenance.</p>
+                  <a href="#services" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-shield-alt mr-3 text-red-400 w-4"></i>(Coming Soon)(Coming Soon)Managed Services
                   </a>
                 </div>
               </div>
             </div>
 
-            <a href="#" class="nav-link">About</a>
-            <a href="#" class="nav-link">Contact</a>
-            <a href="#" class="nav-link">
+            <a href="aboutus.html" class="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-700/50 transition-all duration-300">About</a>
+            <a href="https://wemx.swiftpeakhosting.com/Contactus" class="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-700/50 transition-all duration-300">Contact</a>
+            <a href="https://tickets.swiftpeakhosting.com" class="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-700/50 transition-all duration-300">
               <i class="fas fa-ticket-alt mr-1"></i>Support
             </a>
             
             <!-- Account Dropdown -->
             <div class="relative group">
-              <button class="nav-link flex items-center">
-                <i class="fas fa-user-circle mr-2"></i>Account 
-                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+              <button class="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-700/50 transition-all duration-300 flex items-center">
+                <i class="fas fa-user-circle mr-2"></i>Account <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
               </button>
               <div class="absolute top-full right-0 mt-2 w-64 glass-effect rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                 <div class="p-3">
-                  <a href="#" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                  <a href="https://wemxcloud.swiftpeakhosting.com/auth/login" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
                     <i class="fas fa-sign-in-alt mr-3 text-blue-400 w-4"></i>Login
                   </a>
-                  <a href="#" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                  <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
                     <i class="fas fa-user-plus mr-3 text-green-400 w-4"></i>Sign Up
                   </a>
                   <div class="border-t border-slate-600/50 my-2"></div>
-                  <a href="#" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                  <a href="https://wemxcloud.swiftpeakhosting.com/auth/logout" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
                     <i class="fas fa-sign-out-alt mr-3 text-red-400 w-4"></i>Sign Out
                   </a>
-                  <a href="#" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                  <a href="https://wemxcloud.swiftpeakhosting.com/admin" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200">
                     <i class="fas fa-cog mr-3 text-purple-400 w-4"></i>Admin Panel
                   </a>
                 </div>
@@ -422,8 +344,8 @@
 
           <!-- Mobile Menu Button -->
           <div class="lg:hidden">
-            <button type="button" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/50 transition-all duration-300">
-              <i class="fas fa-bars text-xl"></i>
+            <button type="button" id="mobile-menu-button" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/50 transition-all duration-300" onclick="toggleMobileMenu()">
+              <i class="fas fa-bars text-xl" id="mobile-menu-icon"></i>
             </button>
           </div>
         </div>
@@ -431,113 +353,732 @@
     </div>
   </nav>
 
-  <!-- Demo Content -->
-  <div class="pt-32 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl lg:text-6xl font-black text-white mb-6">
-        Enhanced Services Dropdown
-      </h1>
-      <p class="text-xl text-slate-400 mb-8">
-        Hover over the "Services" menu item in the navigation to see the enhanced dropdown in action.
-      </p>
-      <div class="bg-slate-800/50 rounded-xl p-8 backdrop-blur-sm">
-        <h2 class="text-2xl font-bold text-white mb-4">Key Improvements:</h2>
-        <ul class="text-left text-slate-300 space-y-3">
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-            <span><strong>Enhanced Visual Design:</strong> Modern glassmorphism effect with gradient backgrounds and subtle shadows</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-            <span><strong>Smooth Animations:</strong> Staggered animations, hover effects, and micro-interactions</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-            <span><strong>Better Layout:</strong> Grid-based layout with service icons, titles, and descriptions</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-            <span><strong>Status Badges:</strong> Clear indicators for available vs coming soon services</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-            <span><strong>Responsive Design:</strong> Adapts beautifully to different screen sizes</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-            <span><strong>Interactive Elements:</strong> Hover states, icon animations, and smooth transitions</span>
-          </li>
-        </ul>
+  <!-- Enhanced Mobile Menu -->
+  <div class="lg:hidden fixed inset-0 z-40 transition-all duration-300 transform translate-x-full" id="mobile-menu">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-slate-900/75 backdrop-blur-sm" onclick="closeMobileMenu()"></div>
+    
+    <!-- Menu Panel -->
+    <div class="absolute right-0 top-0 h-full w-80 max-w-sm glass-effect border-l border-slate-700/50 transform translate-x-0">
+      <div class="flex flex-col h-full pt-20"> <!-- Added pt-20 to account for navbar -->
+        <!-- Header -->
+        <div class="flex items-center justify-between p-6 border-b border-slate-700/50 bg-slate-900/50">
+          <div class="flex items-center space-x-3">
+            <i class="fas fa-cloud text-blue-400 text-xl"></i>
+            <span class="text-blue-400 font-bold">Swift Peak Hosting</span>
+          </div>
+          <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/50 transition">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="flex-1 overflow-y-auto p-6">
+          <div class="space-y-2">
+            <a href="#" class="flex items-center px-4 py-3 text-white bg-slate-800/50 rounded-lg text-base font-medium transition-all duration-200">
+              <i class="fas fa-home mr-3 text-blue-400 w-5"></i>Home
+            </a>
+            
+            <!-- Mobile Services Submenu -->
+            <div class="space-y-1">
+              <button onclick="toggleMobileSubmenu('services')" class="w-full flex items-center justify-between px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+                <span class="flex items-center">
+                  <i class="fas fa-th-large mr-3 text-purple-400 w-5"></i>Services
+                </span>
+                <i class="fas fa-chevron-down text-xs transition-transform" id="services-chevron"></i>
+              </button>
+              <div class="ml-4 space-y-1 hidden" id="services-submenu">
+                <a href="#services" class="block px-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/30 rounded-lg transition">
+                  <i class="fas fa-cloud mr-2 text-blue-400"></i>Cloud Hosting
+                </a>
+                <a href="#services" class="block px-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/30 rounded-lg transition">
+                  <i class="fas fa-gamepad mr-2 text-yellow-400"></i>SnailyCAD Hosting
+                </a>
+                <a href="#services" class="block px-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/30 rounded-lg transition">
+                  <i class="fas fa-cogs mr-2 text-purple-400"></i>WemX Panel Solutions
+                </a>
+                <a href="#services" class="block px-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/30 rounded-lg transition">
+                  <i class="fas fa-network-wired mr-2 text-green-400"></i>(Coming Soon)Network Infrastructure
+                </a>
+                <a href="#services" class="block px-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/30 rounded-lg transition">
+                  <i class="fas fa-user-tie mr-2 text-indigo-400"></i>(Coming Soon)IT Consulting
+                </a>
+                <a href="#services" class="block px-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/30 rounded-lg transition">
+                  <i class="fas fa-shield-alt mr-2 text-red-400"></i>(Coming Soon)Managed Services
+                </a>
+              </div>
+            </div>
+
+            <a href="aboutus.html" class="flex items-center px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+              <i class="fas fa-info-circle mr-3 text-green-400 w-5"></i>About
+            </a>
+            
+            <a href="https://wemx.swiftpeakhosting.com/Contactus" class="flex items-center px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+              <i class="fas fa-envelope mr-3 text-yellow-400 w-5"></i>Contact
+            </a>
+            
+            <a href="https://tickets.swiftpeakhosting.com" class="flex items-center px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+              <i class="fas fa-ticket-alt mr-3 text-red-400 w-5"></i>Support
+            </a>
+          </div>
+
+          <!-- Account Section -->
+          <div class="mt-8 pt-6 border-t border-slate-700/50">
+            <h3 class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Account</h3>
+            <div class="space-y-1">
+              <a href="https://wemxcloud.swiftpeakhosting.com/auth/login" class="flex items-center px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+                <i class="fas fa-sign-in-alt mr-3 text-blue-400 w-5"></i>Login
+              </a>
+              <a href="https://wemxcloud.swiftpeakhosting.com/auth/register" class="flex items-center px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+                <i class="fas fa-user-plus mr-3 text-green-400 w-5"></i>Sign Up
+              </a>
+              <a href="https://wemxcloud.swiftpeakhosting.com/auth/logout" class="flex items-center px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+                <i class="fas fa-sign-out-alt mr-3 text-red-400 w-5"></i>Sign Out
+              </a>
+              <a href="https://wemxcloud.swiftpeakhosting.com/admin" class="flex items-center px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg text-base font-medium transition-all duration-200">
+                <i class="fas fa-cog mr-3 text-purple-400 w-5"></i>Admin Panel
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Enhanced Maintenance Alert -->
+  <div id="maintenance-alert" class="fixed top-20 left-0 right-0 z-40 px-4 py-3" role="alert">
+    <div class="maintenance-alert max-w-6xl mx-auto rounded-xl p-4">
+      <div class="flex items-start space-x-4">
+        <!-- Enhanced Icon -->
+        <div class="flex-shrink-0">
+          <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-xl flex items-center justify-center maintenance-pulse">
+            <i class="fas fa-tools text-slate-900 text-lg"></i>
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center space-x-2 mb-2">
+            <h3 class="text-yellow-300 font-bold text-lg">Scheduled Maintenance</h3>
+            <span class="bg-yellow-400/20 text-yellow-300 text-xs font-medium px-2 py-1 rounded-full">
+              July 21st - 25th
+            </span>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            We have planned maintenance between <strong class="text-yellow-300">July 21st and 25th</strong>. 
+            This will not affect you immediately or for all days—downtime will only occur on the day our IP provider performs their maintenance. 
+            <span class="text-slate-400">(Exact date TBD)</span>
+          </p>
+          <div class="mt-3 flex items-center space-x-4">
+            <a href="https://tickets.swiftpeakhosting.com" class="text-yellow-300 hover:text-yellow-200 text-sm font-medium inline-flex items-center transition-colors">
+              <i class="fas fa-external-link-alt mr-1 text-xs"></i>
+              Status Updates
+            </a>
+            <span class="text-slate-500 text-xs">•</span>
+            <span class="text-slate-400 text-xs">
+              <i class="fas fa-shield-alt mr-1"></i>
+              99.9% SLA maintained
+            </span>
+          </div>
+        </div>
+        
+        <!-- Close Button -->
+        <button type="button" 
+                class="flex-shrink-0 ml-4 p-2 hover:bg-yellow-400/10 text-yellow-300 hover:text-yellow-200 rounded-lg transition-all duration-200 group" 
+                aria-label="Close maintenance alert" 
+                onclick="closeMaintenanceAlert()">
+          <i class="fas fa-times text-sm group-hover:scale-110 transition-transform"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Hero Section -->
+  <section class="gradient-bg min-h-screen flex items-center relative parallax-bg pt-20" id="hero-section">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-purple-900/20"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+        <div class="lg:col-span-7 slide-in-left">
+          <div class="text-center lg:text-left">
+            <h1 class="text-5xl lg:text-7xl font-black mb-6">
+              <span class="block text-white">Enterprise</span>
+              <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 typing-animation">
+            Cloud Infrastructure
+              </span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-slate-300 mb-8 max-w-3xl leading-relaxed">
+              Specialized hosting and consulting for <span class="text-blue-400 font-semibold">SnailyCAD</span> and <span class="text-purple-400 font-semibold">WemX Panel</span>. 
+              Professional network solutions with 99.9% uptime guarantee and 24/7 expert support.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 mb-12">
+              <a href="#services" class="cta-button px-8 py-4 rounded-xl text-lg font-semibold text-white inline-flex items-center justify-center relative overflow-hidden group">
+                <i class="fas fa-rocket mr-2"></i>
+                Explore Services
+                <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </a>
+              <a href="#consultation" class="glass-effect px-8 py-4 rounded-xl text-lg font-semibold text-white inline-flex items-center justify-center hover:bg-slate-700/50 transition-all">
+                <i class="fas fa-calendar-alt mr-2"></i>
+                Free Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Services Section -->
+  <section id="services" class="py-24 bg-slate-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-up">
+        <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Professional Services</span>
+        </h2>
+        <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+          Comprehensive cloud infrastructure, networking solutions, and specialized consulting services for modern applications.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Cloud Hosting -->
+        <div class="service-card fade-in-up">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+              <i class="fas fa-cloud text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">(Coming Soon)Premium Cloud Hosting</h3>
+            <p class="text-slate-400">Enterprise-grade cloud infrastructure with guaranteed performance and scalability.</p>
+          </div>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              99.9% SLA with automatic failover
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              NVMe SSD storage for maximum performance
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Advanced DDoS protection & security
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Global CDN and edge locations
+            </li>
+          </ul>
+          <a href="#" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 inline-block text-center">
+            View Hosting Plans
+          </a>
+        </div>
+
+        <!-- SnailyCAD Hosting -->
+        <div class="service-card fade-in-up" style="animation-delay: 0.1s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center">
+              <i class="fas fa-gamepad text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">SnailyCAD Specialized Hosting</h3>
+            <p class="text-slate-400">Optimized hosting environment specifically designed for SnailyCAD applications.</p>
+          </div>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Pre-configured SnailyCAD environment
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Automated updates and maintenance
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Custom domain and SSL included
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Priority support from SnailyCAD experts
+            </li>
+          </ul>
+          <a href="https://wemx.swiftpeakhosting.com/snailycadnote" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 inline-block text-center">
+            SnailyCAD Plans
+          </a>
+        </div>
+
+        <!-- WemX Panel -->
+        <div class="service-card fade-in-up" style="animation-delay: 0.2s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center">
+              <i class="fas fa-cogs text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">WemX Panel Solutions</h3>
+            <p class="text-slate-400">Complete WemX Panel hosting with professional setup and ongoing management.</p>
+          </div>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Full WemX Panel installation & setup
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Payment gateway integration
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Custom branding and themes
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Module configuration & optimization
+            </li>
+          </ul>
+          <a href="https://wemx.swiftpeakhosting.com/WeMXVPSPlans" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 inline-block text-center">
+            WemX Solutions
+          </a>
+        </div>
+
+        <!-- Network Solutions -->
+        <div class="service-card fade-in-up" style="animation-delay: 0.3s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center">
+              <i class="fas fa-network-wired text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">(Coming Soon)Network Infrastructure</h3>
+            <p class="text-slate-400">Advanced networking solutions including load balancing, VPN, and security services.</p>
+          </div>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Load balancing & traffic management
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              VPN and secure remote access
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Network monitoring & analytics
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Multi-region deployment
+            </li>
+          </ul>
+          <a href="#" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 inline-block text-center">
+            Network Services
+          </a>
+        </div>
+
+        <!-- (Coming Soon)IT Consulting -->
+        <div class="service-card fade-in-up" style="animation-delay: 0.4s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center">
+              <i class="fas fa-user-tie text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">(Coming Soon)Network (Coming Soon)IT Consulting & Strategy</h3>
+            <p class="text-slate-400">Expert guidance for cloud migration, infrastructure planning, and technology strategy.</p>
+          </div>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Cloud migration planning & execution
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Infrastructure architecture design
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Performance optimization audits
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Technology stack recommendations
+            </li>
+          </ul>
+          <a href="#" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 inline-block text-center">
+            Consulting Services
+          </a>
+        </div>
+
+        <!-- (Coming Soon)Managed Services -->
+        <div class="service-card fade-in-up" style="animation-delay: 0.5s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center">
+              <i class="fas fa-shield-alt text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">(Coming Soon)Managed Services</h3>
+            <p class="text-slate-400">Complete infrastructure management with proactive monitoring and maintenance.</p>
+          </div>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              24/7 monitoring & alerting
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Automated backup & disaster recovery
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Security updates & patch management
+            </li>
+            <li class="flex items-center text-slate-300">
+              <i class="fas fa-check-circle text-green-400 mr-3"></i>
+              Performance tuning & optimization
+            </li>
+          </ul>
+          <a href="#" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 inline-block text-center">
+            Managed Plans
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="consultation" class="py-24 gradient-bg parallax-bg relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">
+        Ready to Transform Your Infrastructure?
+      </h2>
+      <p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+        Get a free consultation with our experts and discover how we can optimize your cloud infrastructure, 
+        enhance your network performance, and streamline your operations.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#" class="cta-button px-8 py-4 rounded-xl text-lg font-semibold text-white inline-flex items-center justify-center relative overflow-hidden">
+          <i class="fas fa-calendar-check mr-2"></i>
+          (Coming Sooon )Schedule Free Consultation
+        </a>
+        <a href="#" class="glass-effect px-8 py-4 rounded-xl text-lg font-semibold text-white inline-flex items-center justify-center hover:bg-slate-700/50 transition-all">
+          <i class="fas fa-phone mr-2"></i>
+          Call +44 7424 519484
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Footer -->
+<footer class="bg-slate-900 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Company Info -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center space-x-3 mb-6">
+          <i class="fas fa-cloud text-blue-400 text-2xl"></i>
+          <span class="text-blue-400 font-bold text-xl">Swift Peak Hosting LTD</span>
+        </div>
+        <p class="text-slate-400 mb-6">
+          Professional cloud infrastructure and consulting services specializing in SnailyCAD and WemX Panel solutions.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-slate-400 hover:text-blue-400 transition">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+          <a href="https://discord.gg/6fJK6aNEPp" class="text-slate-400 hover:text-indigo-400 transition">
+            <i class="fab fa-discord text-xl"></i>
+          </a>
+          <a href="#" class="text-slate-400 hover:text-slate-300 transition">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-slate-400 hover:text-blue-600 transition">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+        </div>
+      </div>
+
+     
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Company</h3>
+        <ul class="space-y-2">
+          <li><a href="https://swiftpeakhosting.com/" class="text-slate-400 hover:text-white transition">About</a></li>
+          <li><a href="Careers.html" class="text-slate-400 hover:text-white transition">Careers (Coming Soon)</a></li>
+          <li><a href="Contactus.html" class="text-slate-400 hover:text-white transition">Contact Us</a></li>
+          <li>
+            <a href="https://find-and-update.company-information.service.gov.uk/company/15612395" 
+               target="_blank" rel="noopener" 
+               class="text-slate-400 hover:text-white transition">
+              Company Registration
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Support</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-slate-400 hover:text-white transition">Documentation</a></li>
+          <li><a href="https://tickets.swiftpeakhosting.com" class="text-slate-400 hover:text-white transition">Support Tickets</a></li>
+          <li><a href="#" class="text-slate-400 hover:text-white transition">(Coming Soon) Status Page</a></li>
+          <li><a href="#" class="text-slate-400 hover:text-white transition">(Coming Soon) Knowledge Base</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Contact</h3>
+        <ul class="space-y-2">
+          <li class="text-slate-400">
+            <i class="fas fa-envelope mr-2"></i>
+            support@swiftpeakhosting.com
+          </li>
+          <li class="text-slate-400">
+            <i class="fas fa-phone mr-2"></i>
+            +44 7424 519484
+          </li>
+          <li class="text-slate-400">
+            <i class="fas fa-clock mr-2"></i>
+            24/7 Support Available
+          </li>
+          <li class="text-slate-400">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+         
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
+      <p>&copy; 2025 Swift Peak Hosting LTD. All rights reserved. | Enterprise Cloud Infrastructure Solutions</p>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Zammad Live Chat -->
+  <script src="https://tickets.swiftpeakhosting.com/assets/chat/chat-no-jquery.min.js"></script>
+  <script>
+    (function() {
+      new ZammadChat({
+        fontSize: '12px',
+        flat: true,
+        chatId: 1,
+        debug: true
+      });
+    })();
+  </script>
+
   <!-- Enhanced JavaScript -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const servicesDropdown = document.getElementById('services-dropdown');
-      const servicesTrigger = document.querySelector('.services-trigger');
-      let hoverTimeout;
-
-      function showDropdown() {
-        clearTimeout(hoverTimeout);
-        servicesDropdown.classList.add('show');
-      }
-
-      function hideDropdown() {
-        hoverTimeout = setTimeout(() => {
-          servicesDropdown.classList.remove('show');
-        }, 100);
-      }
-
-      // Show dropdown on hover
-      servicesTrigger.addEventListener('mouseenter', showDropdown);
-      servicesDropdown.addEventListener('mouseenter', showDropdown);
-
-      // Hide dropdown when leaving
-      servicesTrigger.addEventListener('mouseleave', hideDropdown);
-      servicesDropdown.addEventListener('mouseleave', hideDropdown);
-
-      // Enhanced service item interactions
-      const serviceItems = document.querySelectorAll('.service-item');
+    // Enhanced Mobile menu functionality
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('mobile-menu-icon');
       
-      serviceItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-          // Add pulse effect to icon
-          const icon = this.querySelector('.service-icon');
-          icon.style.animation = 'pulse 0.6s ease-in-out';
-        });
-
-        item.addEventListener('mouseleave', function() {
-          const icon = this.querySelector('.service-icon');
-          icon.style.animation = '';
-        });
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!servicesTrigger.contains(e.target) && !servicesDropdown.contains(e.target)) {
-          servicesDropdown.classList.remove('show');
+      if (mobileMenu && menuIcon) {
+        if (mobileMenu.classList.contains('translate-x-full')) {
+          // Open menu
+          mobileMenu.classList.remove('translate-x-full');
+          mobileMenu.classList.add('translate-x-0');
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+          document.body.style.overflow = 'hidden';
+        } else {
+          // Close menu
+          closeMobileMenu();
         }
-      });
+      }
+    }
 
-      // Enhanced keyboard navigation
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          servicesDropdown.classList.remove('show');
+    function closeMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('mobile-menu-icon');
+      
+      if (mobileMenu && menuIcon) {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+        document.body.style.overflow = '';
+        
+        // Close any open submenus
+        const openSubmenus = document.querySelectorAll('[id$="-submenu"]:not(.hidden)');
+        openSubmenus.forEach(submenu => {
+          submenu.classList.add('hidden');
+          const chevron = document.getElementById(submenu.id.replace('-submenu', '-chevron'));
+          if (chevron) {
+            chevron.classList.remove('rotate-180');
+          }
+        });
+      }
+    }
+
+    // Mobile submenu toggle
+    function toggleMobileSubmenu(menuName) {
+      const submenu = document.getElementById(menuName + '-submenu');
+      const chevron = document.getElementById(menuName + '-chevron');
+      
+      if (submenu && chevron) {
+        submenu.classList.toggle('hidden');
+        chevron.classList.toggle('rotate-180');
+      }
+    }
+
+    // Close mobile menu when clicking on links
+    document.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' && e.target.closest('#mobile-menu')) {
+        // Don't close for submenu toggles
+        if (!e.target.onclick && !e.target.closest('button')) {
+          setTimeout(closeMobileMenu, 150);
+        }
+      }
+    });
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+      }
+    });
+
+    // Close maintenance alert function
+    function closeMaintenanceAlert() {
+      const alert = document.getElementById('maintenance-alert');
+      const heroSection = document.getElementById('hero-section');
+      
+      if (alert) {
+        alert.classList.add('closing');
+        setTimeout(() => {
+          alert.style.display = 'none';
+          // Adjust hero section padding when alert is hidden
+          if (heroSection) {
+            heroSection.style.paddingTop = '80px'; // Just navbar height
+          }
+        }, 300);
+      }
+    }
+
+    // Function to adjust hero section spacing based on maintenance alert visibility
+    function adjustHeroSpacing() {
+      const alert = document.getElementById('maintenance-alert');
+      const heroSection = document.getElementById('hero-section');
+      
+      if (alert && heroSection && alert.style.display !== 'none') {
+        // Add extra padding for maintenance alert
+        const alertHeight = alert.offsetHeight;
+        heroSection.style.paddingTop = `${80 + alertHeight}px`; // navbar + alert height
+      }
+    }
+
+    // Auto-hide maintenance alert after 30 seconds
+    setTimeout(() => {
+      const alert = document.getElementById('maintenance-alert');
+      if (alert && alert.style.display !== 'none') {
+        closeMaintenanceAlert();
+      }
+    }, 30000);
+
+    // Enhanced Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-slate-900/95');
+        navbar.querySelector('.glass-effect').style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+      } else {
+        navbar.classList.remove('bg-slate-900/95');
+        navbar.querySelector('.glass-effect').style.backgroundColor = 'rgba(15, 23, 42, 0.8)';
+      }
+    });
+
+    // Enhanced smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          // Close mobile menu if open
+          closeMobileMenu();
+          
+          // Smooth scroll with offset for fixed navbar
+          const navbarHeight = 80;
+          const targetPosition = target.offsetTop - navbarHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
         }
       });
     });
 
-    // Add pulse animation keyframes dynamically
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes pulse {
-        0%, 100% { transform: scale(1) rotate(0deg); }
-        50% { transform: scale(1.1) rotate(5deg); }
-      }
-    `;
-    document.head.appendChild(style);
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+
+    // Stats counter animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stats-counter');
+      counters.forEach(counter => {
+        const target = counter.textContent;
+        const isPercentage = target.includes('%');
+        const number = parseInt(target.replace(/[^\d]/g, ''));
+        let current = 0;
+        const increment = number / 50;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= number) {
+            current = number;
+            clearInterval(timer);
+          }
+          
+          if (isPercentage) {
+            counter.textContent = Math.ceil(current) + '%';
+          } else if (target.includes('+')) {
+            counter.textContent = Math.ceil(current) + '+';
+          } else {
+            counter.textContent = Math.ceil(current) + '/7';
+          }
+        }, 20);
+      });
+    }
+
+    // Trigger counter animation when stats section is visible
+    const statsObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stats-counter')?.closest('div');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ensure mobile menu starts closed
+      closeMobileMenu();
+    });
   </script>
+
+  <!-- Flowbite JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
