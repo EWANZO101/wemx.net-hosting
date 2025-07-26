@@ -8,10 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #1a1a1a;
-            --border-color: #2a2a2a;
+            --bg-primary: #000000;
+            --bg-secondary: #000000;
+            --bg-card: #0a0a0a;
+            --border-color: #1a1a1a;
             --text-primary: #ffffff;
             --text-secondary: #a1a1aa;
             --accent-primary: #3b82f6;
@@ -34,7 +34,7 @@
         }
 
         .gradient-bg {
-            background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            background: var(--bg-primary);
         }
 
         .card {
@@ -150,7 +150,7 @@
         }
 
         .last-updated {
-            background: var(--bg-secondary);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             padding: 16px;
             border-radius: 12px;
@@ -159,7 +159,7 @@
         }
 
         .header-container {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             border-bottom: 1px solid var(--border-color);
             padding: 32px 0;
             margin-bottom: 48px;
@@ -288,7 +288,7 @@
                         <strong class="highlight">Data Collection and Use:</strong> Personal data is collected, stored, and processed in compliance with GDPR. Data is used solely to deliver and improve our services, with user consent obtained where required.
                     </div>
                     <div class="list-item">
-                        <strong class="highlight">User Rights:</strong> Users have the right to <span class="highlight">access, rectify, erase, or restrict the processing</span> of their personal data. Contact us at <a href="mailto:swiftpeakhosting@outlook.com" class="contact-link">swiftpeakhosting@outlook.com</a>.
+                        <strong class="highlight">User Rights:</strong> Users have the right to <span class="highlight">access, rectify, erase, or restrict the processing</span> of their personal data. Contact us at <a href="mailto:support@swiftpeakhosting.com" class="contact-link">support@swiftpeakhosting.com</a>.
                     </div>
                     <div class="list-item">
                         <strong class="highlight">Data Security:</strong> We implement appropriate technical and organizational measures to protect user data against unauthorized access, alteration, or destruction.
