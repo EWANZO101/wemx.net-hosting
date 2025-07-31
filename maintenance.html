@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Server Maintenance</title>
+  <title>Service Outage - Swift Peak Hosting</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <style>
@@ -34,6 +34,15 @@
       66% { content: '..'; }
       100% { content: '...'; }
     }
+
+    /* Pulse animation for alert */
+    .pulse-red {
+      animation: pulse-red 2s infinite;
+    }
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
   </style>
 </head>
 <body class="dark:bg-gray-900 dark:text-white flex items-center justify-center min-h-screen relative overflow-hidden">
@@ -43,32 +52,73 @@
     <canvas id="matrix"></canvas>
   </div>
 
-  <!-- Maintenance Message -->
+  <!-- Outage Message -->
   <div class="z-10 text-center">
-    <div class="p-6 max-w-lg mx-auto bg-gray-800 rounded-2xl shadow-xl border border-gray-700">
-      <h1 class="text-4xl font-extrabold text-green-400 animate-pulse mb-4">🚧 Moving Servers 🚧</h1>
-      <p class="text-gray-300 text-lg">
-        We are currently migrating our servers.  
-        Please check back soon<span class="loading-dots"></span>
-      </p>
-      <div class="mt-6">
-        <button data-modal-target="statusModal" data-modal-toggle="statusModal" class="text-white bg-green-600 hover:bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800">
-          View Status
+    <div class="p-6 max-w-2xl mx-auto bg-gray-800 rounded-2xl shadow-xl border border-red-600">
+      <h1 class="text-4xl font-extrabold text-red-400 pulse-red mb-4">⚠️ Service Outage ⚠️</h1>
+      <div class="space-y-4 text-gray-300">
+        <p class="text-lg">
+          We are currently experiencing a service outage affecting our network connectivity.
+        </p>
+        <p class="text-base">
+          Our team is actively working with our IP provider to resolve this issue<span class="loading-dots"></span>
+        </p>
+        <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-yellow-400">
+          <p class="text-sm text-yellow-200">
+            <strong>Please Note:</strong> This is not a Swift Peak Hosting infrastructure issue. 
+            The outage is related to our upstream IP provider, and we cannot guarantee 
+            when services will be fully restored.
+          </p>
+        </div>
+      </div>
+      <div class="mt-6 space-y-3">
+        <button data-modal-target="statusModal" data-modal-toggle="statusModal" class="text-white bg-red-600 hover:bg-red-500 font-medium rounded-lg text-sm px-6 py-3 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800">
+          View Details
         </button>
+        <div class="text-sm text-gray-400">
+          <p>Need to contact us?</p>
+          <p class="text-blue-400 font-mono">support@swiftpeakhosting.com</p>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Flowbite Modal -->
   <div id="statusModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-    <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-      <div class="relative bg-gray-800 rounded-lg shadow dark:bg-gray-700">
+    <div class="relative p-4 w-full max-w-lg h-full md:h-auto">
+      <div class="relative bg-gray-800 rounded-lg shadow dark:bg-gray-700 border border-red-600">
         <button type="button" class="absolute top-3 right-2.5 text-gray-400 hover:text-white rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="statusModal">
           ✖
         </button>
-        <div class="p-6 text-center">
-          <h3 class="mb-5 text-lg font-normal text-gray-300">Our servers are currently migrating to a new data center. Estimated downtime: <span class="text-green-400 font-bold">2 hours</span>.</h3>
-          <button data-modal-hide="statusModal" type="button" class="text-white bg-green-600 hover:bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4 focus:ring-green-300">OK</button>
+        <div class="p-6">
+          <h3 class="mb-4 text-xl font-semibold text-red-400">Outage Information</h3>
+          <div class="space-y-4 text-gray-300 text-sm">
+            <div>
+              <p class="font-medium text-white mb-2">Current Status:</p>
+              <p>Network connectivity issues affecting all hosted services</p>
+            </div>
+            <div>
+              <p class="font-medium text-white mb-2">Cause:</p>
+              <p>Upstream IP provider infrastructure issues</p>
+            </div>
+            <div>
+              <p class="font-medium text-white mb-2">Our Response:</p>
+              <p>Swift Peak Hosting team is in direct communication with our IP provider to expedite resolution</p>
+            </div>
+            <div>
+              <p class="font-medium text-white mb-2">ETA:</p>
+              <p class="text-yellow-300">Unknown - dependent on third-party provider</p>
+            </div>
+            <div class="bg-gray-700 p-3 rounded border-l-4 border-blue-400">
+              <p class="text-blue-200 text-xs">
+                <strong>Updates:</strong> We will post updates as they become available. 
+                For urgent matters, please contact support@swiftpeakhosting.com
+              </p>
+            </div>
+          </div>
+          <div class="mt-6">
+            <button data-modal-hide="statusModal" type="button" class="text-white bg-red-600 hover:bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4 focus:ring-red-300 w-full">Close</button>
+          </div>
         </div>
       </div>
     </div>
