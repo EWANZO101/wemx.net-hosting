@@ -1,166 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Service Outage - Swift Peak Hosting</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maintenance Notice</title>
   <style>
-    /* Matrix background styling */
-    .matrix-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: black;
-      overflow: hidden;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
     }
-    canvas {
-      display: block;
+    .container {
+      max-width: 500px;
+      background: #2c2c2c;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
     }
-
-    /* Animated dots */
-    .loading-dots::after {
-      content: '';
-      display: inline-block;
-      animation: dots 1.5s steps(3, end) infinite;
+    h1 {
+      color: #ff4500;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
     }
-    @keyframes dots {
-      0% { content: ''; }
-      33% { content: '.'; }
-      66% { content: '..'; }
-      100% { content: '...'; }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
     }
-
-    /* Pulse animation for alert */
-    .pulse-red {
-      animation: pulse-red 2s infinite;
+    .emoji {
+      font-size: 4rem;
+      margin-bottom: 15px;
     }
-    @keyframes pulse-red {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+    footer {
+      font-size: 0.9rem;
+      color: #bbb;
     }
   </style>
 </head>
-<body class="dark:bg-gray-900 dark:text-white flex items-center justify-center min-h-screen relative overflow-hidden">
-  
-  <!-- Matrix Effect Background -->
-  <div class="matrix-bg">
-    <canvas id="matrix"></canvas>
+<body>
+  <div class="container" role="main" aria-labelledby="maintenance-title">
+    <div class="emoji" aria-hidden="true">⚠️</div>
+    <h1 id="maintenance-title">Emergency Maintenance</h1>
+    <p>We are currently experiencing a routing issue and will be down for some time.<br />
+    Our team is working hard to resolve the problem as quickly as possible.</p>
+    <p>Thank you for your patience and understanding.</p>
+    <footer></footer>
   </div>
-
-  <!-- Outage Message -->
-  <div class="z-10 text-center">
-    <div class="p-6 max-w-2xl mx-auto bg-gray-800 rounded-2xl shadow-xl border border-red-600">
-      <h1 class="text-4xl font-extrabold text-red-400 pulse-red mb-4">⚠️ Service Outage ⚠️</h1>
-      <div class="space-y-4 text-gray-300">
-        <p class="text-lg">
-          We are currently experiencing a service outage affecting our network connectivity.
-        </p>
-        <p class="text-base">
-          Our team is actively working with our IP provider to resolve this issue<span class="loading-dots"></span>
-        </p>
-        <div class="bg-gray-700 p-6 rounded-lg border-l-4 border-yellow-400">
-          <p class="text-lg text-yellow-200 font-semibold">
-            <strong>Please Note:</strong> This is not a Swift Peak Hosting infrastructure issue. 
-            The outage is related to our upstream IP provider, and we cannot guarantee 
-            when services will be fully restored.
-          </p>
-        </div>
-      </div>
-      <div class="mt-6 space-y-3">
-        <button data-modal-target="statusModal" data-modal-toggle="statusModal" class="text-white bg-red-600 hover:bg-red-500 font-medium rounded-lg text-sm px-6 py-3 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800">
-          View Details
-        </button>
-        <div class="text-sm text-gray-400">
-          <p>Need to contact us?</p>
-          <p class="text-blue-400 font-mono">support@swiftpeakhosting.com</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Flowbite Modal -->
-  <div id="statusModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-    <div class="relative p-4 w-full max-w-lg h-full md:h-auto">
-      <div class="relative bg-gray-800 rounded-lg shadow dark:bg-gray-700 border border-red-600">
-        <button type="button" class="absolute top-3 right-2.5 text-gray-400 hover:text-white rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="statusModal">
-          ✖
-        </button>
-        <div class="p-6">
-          <h3 class="mb-4 text-xl font-semibold text-red-400">Outage Information</h3>
-          <div class="space-y-4 text-gray-300 text-sm">
-            <div>
-              <p class="font-medium text-white mb-2">Current Status:</p>
-              <p>Network connectivity issues affecting all hosted services</p>
-            </div>
-            <div>
-              <p class="font-medium text-white mb-2">Cause:</p>
-              <p>Upstream IP provider infrastructure issues</p>
-            </div>
-            <div>
-              <p class="font-medium text-white mb-2">Our Response:</p>
-              <p>Swift Peak Hosting team is in direct communication with our IP provider to expedite resolution</p>
-            </div>
-            <div>
-              <p class="font-medium text-white mb-2">ETA:</p>
-              <p class="text-yellow-300">Unknown - dependent on third-party provider</p>
-            </div>
-            <div class="bg-gray-700 p-3 rounded border-l-4 border-blue-400">
-              <p class="text-blue-200 text-xs">
-                <strong>Updates:</strong> We will post updates as they become available. 
-                For urgent matters, please contact support@swiftpeakhosting.com
-              </p>
-            </div>
-          </div>
-          <div class="mt-6">
-            <button data-modal-hide="statusModal" type="button" class="text-white bg-red-600 hover:bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-4 focus:ring-red-300 w-full">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-
-  <script>
-    // Matrix Effect Script
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%'.split('');
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-
-    function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00ff00';
-      ctx.font = fontSize + 'px monospace';
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw, 35);
-    window.addEventListener('resize', () => {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
-  </script>
 </body>
 </html>
