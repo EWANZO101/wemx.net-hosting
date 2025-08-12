@@ -25,46 +25,24 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    
     @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
     @keyframes pulseRing {
-      0% {
-        transform: scale(0.33);
-      }
-      40%, 50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: scale(1.2);
-      }
+      0% { transform: scale(0.33); }
+      40%, 50% { opacity: 1; }
+      100% { opacity: 0; transform: scale(1.2); }
     }
-    
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
-    
     .glass {
       background: rgba(17, 24, 39, 0.8);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(75, 85, 99, 0.3);
     }
-    
     .gradient-border {
       background: linear-gradient(135deg, #10b981, #059669) padding-box,
                   linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6) border-box;
@@ -122,8 +100,6 @@
 
         <!-- Timeline Steps -->
         <div class="space-y-6 mb-8">
-          
-          <!-- Step 1 -->
           <div class="flex items-start">
             <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
               <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -135,8 +111,6 @@
               <p class="text-gray-300">Your payment has been received and the activation window has started.</p>
             </div>
           </div>
-
-          <!-- Step 2 -->
           <div class="flex items-start">
             <div class="flex-shrink-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-4 mt-1">
               <svg class="w-4 h-4 text-white animate-spin" fill="none" viewBox="0 0 24 24">
@@ -149,8 +123,6 @@
               <p class="text-gray-300">Your dedicated environment is being configured. Temporary errors during this phase are normal.</p>
             </div>
           </div>
-
-          <!-- Step 3 -->
           <div class="flex items-start opacity-60">
             <div class="flex-shrink-0 w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-4 mt-1">
               <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,8 +152,6 @@
 
       <!-- Important Notices -->
       <div class="space-y-6">
-        
-        <!-- Cloudflare Notice -->
         <div class="glass rounded-2xl p-6 animate-slide-up border-l-4 border-yellow-500" style="animation-delay: 0.4s; animation-fill-mode: both;">
           <div class="flex items-start">
             <svg class="w-6 h-6 text-yellow-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -190,28 +160,32 @@
             <div>
               <h3 class="font-bold text-yellow-400 mb-2">Cloudflare Configuration</h3>
               <p class="text-gray-300 text-sm leading-relaxed">
-                Add your Cloudflare code in the checkout notes to ensure proper domain protection setup.
+                If you are using Cloudflare, paste your <strong>Debian install code</strong> in the checkout notes to ensure proper domain protection setup.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Service Notice -->
         <div class="glass rounded-2xl p-6 animate-slide-up border-l-4 border-red-500" style="animation-delay: 0.6s; animation-fill-mode: both;">
           <div class="flex items-start">
             <svg class="w-6 h-6 text-red-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
             </svg>
             <div>
-              <h3 class="font-bold text-red-400 mb-2">free Service</h3>
+              <h3 class="font-bold text-red-400 mb-2">Service Notice – SnailyCAD Free Trial</h3>
               <p class="text-gray-300 text-sm leading-relaxed">
-                Free trial for SnailyCAD trail has ended. We no longer provide this service.
+                The <strong>14-day free trial</strong> for SnailyCAD is <strong>no longer available</strong>.  
+                Please note that we cannot update the official SnailyCAD documentation at this time.  
+                <br><br>
+                <strong>How activation works:</strong>  
+                1. Place your order – CAD is deployed within <strong>2–12 hours</strong> after payment confirmation.  
+                2. Provide your domain – Include it in checkout notes. You must own it or request one of our subdomains.  
+                3. Cloudflare users – Paste your Debian install code in the checkout notes for configuration.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- CTA Button -->
         <div class="glass rounded-2xl p-6 animate-slide-up text-center" style="animation-delay: 0.8s; animation-fill-mode: both;">
           <h3 class="font-bold text-white mb-4">View Our Pricing Plans</h3>
           <a href="https://wemx.swiftpeakhosting.com/SnailyCAD" target="_blank" 
@@ -227,7 +201,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer class="text-center mt-16 animate-fade-in" style="animation-delay: 1s; animation-fill-mode: both;">
       <div class="inline-flex items-center justify-center space-x-2 text-gray-400 mb-4">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,8 +209,6 @@
         <span class="text-lg font-semibold">SwiftPeak Hosting</span>
       </div>
       <p class="text-gray-500 text-sm">Professional CAD Solutions • Enterprise-Grade Infrastructure</p>
-      
-      <!-- Support Links -->
       <div class="flex justify-center space-x-6 mt-6">
         <a href="#" class="text-gray-400 hover:text-green-400 transition-colors duration-200 text-sm">Support Center</a>
         <a href="#" class="text-gray-400 hover:text-green-400 transition-colors duration-200 text-sm">Documentation</a>
