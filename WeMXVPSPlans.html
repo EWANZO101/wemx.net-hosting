@@ -126,6 +126,60 @@
 </head>
 <body class="gradient-bg text-white min-h-screen">
 <script>
+// Payment notification system
+let redirectTimer = null;
+let redirectUrl = '';
+
+function showPaymentNotification(event, url) {
+  event.preventDefault();
+  redirectUrl = url;
+  
+  const modal = document.getElementById('paymentModal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  
+  let countdown = 3;
+  const countdownElement = document.getElementById('countdown');
+  
+  redirectTimer = setInterval(() => {
+    countdown--;
+    countdownElement.textContent = countdown;
+    
+    if (countdown <= 0) {
+      clearInterval(redirectTimer);
+      window.location.href = redirectUrl;
+    }
+  }, 1000);
+}
+
+function cancelRedirect() {
+  if (redirectTimer) {
+    clearInterval(redirectTimer);
+    redirectTimer = null;
+  }
+  
+  const modal = document.getElementById('paymentModal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  
+  // Reset countdown
+  document.getElementById('countdown').textContent = '3';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('paymentModal');
+  if (event.target === modal) {
+    cancelRedirect();
+  }
+});
+
+// Close modal on escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    cancelRedirect();
+  }
+});
 </script>
 
   <!-- Modern Navigation -->
@@ -295,7 +349,8 @@
           </div>
 
           <a href="https://wemxcloud.swiftpeakhosting.com/store/view/9"
-            class="modern-btn w-full py-4 rounded-2xl font-semibold text-lg text-center block relative overflow-hidden">
+            class="modern-btn w-full py-4 rounded-2xl font-semibold text-lg text-center block relative overflow-hidden"
+            onclick="showPaymentNotification(event, this.href)">
             Get Started Now
           </a>
         </div>
@@ -427,6 +482,40 @@
       </div>
     </div>
   </main>
+
+  <!-- Payment Notification Modal -->
+  <div id="paymentModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm">
+    <div class="glass-card rounded-3xl p-8 max-w-md w-full mx-4 text-center relative">
+      <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+        </svg>
+      </div>
+      
+      <h3 class="text-2xl font-bold text-white mb-4">Almost Ready!</h3>
+      
+      <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-xl p-4 mb-6">
+        <p class="text-white font-semibold mb-2">⚠️ Important Payment Notice</p>
+        <p class="text-gray-300 text-sm">
+          After completing your payment, your WeMX instance will take a few seconds to minutes to process. 
+          <strong class="text-white">Please DO NOT exit the page</strong> until you see "Payment Complete" confirmation.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <div class="flex items-center justify-center space-x-2 text-gray-300">
+          <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+          <div class="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+          <div class="w-2 h-2 bg-cyan-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+          <span class="ml-3">Redirecting in <span id="countdown">3</span>s...</span>
+        </div>
+      </div>
+
+      <button onclick="cancelRedirect()" class="text-gray-400 hover:text-white transition-colors underline text-sm">
+        Cancel
+      </button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="nav-blur mt-16 py-8">
