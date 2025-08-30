@@ -138,7 +138,7 @@ function showPaymentNotification(event, url) {
   modal.classList.remove('hidden');
   modal.classList.add('flex');
   
-  let countdown = 3;
+  let countdown = 10;
   const countdownElement = document.getElementById('countdown');
   
   redirectTimer = setInterval(() => {
@@ -163,7 +163,7 @@ function cancelRedirect() {
   modal.classList.remove('flex');
   
   // Reset countdown
-  document.getElementById('countdown').textContent = '3';
+  document.getElementById('countdown').textContent = '10';
 }
 
 // Close modal when clicking outside
@@ -498,16 +498,16 @@ document.addEventListener('keydown', function(event) {
         <p class="text-white font-semibold mb-6 text-3xl">⚠️ Important Payment Notice</p>
         <p class="text-gray-300 text-xl leading-relaxed">
           After completing your payment, your WeMX instance will take a few seconds to minutes to process. 
-          <strong class="text-white">Please DO NOT exit or refresh the page</strong> until you see "Payment Complete" confirmation.
+          <strong class="text-white">Please DO NOT exit the page</strong> until you see "Payment Complete" confirmation.
         </p>
       </div>
 
       <div class="mb-16">
         <div class="flex items-center justify-center space-x-6 text-gray-300 text-2xl">
           <div class="w-6 h-6 bg-blue-500 rounded-full animate-bounce"></div>
-          <div class="w-6 h-6 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 5.1s"></div>
-          <div class="w-6 h-6 bg-cyan-500 rounded-full animate-bounce" style="animation-delay: 5.1s"></div>
-          <span class="ml-6">Redirecting in <span id="countdown" class="text-4xl font-bold text-white">3</span>s...</span>
+          <div class="w-6 h-6 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
+          <div class="w-6 h-6 bg-cyan-500 rounded-full animate-bounce" style="animation-delay: 0.30s"></div>
+          <span class="ml-6">Redirecting in <span id="countdown" class="text-4xl font-bold text-white">10</span>s...</span>
         </div>
       </div>
 
