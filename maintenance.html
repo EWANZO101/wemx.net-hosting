@@ -18,7 +18,7 @@
       padding: 20px;
     }
     .container {
-      max-width: 500px;
+      max-width: 600px;
       background: #2c2c2c;
       padding: 40px 30px;
       border-radius: 12px;
@@ -31,12 +31,16 @@
     }
     p {
       font-size: 1.2rem;
-      line-height: 1.5;
-      margin-bottom: 30px;
+      line-height: 1.6;
+      margin-bottom: 25px;
     }
     .emoji {
       font-size: 4rem;
       margin-bottom: 15px;
+    }
+    .highlight {
+      color: #ffaa44;
+      font-weight: bold;
     }
     footer {
       font-size: 0.9rem;
@@ -46,11 +50,12 @@
 </head>
 <body>
   <div class="container" role="main" aria-labelledby="maintenance-title">
-    <div class="emoji" aria-hidden="true">⚠️</div>
-    <h1 id="maintenance-title">Emergency Maintenance</h1>
-    <p>We are currently experiencing a routing issue and will be down for some time could be could be 24 hours we will update u  .<br />
-    Our team is working hard to resolve the problem as quickly as possible.</p>
-    <p>Thank you for your patience and understanding.</p>
+    <div class="emoji" aria-hidden="true">🔧</div>
+    <h1 id="maintenance-title">Maintenance Announcement</h1>
+    <p>Hello, This is a maintenance announcement. Our IP host will be moving our IPs, so there may be some downtime.</p>
+    <p>The exact start time is still to be determined, but it could begin <span class="highlight">anytime from this evening through to Friday</span>. There may be a few days of downtime.</p>
+    <p>Anyone with an active service will receive <span class="highlight">5 extra days</span> to compensate for any downtime.</p>
+    <p>Thank you for your understanding.</p>
     <footer></footer>
   </div>
 </body>
