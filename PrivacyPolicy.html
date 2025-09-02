@@ -4,107 +4,387 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Swift Peak Hosting</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@1.5.1/dist/flowbite.min.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #1e293b; /* Dark Blue Background */
-            color: #e0e7ff; /* Light text color for readability */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
         }
-        h1, h2, h3 {
-            color: #93c5fd; /* Light Blue Color */
-        }
+
         .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
         }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid #404040;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #64b5f6;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(100, 181, 246, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+
+        .content {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            color: #64b5f6;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #81c784;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #404040;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #ffb74d;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d0d0d0;
+        }
+
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d0d0d0;
+        }
+
         .highlight {
-            color: #60a5fa; /* Light Blue for highlights */
+            background: linear-gradient(45deg, #64b5f6, #81c784);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .contact-box {
+            background: rgba(100, 181, 246, 0.1);
+            border: 2px solid #64b5f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-box h3 {
+            color: #64b5f6;
+            margin-top: 0;
+        }
+
+        .email {
+            color: #64b5f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .email:hover {
+            text-decoration: underline;
+        }
+
+        .last-updated {
+            background: rgba(255, 183, 77, 0.1);
+            border-left: 4px solid #ffb74d;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .important {
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid #f44336;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #404040;
+        }
+
+        th {
+            background: rgba(100, 181, 246, 0.2);
+            color: #64b5f6;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div class="container">
-        <header class="py-6 text-center">
-            <h1 class="text-4xl font-bold text-lightblue">Privacy Policy for Swift Peak Hosting</h1>
-            <p class="text-lg mt-2">Last Updated: <span class="highlight">January 14, 2024</span></p>
-        </header>
-        
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Introduction</h2>
-            <p>At <strong class="highlight">Swift Peak Hosting</strong>, we are committed to safeguarding your privacy. This Privacy Policy explains the types of information we collect, how we use it, and the choices available to you regarding your personal data. By using our services, you agree to the practices described in this policy.</p>
-        </section>
-        
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Information We Collect</h2>
-            <p>We collect and process the following types of information when you use our services:</p>
-            <ul class="list-disc list-inside mt-4">
-                <li><strong>Personal Information:</strong> Name, email address, phone number, and other contact details.</li>
-                <li><strong>Payment Information:</strong> Credit card details, billing addresses, and transaction data.</li>
-                <li><strong>Technical Information:</strong> IP address, browser type, operating system, and other technical details when interacting with our website.</li>
-                <li><strong>Usage Information:</strong> Information about how you use our website and services.</li>
-            </ul>
-        </section>
+        <div class="header">
+            <div class="logo">Swift Peak Hosting</div>
+            <div class="subtitle">Professional Web Hosting Solutions</div>
+        </div>
 
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">How We Use Your Information</h2>
-            <p>We use the information we collect for the following purposes:</p>
-            <ul class="list-disc list-inside mt-4">
-                <li>To provide and improve our services.</li>
-                <li>To process payments and fulfill orders.</li>
-                <li>To communicate with you about account updates, service enhancements, and important notices.</li>
-                <li>To personalize your experience and provide tailored content.</li>
-                <li>To analyze and optimize the effectiveness of our website and services.</li>
-            </ul>
-        </section>
+        <div class="content">
+            <h1>Privacy Policy</h1>
+            
+            <div class="last-updated">
+                <strong>Last Updated:</strong> January 14, 2024<br>
+                <strong>Effective Date:</strong> January 14, 2024
+            </div>
 
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Legal Basis for Processing</h2>
-            <p>We process your personal data based on the following legal grounds:</p>
-            <ul class="list-disc list-inside mt-4">
-                <li><strong>Contractual Necessity:</strong> To fulfill our obligations under the service agreement.</li>
-                <li><strong>Legitimate Interests:</strong> To improve our services, marketing, and communications.</li>
-                <li><strong>Consent:</strong> When you provide explicit consent to certain data processing activities.</li>
-            </ul>
-        </section>
+            <h2>1. Introduction</h2>
+            <p>Swift Peak Hosting Ltd. ("<span class="highlight">Swift Peak Hosting</span>", "<span class="highlight">we</span>", "<span class="highlight">us</span>", or "<span class="highlight">our</span>") is committed to protecting and respecting your privacy in accordance with the General Data Protection Regulation (EU) 2016/679 (GDPR) and applicable data protection laws.</p>
+            
+            <p>This Privacy Policy explains how we collect, use, process, and protect your personal data when you use our web hosting services, visit our website, or interact with us.</p>
 
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Data Sharing and Disclosure</h2>
-            <p>We may share your information with third parties under the following circumstances:</p>
-            <ul class="list-disc list-inside mt-4">
-                <li>When required by law or to protect our legal rights and safety.</li>
-            </ul>
-            <p>We retain your personal data only for as long as necessary to fulfill the purposes outlined in this Privacy Policy or as required by applicable law.</p>
-        </section>
+            <h2>2. Data Controller Information</h2>
+            <p><strong>Data Controller:</strong> Swift Peak Hosting Ltd.<br>
+            <strong>Contact:</strong> <a href="mailto:legal@swiftpeakhosting.com" class="email">legal@swiftpeakhosting.com</a><br>
+            <strong>Data Protection Officer:</strong> Available upon request via the contact details above.</p>
 
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Your Rights</h2>
+            <h2>3. Legal Basis for Processing</h2>
+            <p>We process your personal data under the following lawful bases as defined in Article 6 of the GDPR:</p>
+            <ul>
+                <li><strong>Contract Performance (Article 6(1)(b)):</strong> Processing necessary to perform our hosting services contract with you</li>
+                <li><strong>Legitimate Interests (Article 6(1)(f)):</strong> For business operations, security, fraud prevention, and service improvement</li>
+                <li><strong>Consent (Article 6(1)(a)):</strong> Where you have given explicit consent for specific processing activities</li>
+                <li><strong>Legal Obligation (Article 6(1)(c)):</strong> To comply with legal requirements and regulatory obligations</li>
+                <li><strong>Vital Interests (Article 6(1)(d)):</strong> To protect your or another person's vital interests</li>
+            </ul>
+
+            <h2>4. Information We Collect</h2>
+            
+            <h3>4.1 Personal Data</h3>
+            <ul>
+                <li><strong>Identity Data:</strong> Full name, username, title, date of birth</li>
+                <li><strong>Contact Data:</strong> Postal address, email address, telephone numbers</li>
+                <li><strong>Financial Data:</strong> Bank account details, payment card details, billing information</li>
+                <li><strong>Transaction Data:</strong> Payment records, purchase history, service usage</li>
+                <li><strong>Technical Data:</strong> IP address, browser type and version, device information, operating system</li>
+                <li><strong>Profile Data:</strong> Username, password, preferences, feedback, survey responses</li>
+                <li><strong>Usage Data:</strong> Information about how you use our website and services</li>
+                <li><strong>Marketing Data:</strong> Your preferences in receiving marketing communications</li>
+            </ul>
+
+            <h3>4.2 Special Categories of Data</h3>
+            <p>We do not intentionally collect special categories of personal data (sensitive data) about you. This includes details about your race, ethnicity, religious beliefs, sexual orientation, political opinions, trade union membership, health information, or criminal convictions.</p>
+
+            <h2>5. How We Use Your Information</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Purpose</th>
+                            <th>Type of Data</th>
+                            <th>Legal Basis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Service delivery and account management</td>
+                            <td>Identity, Contact, Financial, Transaction</td>
+                            <td>Contract Performance</td>
+                        </tr>
+                        <tr>
+                            <td>Payment processing and fraud prevention</td>
+                            <td>Financial, Technical, Transaction</td>
+                            <td>Contract Performance, Legitimate Interests</td>
+                        </tr>
+                        <tr>
+                            <td>Customer support and communications</td>
+                            <td>Identity, Contact, Technical, Usage</td>
+                            <td>Contract Performance, Legitimate Interests</td>
+                        </tr>
+                        <tr>
+                            <td>Service improvement and analytics</td>
+                            <td>Technical, Usage, Profile</td>
+                            <td>Legitimate Interests</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing communications</td>
+                            <td>Identity, Contact, Marketing</td>
+                            <td>Consent, Legitimate Interests</td>
+                        </tr>
+                        <tr>
+                            <td>Legal compliance and regulatory requirements</td>
+                            <td>All categories as required</td>
+                            <td>Legal Obligation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>6. Data Retention</h2>
+            <p>We retain your personal data for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+            
+            <ul>
+                <li><strong>Active accounts:</strong> For the duration of your service agreement plus 7 years for financial records</li>
+                <li><strong>Marketing data:</strong> Until you withdraw consent or 3 years of inactivity</li>
+                <li><strong>Technical logs:</strong> Up to 24 months for security and operational purposes</li>
+                <li><strong>Support communications:</strong> Up to 5 years for quality assurance and legal purposes</li>
+            </ul>
+
+            <h2>7. Data Sharing and Disclosure</h2>
+            <p>We may share your personal data with the following categories of recipients:</p>
+            
+            <h3>7.1 Service Providers</h3>
+            <ul>
+                <li>Payment processors and financial institutions</li>
+                <li>Cloud infrastructure providers</li>
+                <li>Security and monitoring services</li>
+                <li>Customer support platforms</li>
+                <li>Analytics and marketing platforms</li>
+            </ul>
+
+            <h3>7.2 Legal Requirements</h3>
+            <p>We may disclose your personal data when required by law, court order, or to protect our rights, property, or safety, or that of our users or the public.</p>
+
+            <h3>7.3 Business Transfers</h3>
+            <p>In the event of a merger, acquisition, or sale of assets, your personal data may be transferred as part of the transaction, subject to the same privacy protections.</p>
+
+            <h2>8. International Data Transfers</h2>
+            <p>Your personal data may be transferred to, and processed in, countries other than the country in which you are resident. Where we transfer data outside the EEA, we ensure adequate protection through:</p>
+            <ul>
+                <li>European Commission adequacy decisions</li>
+                <li>Standard Contractual Clauses (SCCs)</li>
+                <li>Binding Corporate Rules</li>
+                <li>Other appropriate safeguards as approved by supervisory authorities</li>
+            </ul>
+
+            <h2>9. Your Rights Under GDPR</h2>
             <p>You have the following rights regarding your personal data:</p>
-            <ul class="list-disc list-inside mt-4">
-                <li>Access, correction, or deletion of your personal information.</li>
-                <li>Object to processing of your data, where applicable.</li>
-                <li>Withdrawal of consent when consent is the basis for data processing.</li>
+            
+            <ul>
+                <li><strong>Right of Access (Article 15):</strong> Request copies of your personal data</li>
+                <li><strong>Right to Rectification (Article 16):</strong> Request correction of inaccurate or incomplete data</li>
+                <li><strong>Right to Erasure (Article 17):</strong> Request deletion of your personal data in certain circumstances</li>
+                <li><strong>Right to Restrict Processing (Article 18):</strong> Request limitation of processing in certain situations</li>
+                <li><strong>Right to Data Portability (Article 20):</strong> Receive your data in a structured, machine-readable format</li>
+                <li><strong>Right to Object (Article 21):</strong> Object to processing based on legitimate interests or for direct marketing</li>
+                <li><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, you may withdraw it at any time</li>
+                <li><strong>Right to Lodge a Complaint:</strong> With your local supervisory authority</li>
             </ul>
-        </section>
 
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Security Measures</h2>
-            <p>We employ industry-standard security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
-        </section>
+            <div class="important">
+                <strong>Important:</strong> To exercise any of these rights, please contact us at <a href="mailto:legal@swiftpeakhosting.com" class="email">legal@swiftpeakhosting.com</a>. We will respond within one month of receipt of your request.
+            </div>
 
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Changes to This Privacy Policy</h2>
-            <p>We reserve the right to update this Privacy Policy from time to time. Any changes will be posted here with a revised effective date.</p>
-        </section>
+            <h2>10. Automated Decision-Making and Profiling</h2>
+            <p>We may use automated decision-making processes for:</p>
+            <ul>
+                <li>Fraud detection and prevention</li>
+                <li>Risk assessment for service provision</li>
+                <li>Personalized service recommendations</li>
+            </ul>
+            <p>You have the right to request human intervention, express your point of view, and contest any automated decision that significantly affects you.</p>
 
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Contact Us</h2>
-            <p>If you have any questions or concerns regarding this Privacy Policy or your personal data, please reach out to us at:</p>
-            <p class="font-semibold"><a href="mailto:swiftpeakhosting@outlook.com" class="text-lightblue">swiftpeakhosting@outlook.com</a></p>
-        </section>
+            <h2>11. Data Security</h2>
+            <p>We implement appropriate technical and organizational measures to protect your personal data against:</p>
+            <ul>
+                <li>Unauthorized access, alteration, disclosure, or destruction</li>
+                <li>Accidental loss or damage</li>
+                <li>Unlawful processing</li>
+            </ul>
+            
+            <p>Our security measures include encryption, access controls, regular security assessments, and staff training.</p>
+
+            <h2>12. Cookies and Tracking Technologies</h2>
+            <p>We use cookies and similar tracking technologies to improve your experience on our website. For detailed information about our cookie usage, please refer to our Cookie Policy.</p>
+            
+            <p>You can control cookie settings through your browser preferences or by using our cookie consent management tool.</p>
+
+            <h2>13. Data Breach Notification</h2>
+            <p>In the unlikely event of a data breach that poses a high risk to your rights and freedoms, we will notify you without undue delay and within 72 hours of becoming aware of the breach, as required by GDPR Article 34.</p>
+
+            <h2>14. Children's Privacy</h2>
+            <p>Our services are not intended for children under 16 years of age. We do not knowingly collect personal data from children under 16. If you become aware that a child has provided us with personal data, please contact us immediately.</p>
+
+            <h2>15. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. We will notify you of any material changes by:</p>
+            <ul>
+                <li>Posting the updated policy on our website</li>
+                <li>Sending you an email notification (if you have an account with us)</li>
+                <li>Providing prominent notice on our services</li>
+            </ul>
+
+            <h2>16. Supervisory Authority</h2>
+            <p>If you have concerns about our data processing practices, you have the right to lodge a complaint with your local data protection supervisory authority. For EEA residents, you can find your local authority at: <a href="https://edpb.europa.eu/about-edpb/board/members_en" class="email">https://edpb.europa.eu/about-edpb/board/members_en</a></p>
+
+            <div class="contact-box">
+                <h3>Contact Information</h3>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data processing practices, please contact us:</p>
+                
+                <p><strong>Email:</strong> <a href="mailto:legal@swiftpeakhosting.com" class="email">legal@swiftpeakhosting.com</a><br>
+                <strong>Subject Line:</strong> Privacy Policy Inquiry</p>
+                
+                <p><strong>Response Time:</strong> We aim to respond to all inquiries within 5 business days and will provide a full response within 30 days as required by GDPR.</p>
+            </div>
+
+            <p><em>This Privacy Policy is governed by and construed in accordance with applicable data protection laws, including the GDPR. By using our services, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy.</em></p>
+        </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.1/dist/flowbite.bundle.min.js"></script>
 </body>
 </html>
