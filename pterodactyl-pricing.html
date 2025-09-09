@@ -308,61 +308,43 @@
 
         <!-- Petropics Section -->
        <!-- Petropics Section -->
+
+        <p class="text-gray-300 mb-6">
+            Manage your Petro VM entirely through our online UI. Edit your <code>.env</code>, Nginx configurations, and Certbot certificates directly from the panel—no Linux knowledge needed. It's fast, simple, and user-friendly.
+        </p>
+    <!-- Petropics Section -->
 <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
     <div class="max-w-7xl mx-auto text-center mb-12">
         <h2 class="text-3xl font-bold text-white mb-4">Petropics Gallery</h2>
         <p class="text-gray-300 mb-6">Click any image to view in a closeable box</p>
-        <p class="text-gray-300 mb-6">
-            Manage your Petro VM entirely through our online UI. Edit your <code>.env</code>, Nginx configurations, and Certbot certificates directly from the panel—no Linux knowledge needed. It's fast, simple, and user-friendly.
-        </p>
     </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <img src="https://ibb.co/pvTwS8Z4" alt="Pterodactyl Panel Screenshot 1" class="cursor-pointer rounded-lg shadow-lg hover:scale-105 transition-transform w-full h-48 object-cover"
-                     onclick="openModal('image1Modal')" />
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <img src="https://i.ibb.co/pvTwS8Z4/screenshot1.png" alt="Screenshot 1"
+             class="cursor-pointer rounded-lg shadow-lg hover:scale-105 transition-transform"
+             onclick="openLightbox(this.src)">
+        <img src="https://i.ibb.co/cXtVLMCN/screenshot2.png" alt="Screenshot 2"
+             class="cursor-pointer rounded-lg shadow-lg hover:scale-105 transition-transform"
+             onclick="openLightbox(this.src)">
+    </div>
+</section>
 
-                <img src="https://ibb.co/cXtVLMCN alt="Pterodactyl Panel Screenshot 2" class="cursor-pointer rounded-lg shadow-lg hover:scale-105 transition-transform w-full h-48 object-cover"
-                     onclick="openModal('image2Modal')" />
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden" onclick="closeLightbox()">
+    <img id="lightbox-img" class="max-h-[90%] max-w-[90%] rounded-lg shadow-xl" alt="Lightbox Image">
+</div>
 
-                <img src="petropics/image3.jpg" alt="Infrastructure Screenshot" class="cursor-pointer rounded-lg shadow-lg hover:scale-105 transition-transform w-full h-48 object-cover"
-                     onclick="openModal('image3Modal')" />
-            </div>
-        </section>
+<script>
+function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.remove('hidden');
+}
 
+function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+}
+</script>
 
-        <!-- Image Modals -->
-        <div id="image1Modal" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onclick="closeModal('image1Modal')">
-            <div class="relative w-screen h-screen flex items-center justify-center p-4">
-                <img src="https://i.ibb.co/tM6K9tcY/petro1.png" alt="Pterodactyl Panel Dashboard" class="max-w-full max-h-full object-contain" onclick="event.stopPropagation()" />
-                <button onclick="closeModal('image1Modal')" class="absolute top-4 left-4 text-white bg-gray-800 hover:bg-gray-700 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold transition-colors">
-                    ×
-                </button>
-            </div>
-        </div>
-
-        <div id="image2Modal" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onclick="closeModal('image2Modal')">
-            <div class="relative w-screen h-screen flex items-center justify-center p-4">
-                <img src="https://i.ibb.co/HpY3d1xr/petro2.png" alt="Pterodactyl Server Console" class="max-w-full max-h-full object-contain" onclick="event.stopPropagation()" />
-                <button onclick="closeModal('image2Modal')" class="absolute top-4 left-4 text-white bg-gray-800 hover:bg-gray-700 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold transition-colors">
-                    ×
-                </button>
-            </div>
-        </div>
-
-        <div id="image3Modal" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onclick="closeModal('image3Modal')">
-            <div class="relative w-screen h-screen flex items-center justify-center p-4">
-                <div class="bg-gradient-to-br from-orange-600 to-red-600 rounded-lg p-16 text-white text-center max-w-2xl">
-                    <svg class="h-24 w-24 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-                    </svg>
-                    <h3 class="text-2xl font-bold mb-2">Cloud Infrastructure</h3>
-                    <p class="text-lg opacity-90">High-performance cloud infrastructure with redundant systems and 24/7 monitoring for maximum uptime.</p>
-                </div>
-                <button onclick="closeModal('image3Modal')" class="absolute top-4 left-4 text-white bg-gray-800 hover:bg-gray-700 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold transition-colors">
-                    ×
-                </button>
-            </div>
-        </div>
 
         <!-- Footer -->
         <footer class="bg-gray-900 border-t border-gray-700 py-12">
