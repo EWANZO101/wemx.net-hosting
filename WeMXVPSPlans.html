@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
+  <script>
+  var redirect = false; // set to false to prevent redirect
+  if (redirect) {
+    window.location.href = "https://wemx.swiftpeakhosting.com/maintenance";
+  }
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WeMX VPS Plans - Premium Cloud Solutions</title>
@@ -125,6 +132,62 @@
   </style>
 </head>
 <body class="gradient-bg text-white min-h-screen">
+<script>
+// Payment notification system
+let redirectTimer = null;
+let redirectUrl = '';
+
+function showPaymentNotification(event, url) {
+  event.preventDefault();
+  redirectUrl = url;
+  
+  const modal = document.getElementById('paymentModal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  
+  let countdown = 10;
+  const countdownElement = document.getElementById('countdown');
+  
+  redirectTimer = setInterval(() => {
+    countdown--;
+    countdownElement.textContent = countdown;
+    
+    if (countdown <= 0) {
+      clearInterval(redirectTimer);
+      window.location.href = redirectUrl;
+    }
+  }, 1000);
+}
+
+function cancelRedirect() {
+  if (redirectTimer) {
+    clearInterval(redirectTimer);
+    redirectTimer = null;
+  }
+  
+  const modal = document.getElementById('paymentModal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  
+  // Reset countdown
+  document.getElementById('countdown').textContent = '10';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('paymentModal');
+  if (event.target === modal) {
+    cancelRedirect();
+  }
+});
+
+// Close modal on escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    cancelRedirect();
+  }
+});
+</script>
 
   <!-- Modern Navigation -->
   <nav class="nav-blur sticky top-0 z-50">
@@ -148,17 +211,7 @@
   </nav>
 
   <!-- Modern Promo Banner -->
-  <div class="modern-glow mx-6 mt-6 rounded-2xl p-4 text-center">
-    <div class="flex items-center justify-center space-x-3">
-      <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-      <span class="font-semibold text-lg">🎉 Limited Time Offer</span>
-      <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-    </div>
-    <p class="mt-2 text-gray-300">
-      First 5 customers get <span class="price-highlight font-bold text-xl">50% OFF</span> 
-      with code <span class="bg-blue-600 text-white px-3 py-1 rounded-lg font-mono">wemx-new</span>
-    </p>
-  </div>
+  
 
   <main class="flex-grow px-6 py-16">
     <!-- Hero Section -->
@@ -172,8 +225,75 @@
       </p>
     </div>
 
-    <!-- Pricing Cards -->
+    <!-- Features Section -->
+    <div class="max-w-7xl mx-auto mb-24 text-center">
+      <h3 class="text-3xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        Why Choose Swift Peak Hosting?
+      </h3>
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div class="glass-card rounded-2xl p-8 text-left">
+          <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+            <span class="text-3xl">🚀</span>
+          </div>
+          <h4 class="text-2xl font-semibold mb-4">Automated Setup</h4>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start space-x-3">
+              <span class="text-green-400 mt-1">•</span>
+              <span>Fully automated WeMX installation</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="text-green-400 mt-1">•</span>
+              <span>No advanced setup process required</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="text-green-400 mt-1">•</span>
+              <span>Receive your WeMX within minutes</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="text-green-400 mt-1">•</span>
+              <span>Just work with our team for domain setup</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="glass-card rounded-2xl p-8 text-left">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+            <span class="text-3xl">⏰</span>
+          </div>
+          <h4 class="text-2xl font-semibold mb-4">24/7 Support</h4>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start space-x-3">
+              <span class="text-blue-400 mt-1">•</span>
+              <span>Configuration completed in 2-12 hours</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="text-blue-400 mt-1">•</span>
+              <span>Depends on time of day you order</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="text-blue-400 mt-1">•</span>
+              <span>Round-the-clock support team</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="text-blue-400 mt-1">•</span>
+              <span>Setup can be done out of hours</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Section -->
     <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          Choose Your Plan
+        </h3>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          Select the perfect VPS plan for your WeMX hosting needs
+        </p>
+      </div>
+      
       <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
 
         <!-- Basic Plan -->
@@ -190,14 +310,14 @@
 
           <div class="text-center mb-8">
             <div class="mb-4">
-              <span class="text-5xl font-black price-highlight">$23.19</span>
+              <span class="text-5xl font-black price-highlight">18.96</span>
               <span class="text-lg text-gray-400 ml-2">first month</span>
             </div>
             <div class="bg-gray-800/50 rounded-xl p-3 mb-4">
               <p class="text-sm text-gray-300">Includes setup fee</p>
             </div>
             <div>
-              <span class="text-3xl font-bold text-white">$8.18</span>
+              <span class="text-3xl font-bold text-white">12.19</span>
               <span class="text-gray-400">/month after</span>
             </div>
           </div>
@@ -207,7 +327,7 @@
               <div class="w-6 h-6 bg-blue-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">⚡</span>
               </div>
-              <span class="text-gray-300">2 vCPU Cores</span>
+              <span class="text-gray-300">4 vCPU Cores</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-blue-500/20 rounded-lg flex items-center justify-center">
@@ -219,13 +339,13 @@
               <div class="w-6 h-6 bg-blue-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">💾</span>
               </div>
-              <span class="text-gray-300">50 GB NVMe SSD</span>
+              <span class="text-gray-300">50 GB Storage</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-blue-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">🌐</span>
               </div>
-              <span class="text-gray-300">100 TB Bandwidth</span>
+              <span class="text-gray-300">500 TB Bandwidth</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-blue-500/20 rounded-lg flex items-center justify-center">
@@ -235,8 +355,9 @@
             </div>
           </div>
 
-          <a href="https://wemxcloud.swiftpeakhosting.com/store/view/1"
-            class="modern-btn w-full py-4 rounded-2xl font-semibold text-lg text-center block relative overflow-hidden">
+          <a href="https://wemxcloud.swiftpeakhosting.com/store/view/12"
+            class="modern-btn w-full py-4 rounded-2xl font-semibold text-lg text-center block relative overflow-hidden"
+            onclick="showPaymentNotification(event, this.href)">
             Get Started Now
           </a>
         </div>
@@ -281,7 +402,7 @@
               <div class="w-6 h-6 bg-purple-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">💾</span>
               </div>
-              <span class="text-gray-400">100 GB NVMe SSD</span>
+              <span class="text-gray-400">100 GB Storage</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-purple-500/20 rounded-lg flex items-center justify-center">
@@ -303,11 +424,11 @@
           </button>
         </div>
 
-        <!-- Pro Plan (Coming Soon) -->
-        <div class="glass-card rounded-3xl p-8 floating relative opacity-75">
+        <!-- Pro Plan -->
+        <div class="glass-card rounded-3xl p-8 floating relative">
           <div class="absolute top-4 right-4">
-            <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold">
-              COMING SOON
+            <span class="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-3 py-1 rounded-full text-xs font-bold">
+              DUAL PANEL
             </span>
           </div>
           
@@ -318,91 +439,113 @@
               </svg>
             </div>
             <h2 class="text-3xl font-bold text-white mb-2">Pro</h2>
-            <p class="text-gray-400">Enterprise performance</p>
+            <p class="text-gray-400">WeMX + Pterodactyl Panel</p>
           </div>
 
           <div class="text-center mb-8">
-            <span class="text-5xl font-black text-gray-400">TBA</span>
-            <span class="text-gray-500">/month</span>
+            <div class="mb-4">
+              <span class="text-5xl font-black price-highlight">21.99</span>
+              <span class="text-lg text-gray-400 ml-2">first month</span>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-3 mb-4">
+              <p class="text-sm text-gray-300">Includes setup fee</p>
+            </div>
+            <div>
+              <span class="text-3xl font-bold text-white">15.37</span>
+              <span class="text-gray-400">/month after</span>
+            </div>
           </div>
 
-          <div class="space-y-4 mb-8">
+          <div class="space-y-4 mb-6">
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">⚡</span>
               </div>
-              <span class="text-gray-400">8 vCPU Cores</span>
+              <span class="text-gray-300">4 vCPU Cores</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">🧠</span>
               </div>
-              <span class="text-gray-400">16 GB DDR4 RAM</span>
+              <span class="text-gray-300">6 GB DDR4 RAM</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">💾</span>
               </div>
-              <span class="text-gray-400">250 GB NVMe SSD</span>
+              <span class="text-gray-300">100 GB Storage</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center">
                 <span class="feature-icon">🌐</span>
               </div>
-              <span class="text-gray-400">Unlimited Bandwidth</span>
+              <span class="text-gray-300">500 TB Bandwidth</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center">
-                <span class="feature-icon">🚀</span>
+                <span class="feature-icon">🎮</span>
               </div>
-              <span class="text-gray-400">WeMX Optimized</span>
+              <span class="text-gray-300">WeMX + Pterodactyl</span>
             </div>
           </div>
 
-          <button disabled
-            class="w-full py-4 rounded-2xl font-semibold text-lg bg-gray-700 text-gray-400 cursor-not-allowed">
-            Coming Soon
-          </button>
+          <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 mb-6">
+            <p class="text-xs text-orange-200 font-medium">
+              ⚠️ Panel access only - Game servers require separate node package (coming soon)
+            </p>
+          </div>
+
+          <a href="https://wemxcloud.swiftpeakhosting.com/store/view/13"
+            class="modern-btn w-full py-4 rounded-2xl font-semibold text-lg text-center block relative overflow-hidden"
+            onclick="showPaymentNotification(event, this.href)">
+            Get Started Now
+          </a>
         </div>
 
-      </div>
-
-      <!-- Features Section -->
-      <div class="mt-24 text-center">
-        <h3 class="text-3xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          Why Choose WeMX Cloud?
-        </h3>
-        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div class="glass-card rounded-2xl p-6">
-            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <span class="text-2xl">⚡</span>
-            </div>
-            <h4 class="text-xl font-semibold mb-3">Lightning Fast</h4>
-            <p class="text-gray-400">NVMe SSDs and optimized infrastructure for maximum performance</p>
-          </div>
-          <div class="glass-card rounded-2xl p-6">
-            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <span class="text-2xl">🛡️</span>
-            </div>
-            <h4 class="text-xl font-semibold mb-3">Secure & Reliable</h4>
-            <p class="text-gray-400">Enterprise-grade security with 99.9% uptime guarantee</p>
-          </div>
-          <div class="glass-card rounded-2xl p-6">
-            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <span class="text-2xl">🎯</span>
-            </div>
-            <h4 class="text-xl font-semibold mb-3">WeMX Optimized</h4>
-            <p class="text-gray-400">Specially configured for optimal WeMX performance</p>
-          </div>
-        </div>
       </div>
     </div>
   </main>
 
+  <!-- Payment Notification Modal - FULL SCREEN VERSION -->
+  <div id="paymentModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 backdrop-blur-lg">
+    <div class="glass-card rounded-3xl p-16 max-w-6xl w-full mx-8 text-center relative min-h-[80vh] flex flex-col justify-center">
+      <div class="w-40 h-40 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-12">
+        <svg class="w-20 h-20 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+        </svg>
+      </div>
+      
+      <h3 class="text-7xl font-bold text-white mb-12">Almost Ready!</h3>
+      
+      <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-3xl p-12 mb-16 max-w-4xl mx-auto">
+        <p class="text-white font-semibold mb-6 text-3xl">⚠️ Important Setup Notice</p>
+        <p class="text-gray-300 text-xl leading-relaxed">
+          After checkout and payment completion, setup can take a few minutes. Please allow the system to process - when done, you'll see <strong class="text-white">"Payment Complete"</strong> and receive your WeMX details.
+        </p>
+        <p class="text-gray-300 text-lg mt-4">
+          <strong class="text-red-400">Do NOT refresh or exit</strong> before seeing confirmation, or contact us at <strong class="text-blue-400">tickets.swiftpeakhosting.com</strong>
+        </p>
+      </div>
+
+      <div class="mb-16">
+        <div class="flex items-center justify-center space-x-6 text-gray-300 text-2xl">
+          <div class="w-6 h-6 bg-blue-500 rounded-full animate-bounce"></div>
+          <div class="w-6 h-6 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
+          <div class="w-6 h-6 bg-cyan-500 rounded-full animate-bounce" style="animation-delay: 0.30s"></div>
+          <span class="ml-6">Redirecting in <span id="countdown" class="text-4xl font-bold text-white">10</span>s...</span>
+        </div>
+      </div>
+
+      <button onclick="cancelRedirect()" class="text-gray-400 hover:text-white transition-colors underline text-xl">
+        Cancel Redirect
+      </button>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="nav-blur mt-16 py-8">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <p class="text-gray-400">&copy; 2025 WeMX Cloud. Powered by premium infrastructure.</p>
+      <p class="text-gray-400">&copy; 2025 WeMX Cloud. Powered by Swift Peak Hosting premium infrastructure.</p>
     </div>
   </footer>
 

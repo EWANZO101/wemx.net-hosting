@@ -90,7 +90,23 @@
   <div class="fixed inset-0 opacity-5 dark:opacity-10">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #6366f1 2px, transparent 0), radial-gradient(circle at 75px 75px, #8b5cf6 2px, transparent 0); background-size: 100px 100px;"></div>
   </div>
-  
+  <div class="modal" id="termsModal">
+  <div class="modal-content">
+    <p>By placing your order, you accept our <a href="/terms" target="_blank">Terms & Conditions</a>.</p>
+    <button onclick="closeModal()">OK</button>
+  </div>
+</div>
+
+<script>
+  function placeOrder() {
+    document.getElementById("termsModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("termsModal").style.display = "none";
+    // Proceed with order logic here, if needed
+  }
+</script>
   <!-- Header -->
   <header class="relative z-10 pt-8 pb-16 px-6">
     <div class="max-w-4xl mx-auto text-center">

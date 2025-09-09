@@ -1,79 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance Mode | SwiftPeak Hosting</title>
-    <style>
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        
-        .container {
-            max-width: 600px;
-            padding: 30px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-        
-        h1 {
-            color: #bb86fc;
-            margin-bottom: 20px;
-        }
-        
-        p {
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-        
-        .ticket-link {
-            display: inline-block;
-            background-color: #bb86fc;
-            color: #121212;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .ticket-link:hover {
-            background-color: #9a67cb;
-        }
-        
-        .logo {
-            margin-bottom: 20px;
-            max-width: 200px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maintenance Notice</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      background: #2c2c2c;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+    }
+    h1 {
+      color: #ff4500;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .emoji {
+      font-size: 4rem;
+      margin-bottom: 15px;
+    }
+    .highlight {
+      color: #ffaa44;
+      font-weight: bold;
+    }
+    footer {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Replace with your logo -->
-        <img src="https://via.placeholder.com/200x60?text=SwiftPeak+Hosting" alt="SwiftPeak Hosting Logo" class="logo">
-        
-        <h1>We're Under Maintenance</h1>
-        
-        <p>Our website is currently undergoing scheduled maintenance to improve your experience. We apologize for any inconvenience this may cause.</p>
-        
-        <p>If you would like to place an order, please open a ticket at our support system.</p>
-        
-        <a href="https://tickets.swiftpeakhosting.com" class="ticket-link">Open a Ticket</a>
-        
-        <p style="margin-top: 30px; font-size: 0.9em; color: #9e9e9e;">
-            Estimated downtime: 21/07/2025 1day<br>
-            Last updated: July 20, 2025
-        </p>
-    </div>
+  <div class="container" role="main" aria-labelledby="maintenance-title">
+    <div class="emoji" aria-hidden="true">🔧</div>
+    <h1 id="maintenance-title">Maintenance Announcement</h1>
+    <p>Hello, This is a maintenance announcement. Our IP host will be moving our IPs, so there may be some downtime.</p>
+    <p>The exact start time is still to be determined, but it could begin <span class="highlight">anytime from this evening through to Friday</span>. There may be a few days of downtime.</p>
+    <p>Anyone with an active service will receive <span class="highlight">5 extra days</span> to compensate for any downtime.</p>
+    <p><strong>New Orders During Maintenance:</strong><br>
+    If you wish to make a SnailyCAD or WEMX VPS purchase during this time, please email us at <span class="highlight">support@swiftpeakhosting.com</span>. We will manually add it to our system when we are back up. Please provide us with your email and username.</p>
+    <p><strong>Pricing:</strong><br>
+    • SnailyCADs: <span class="highlight">£8.99 per month</span><br>
+    • WEMX packages: First month <span class="highlight">$18.96</span>, then <span class="highlight">$12.18 USD</span> ongoing</p>
+    <p>Thank you for your understanding.</p>
+    <footer></footer>
+  </div>
 </body>
 </html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Peak Proxy Service - How It Works</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e6ed;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .back-btn {
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: #764ba2;
+            transform: translateX(-5px);
+        }
+        
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #b0b7c3;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* How It Works Diagram */
+        .diagram-section {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            margin: 3rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .diagram-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+            min-height: 400px;
+        }
+        
+        .diagram-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+        
+        .step-1 .step-icon {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            animation: pulse-green 2s infinite;
+        }
+        
+        .step-2 .step-icon {
+            background: linear-gradient(135deg, #f44336, #d32f2f);
+            animation: pulse-red 2s infinite 0.5s;
+        }
+        
+        .step-3 .step-icon {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            animation: pulse-orange 2s infinite 1s;
+        }
+        
+        .step-4 .step-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            animation: pulse-blue 2s infinite 1.5s;
+        }
+        
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(76, 175, 80, 0); }
+        }
+        
+        @keyframes pulse-red {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(244, 67, 54, 0); }
+        }
+        
+        @keyframes pulse-orange {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(255, 152, 0, 0); }
+        }
+        
+        @keyframes pulse-blue {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(102, 126, 234, 0); }
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        
+        .step-description {
+            color: #b0b7c3;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Animated Arrows */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: calc(100% - 10px);
+            transform: translateY(-50%);
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            z-index: 1;
+        }
+        
+        .arrow::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -6px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid #667eea;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+        }
+        
+        .arrow-animated {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .arrow-animated::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: arrow-flow 2s infinite;
+        }
+        
+        @keyframes arrow-flow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Process Details */
+        .process-details {
+            padding: 4rem 0;
+        }
+        
+        .detail-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .detail-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .detail-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .detail-card p {
+            color: #b0b7c3;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .feature-list li {
+            padding: 0.7rem 0;
+            color: #e0e6ed;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Transparency Notice */
+        .transparency-notice {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .transparency-notice h3 {
+            color: #FFC107;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .transparency-notice p {
+            color: #e0e6ed;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            margin: 3rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e6ed;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .diagram-container {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .arrow {
+                display: none;
+            }
+            
+            .step-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Swift Peak Hosting</div>
+            <a href="#" class="back-btn">← Back to Main Site</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero-section fade-in">
+                <h1>How Our Proxy Service Works</h1>
+                <p>Understanding the technical details behind Swift Peak's proxy hosting solution. Our intelligent failover system ensures your users never see downtime, automatically switching to backup hosting when needed.</p>
+            </section>
+
+            <section class="diagram-section fade-in">
+                <h2 class="section-title">The Failover Process</h2>
+                
+                <div class="diagram-container">
+                    <div class="diagram-step step-1">
+                        <div class="step-icon">🟢</div>
+                        <h3 class="step-title">Normal Operation</h3>
+                        <p class="step-description">Your main server is running normally. All traffic flows directly to your primary hosting environment.</p>
+                        <div class="arrow arrow-animated"></div>
+                    </div>
+                    
+                    <div class="diagram-step step-2">
+                        <div class="step-icon">🔴</div>
+                        <h3 class="step-title">Downtime Detected</h3>
+                        <p class="step-description">Our monitoring system detects your main server is down or experiencing issues within seconds.</p>
+                        <div class="arrow arrow-animated"></div>
+                    </div>
+                    
+                    <div class="diagram-step step-3">
+                        <div class="step-icon">🔄</div>
+                        <h3 class="step-title">Traffic Redirected</h3>
+                        <p class="step-description">Automatically redirect all incoming traffic to your backup hosting environment without user intervention.</p>
+                        <div class="arrow arrow-animated"></div>
+                    </div>
+                    
+                    <div class="diagram-step step-4">
+                        <div class="step-icon">🛡️</div>
+                        <h3 class="step-title">Backup Active</h3>
+                        <p class="step-description">Users see your website/service running on our backup system with a notification about the temporary failover.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="process-details fade-in">
+                <h2 class="section-title">Technical Deep Dive</h2>
+                
+                <div class="detail-card">
+                    <h3><span class="detail-icon">🎯</span>What We Monitor</h3>
+                    <p>Our advanced monitoring system continuously checks your service every 30 seconds using multiple health checks:</p>
+                    <ul class="feature-list">
+                        <li>HTTP/HTTPS response codes and response times</li>
+                        <li>Server connectivity and port availability</li>
+                        <li>Database connectivity (if applicable)</li>
+                        <li>Custom health check endpoints</li>
+                        <li>DNS resolution and routing</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="detail-icon">⚡</span>Instant Failover Technology</h3>
+                    <p>When downtime is detected, our system springs into action within seconds:</p>
+                    <ul class="feature-list">
+                        <li>DNS records are automatically updated to point to our backup servers</li>
+                        <li>SSL certificates are maintained for secure connections</li>
+                        <li>Load balancing rules redirect traffic seamlessly</li>
+                        <li>CDN configurations are adjusted for optimal performance</li>
+                        <li>All changes propagate globally within 60-120 seconds</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="detail-icon">🖥️</span>Backup Environment Types</h3>
+                    <p>We offer different backup hosting solutions based on your needs:</p>
+                    <ul class="feature-list">
+                        <li><strong>Maintenance Page:</strong> Custom branded "we'll be right back" page</li>
+                        <li><strong>Static Backup:</strong> Static version of your site with core information</li>
+                        <li><strong>Lower-Spec Hosting:</strong> Reduced functionality but core features working</li>
+                        <li><strong>Full Duplicate:</strong> Complete mirror of your main service</li>
+                        <li><strong>Hybrid Solutions:</strong> Custom configurations for specific needs</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="detail-icon">🎮</span>Service-Specific Features</h3>
+                    <p>Tailored solutions for different types of services:</p>
+                    <ul class="feature-list">
+                        <li><strong>Websites:</strong> Database sync, user sessions, e-commerce functionality</li>
+                        <li><strong>Minecraft Servers:</strong> World backup, plugin compatibility, player data</li>
+                        <li><strong>FiveM Servers:</strong> Resource management, database sync, player inventory</li>
+                        <li><strong>Discord Bots:</strong> Command functionality, database connections</li>
+                        <li><strong>APIs:</strong> Endpoint availability, rate limiting, authentication</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="transparency-notice fade-in">
+                <h3>⚠️ Transparency Policy</h3>
+                <p>We believe in complete transparency with our clients. During failover operations, some services or features may not work at 100% capacity depending on your backup plan. Users will always be notified when they're accessing your service through our backup system. This transparency is required for all our services to ensure users understand they may experience limited functionality during maintenance periods.</p>
+            </div>
+
+            <section class="process-details fade-in">
+                <div class="detail-card">
+                    <h3><span class="detail-icon">🔧</span>Setup Process</h3>
+                    <p>Getting started with our proxy service is simple and handled entirely by our team:</p>
+                    <ul class="feature-list">
+                        <li>Sign up and complete our service questionnaire</li>
+                        <li>Our team analyzes your current infrastructure</li>
+                        <li>We configure monitoring and backup systems</li>
+                        <li>DNS and routing rules are established</li>
+                        <li>Comprehensive testing ensures everything works perfectly</li>
+                        <li>24/7 monitoring begins immediately</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="detail-icon">📊</span>Monitoring Dashboard</h3>
+                    <p>Stay informed with our comprehensive monitoring dashboard:</p>
+                    <ul class="feature-list">
+                        <li>Real-time service status and uptime statistics</li>
+                        <li>Historical performance data and trends</li>
+                        <li>Instant notifications via email, SMS, or Discord</li>
+                        <li>Detailed logs of all failover events</li>
+                        <li>Performance metrics for both main and backup systems</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="cta-section fade-in">
+                <h2 class="section-title">Ready to Eliminate Downtime?</h2>
+                <p style="font-size: 1.2rem; color: #b0b7c3; margin-bottom: 2rem;">Join hundreds of satisfied customers who never worry about downtime again.</p>
+                <div class="cta-buttons">
+                    <a href="https://wemx.swiftpeakhosting.com/proxy-about" class="btn btn-primary">Learn More About Our Service</a>
+                    <a href="https://tickets.swiftpeakhosting.com" class="btn btn-secondary">Contact Ewan.C for Setup</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+
+        // Add hover effects to detail cards
+        document.querySelectorAll('.detail-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.borderColor = 'rgba(102, 126, 234, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

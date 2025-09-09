@@ -4,95 +4,581 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions - Swift Peak Hosting</title>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #0A1F44; /* Dark blue background */
-            color: #ffffff; /* White text for contrast */
-            font-family: 'Inter', sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1, h2 {
-            color: #63B3ED; /* Light blue for headings */
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #e2e8f0;
+            background-color: #0f172a;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 60px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 40px;
+        }
+
+        .company-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #f8fafc;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .document-title {
+            font-size: 36px;
+            font-weight: normal;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .effective-date {
+            font-size: 14px;
+            color: #94a3b8;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .introduction {
+            font-size: 16px;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            padding: 25px;
+            background-color: #1e293b;
+            border-left: 4px solid #3b82f6;
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f8fafc;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #334155;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subsection {
+            margin-bottom: 25px;
+        }
+
+        .subsection-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .content-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .list-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #94a3b8;
+        }
+
+        .list-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+
+        .important-notice {
+            background-color: #1e1b1b;
+            border: 1px solid #451a1a;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .info-box {
+            background-color: #0f1629;
+            border: 1px solid #1e3a8a;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background-color: #0f1b0f;
+            border: 1px solid #166534;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .gdpr-box {
+            background-color: #1a1625;
+            border: 1px solid #4c1d95;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .contact-link {
+            color: #60a5fa;
+            text-decoration: underline;
+            font-weight: normal;
+        }
+
+        .contact-link:hover {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #334155;
+            text-align: center;
+        }
+
+        .last-updated {
+            font-size: 12px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .signature-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+        }
+
+        .consent-section {
+            background-color: #1e293b;
+            border: 2px solid #3b82f6;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .data-categories {
+            background-color: #18181b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border: 1px solid #3f3f46;
+        }
+
+        .retention-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #1e293b;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .retention-table th,
+        .retention-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+            color: #cbd5e1;
+        }
+
+        .retention-table th {
+            background-color: #334155;
+            color: #f8fafc;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+                max-width: none;
+                background-color: white;
+                color: black;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 30px;
+            }
+            
+            .document-title {
+                font-size: 28px;
+            }
+            
+            .company-name {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
-<body class="p-8">
-
-    <div class="container mx-auto bg-blue-900 p-6 rounded-lg shadow-lg">
-        <h1 class="text-4xl font-bold mb-6">Terms and Conditions</h1>
-
-        <p class="mb-6">Welcome to <strong>Swift Peak Hosting</strong>. By using our services, you agree to abide by the following terms and conditions.</p>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">1. Service Usage</h2>
-            <ul class="list-disc pl-6">
-                <li><strong>Eligibility:</strong> Users must be <strong>16 years or older</strong> to access and use our services in compliance with GDPR.</li>
-                <li><strong>Acceptable Use:</strong> Users agree not to engage in activities that violate any applicable laws or infringe on the rights of others.</li>
-                <li><strong>Account Security:</strong> Users are responsible for maintaining the confidentiality of their account credentials and are liable for any activities under their account.</li>
-            </ul>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">2. Service Downtime Compensation</h2>
-            <ul class="list-disc pl-6">
-                <li><strong>Compensation Policy:</strong> If downtime exceeds <strong>4 hours</strong>, users will receive <strong>3 additional days of service</strong> free of charge.</li>
-                <li>Compensation may also be provided as <strong>credit equivalent</strong> to the duration of missed service.</li>
-            </ul>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">3. Payments and Refunds</h2>
-            <ul class="list-disc pl-6">
-                <li><strong>Payment Terms:</strong> Payments are due upon subscription, and various secure payment methods are accepted.</li>
-                <li><strong>Refund Policy:</strong> Refunds are available within <strong>48 hours</strong> of purchase under specific conditions, including technical issues preventing service use.</li>
-            </ul>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">4. Prohibited Activities</h2>
-            <ul class="list-disc pl-6">
-                <li>Users are prohibited from engaging in illegal activities, including but not limited to:</li>
-                <li><strong>DDoS attacks</strong> or hacking attempts.</li>
-                <li>Distribution of malware or other malicious software.</li>
-            </ul>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">5. Account Termination</h2>
-            <p>Swift Peak Hosting reserves the right to suspend or terminate accounts for violations of these terms, including but not limited to prohibited activities or non-payment.</p>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">6. Data Backup Recommendations</h2>
-            <p>We strongly recommend that users <strong>regularly back up their data</strong>, even if certain services include automated backup features. Swift Peak Hosting is not liable for data loss caused by user error or external factors.</p>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">7. GDPR and Data Privacy</h2>
-            <ul class="list-disc pl-6">
-                <li><strong>Data Collection and Use:</strong> Personal data is collected, stored, and processed in compliance with GDPR. Data is used solely to deliver and improve our services, with user consent obtained where required.</li>
-                <li><strong>User Rights:</strong> Users have the right to <strong>access, rectify, erase, or restrict the processing</strong> of their personal data. Contact us at <a href="mailto:swiftpeakhosting@outlook.com" class="text-blue-300 underline">swiftpeakhosting@outlook.com</a>.</li>
-                <li><strong>Data Security:</strong> We implement appropriate technical and organizational measures to protect user data against unauthorized access, alteration, or destruction.</li>
-            </ul>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">8. Disclaimer</h2>
-            <p>We strive to provide uninterrupted services but cannot guarantee availability due to circumstances beyond our control, including force majeure events.</p>
-        </div>
-
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">9. Contact Information</h2>
-            <ul class="list-disc pl-6">
-                <li><strong>Email:</strong> <a href="mailto:swiftpeakhosting@outlook.com" class="text-blue-300 underline">swiftpeakhosting@outlook.com</a></li>
-                <li><strong>Support Hours:</strong> Our support team is available <strong>Monday through Friday, 9 AM to 11 PM (GMT)</strong>.</li>
-            </ul>
-        </div>
-
-        <p class="mt-6 text-gray-400">Last Updated: 16/11/2024 by the Swift Peak Hosting Development Team</p>
+<body>
+    <div class="header">
+        <div class="company-name">SWIFT PEAK HOSTING</div>
+        <h1 class="document-title">Terms and Conditions of Service</h1>
+        <p class="effective-date">Effective Date: November 16, 2024 | Version 2.1</p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <div class="introduction">
+        <strong>PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY.</strong> These Terms and Conditions ("Terms", "Agreement") constitute a legally binding agreement between you ("User", "Customer", "You", "Data Subject") and Swift Peak Hosting ("Company", "We", "Us", "Our", "Data Controller") regarding your use of our hosting services, website, and related services. By accessing our services, creating an account, or placing an order, you acknowledge that you have read, understood, and agree to be bound by these Terms and applicable data protection laws.
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">1. Acceptance and Modifications</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">1.1 Acceptance of Terms</h3>
+            <p class="content-text">By placing an order for any Swift Peak Hosting service, creating an account, or using our services in any manner, you <span class="highlight">automatically accept and agree to be bound by these Terms and Conditions</span> in their entirety. Your order constitutes a legally binding acceptance of these terms, regardless of whether you have explicitly read or reviewed them prior to purchase.</p>
+        </div>
+
+        <div class="important-notice">
+            <strong>IMPORTANT:</strong> Proceeding with payment or service activation confirms your unconditional acceptance of all terms and conditions contained herein, including our data processing practices as outlined in our Privacy Policy.
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">1.2 Modifications</h3>
+            <p class="content-text">We reserve the right to modify these Terms at any time. Material changes will be communicated via email to your registered address at least 30 days prior to implementation. Changes will be effective immediately upon posting on our website. Continued use of our services after such changes constitutes acceptance of the modified Terms.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">2. Eligibility and Account Requirements</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">2.1 Age Requirements (GDPR Compliance)</h3>
+            <p class="content-text">Users must be <span class="highlight">sixteen (16) years of age or older</span> to access and use our services in compliance with the General Data Protection Regulation (GDPR) Article 8. For users under 18, parental or guardian consent may be required in certain jurisdictions.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">2.2 Account Security</h3>
+            <p class="content-text">Users are solely responsible for maintaining the confidentiality and security of their account credentials. You are liable for all activities that occur under your account, whether authorized by you or not. You must immediately notify us of any unauthorized use of your account or suspected data breach.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">3. GDPR Compliance and Data Protection</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">3.1 Data Controller Information</h3>
+            <div class="gdpr-box">
+                <p class="content-text"><strong>Data Controller:</strong> Swift Peak Hosting<br>
+                <strong>Contact:</strong> <a href="mailto:dpo@swiftpeakhosting.com" class="contact-link">dpo@swiftpeakhosting.com</a><br>
+                <strong>Data Protection Officer:</strong> Available upon request<br>
+                <strong>Supervisory Authority:</strong> You have the right to lodge a complaint with your local data protection authority</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.2 Legal Basis for Processing</h3>
+            <p class="content-text">We process your personal data based on the following legal grounds under GDPR Article 6:</p>
+            <div class="list-item"><span class="highlight">Contract Performance:</span> To provide hosting services and fulfill our contractual obligations</div>
+            <div class="list-item"><span class="highlight">Legitimate Interest:</span> For security monitoring, fraud prevention, and service improvement</div>
+            <div class="list-item"><span class="highlight">Legal Obligation:</span> To comply with applicable laws and regulations</div>
+            <div class="list-item"><span class="highlight">Consent:</span> For marketing communications and optional features (where applicable)</div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.3 Categories of Personal Data Collected</h3>
+            <div class="data-categories">
+                <p class="content-text"><strong>We collect and process the following categories of personal data:</strong></p>
+                <div class="list-item">Identity Data: Name, username, title</div>
+                <div class="list-item">Contact Data: Email address, postal address, telephone numbers</div>
+                <div class="list-item">Financial Data: Payment card details, billing addresses, transaction history</div>
+                <div class="list-item">Technical Data: IP addresses, browser type, device information, usage data</div>
+                <div class="list-item">Profile Data: Account preferences, feedback, survey responses</div>
+                <div class="list-item">Usage Data: Service usage patterns, performance metrics, error logs</div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.4 Data Retention Periods</h3>
+            <table class="retention-table">
+                <thead>
+                    <tr>
+                        <th>Data Category</th>
+                        <th>Retention Period</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Account Information</td>
+                        <td>Duration of service + 7 years</td>
+                        <td>Legal/Tax obligations</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Data</td>
+                        <td>7 years from transaction</td>
+                        <td>Legal/Financial compliance</td>
+                    </tr>
+                    <tr>
+                        <td>Technical Logs</td>
+                        <td>12 months</td>
+                        <td>Security and troubleshooting</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing Data</td>
+                        <td>Until consent withdrawn</td>
+                        <td>Marketing communications</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.5 Data Subject Rights Under GDPR</h3>
+            <p class="content-text">You have the following rights regarding your personal data:</p>
+            <div class="list-item"><span class="highlight">Right of Access (Art. 15):</span> Request copies of your personal data</div>
+            <div class="list-item"><span class="highlight">Right to Rectification (Art. 16):</span> Request correction of inaccurate data</div>
+            <div class="list-item"><span class="highlight">Right to Erasure (Art. 17):</span> Request deletion of your data ("right to be forgotten")</div>
+            <div class="list-item"><span class="highlight">Right to Restrict Processing (Art. 18):</span> Request limitation of processing</div>
+            <div class="list-item"><span class="highlight">Right to Data Portability (Art. 20):</span> Request data in a portable format (applies only when processing is based on consent or contract and carried out by automated means)</div>
+            <div class="list-item"><span class="highlight">Right to Object (Art. 21):</span> Object to processing for direct marketing</div>
+            <div class="list-item"><span class="highlight">Right to Withdraw Consent (Art. 7):</span> Withdraw consent at any time</div>
+            
+            <div class="info-box">
+                <p class="content-text"><strong>Exercising Your Rights:</strong> To exercise these rights, contact us at <a href="mailto:dpo@swiftpeakhosting.com" class="contact-link">dpo@swiftpeakhosting.com</a>. We will respond within one month of receipt of your request. Identity verification may be required.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.6 International Data Transfers</h3>
+            <p class="content-text">Your data may be transferred to and processed in countries outside the European Economic Area (EEA). We ensure adequate protection through:</p>
+            <div class="list-item">European Commission adequacy decisions (for countries with adequate protection)</div>
+            <div class="list-item">Standard Contractual Clauses (SCCs) approved by the European Commission</div>
+            <div class="list-item">Binding Corporate Rules (where applicable)</div>
+            <div class="list-item">Appropriate technical and organizational security measures</div>
+            <p class="content-text">You have the right to obtain information about the safeguards in place for any international transfers of your data.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.7 Data Security Measures</h3>
+            <p class="content-text">We implement appropriate technical and organizational security measures including:</p>
+            <div class="list-item">Encryption of data in transit and at rest using industry-standard protocols</div>
+            <div class="list-item">Access controls and authentication mechanisms</div>
+            <div class="list-item">Regular security assessments and vulnerability testing</div>
+            <div class="list-item">Staff training on data protection and security practices</div>
+            <div class="list-item">Incident response procedures for data breaches</div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.8 Data Breach Notification</h3>
+            <p class="content-text">In accordance with GDPR Articles 33 and 34:</p>
+            <div class="list-item">We will notify the relevant supervisory authority within 72 hours of becoming aware of a personal data breach (unless unlikely to result in risk)</div>
+            <div class="list-item">We will notify affected data subjects without undue delay if the breach is likely to result in high risk to rights and freedoms</div>
+            <div class="list-item">All data breaches will be documented with facts, effects, and remedial actions taken</div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3.9 Cookies and Tracking Technologies</h3>
+            <p class="content-text">Our website uses cookies and similar tracking technologies. We obtain your consent for non-essential cookies in accordance with GDPR and ePrivacy regulations. You can manage cookie preferences through your browser settings or our cookie consent tool.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">4. Service Level Agreement and Compensation</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">4.1 Service Availability</h3>
+            <p class="content-text">We strive to maintain high service availability. However, we cannot guarantee uninterrupted service due to factors beyond our reasonable control, including scheduled maintenance, third-party dependencies, or force majeure events.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">4.2 Downtime Compensation</h3>
+            <p class="content-text">In the event that service downtime exceeds <span class="highlight">four (4) consecutive hours</span>, affected users will receive compensation in the form of three (3) additional days of service at no charge, or service credit equivalent to the duration of the service interruption.</p>
+        </div>
+
+        <div class="success-box">
+            <p class="content-text"><strong>Compensation Policy:</strong> Compensation will be applied automatically to your account or provided as service credit, at our discretion, within thirty (30) days of the qualifying downtime event.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">5. Payment Terms and Refund Policy</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">5.1 Payment Terms</h3>
+            <p class="content-text">Payment is due immediately upon subscription activation or service commencement. We accept various secure payment methods as displayed during the checkout process. All fees are non-refundable except as specifically provided in this Agreement.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">5.2 Refund Policy</h3>
+            <p class="content-text">Refunds are available <span class="highlight">only within forty-eight (48) hours of purchase</span> and only under specific qualifying conditions, including but not limited to:</p>
+            <div class="list-item">Technical issues that prevent the use of the service and cannot be resolved</div>
+            <div class="list-item">Service unavailability due to our technical failures</div>
+            <div class="list-item">Billing errors or unauthorized charges</div>
+            
+            <p class="content-text">Refund requests must be submitted within the forty-eight (48) hour window via our official support channels. After this period, all payments are considered final and non-refundable. We reserve the right to verify the validity of refund claims and may require evidence of technical issues or service disruption.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">5.3 GDPR Right to Refund</h3>
+            <p class="content-text">If you exercise your right to data erasure under GDPR Article 17 and this results in termination of services, you may be entitled to a pro-rata refund for unused services, subject to our standard refund conditions and legal obligations.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">6. Prohibited Activities and Acceptable Use</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">6.1 General Acceptable Use</h3>
+            <p class="content-text">Users agree to use our services only for lawful purposes and in accordance with these Terms. You shall not engage in activities that violate any applicable laws, regulations, or infringe upon the rights of others, including data protection laws.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">6.2 Strictly Prohibited Activities</h3>
+            <p class="content-text">The following activities are expressly prohibited:</p>
+            <div class="list-item">Distributed Denial of Service (DDoS) attacks or any hacking attempts</div>
+            <div class="list-item">Distribution, hosting, or transmission of malware, viruses, or other malicious software</div>
+            <div class="list-item">Illegal file sharing, copyright infringement, or intellectual property violations</div>
+            <div class="list-item">Spamming, phishing, or other fraudulent activities</div>
+            <div class="list-item">Activities that violate privacy rights or applicable data protection laws</div>
+            <div class="list-item">Processing personal data without appropriate legal basis</div>
+            <div class="list-item">Any activity that may harm our infrastructure or other users' services</div>
+        </div>
+
+        <div class="important-notice">
+            <p class="content-text"><strong>ENFORCEMENT:</strong> Violation of these prohibited activities may result in immediate account suspension or termination without notice, and we may cooperate with law enforcement agencies and data protection authorities as required by law.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">7. Account Termination and Data Handling</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">7.1 Termination Rights</h3>
+            <p class="content-text">Swift Peak Hosting reserves the right to suspend or terminate user accounts at our sole discretion for violations of these Terms, including but not limited to:</p>
+            <div class="list-item">Engagement in prohibited activities as outlined in Section 6</div>
+            <div class="list-item">Non-payment of fees or chargebacks</div>
+            <div class="list-item">Violation of our Acceptable Use Policy</div>
+            <div class="list-item">Fraudulent or abusive behavior</div>
+            <div class="list-item">Violation of data protection laws or regulations</div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">7.2 Effect of Termination and Data Handling</h3>
+            <p class="content-text">Upon termination, your right to access and use our services will cease immediately. In accordance with GDPR:</p>
+            <div class="list-item">We will retain your data only as required by legal obligations</div>
+            <div class="list-item">You may request data export before account closure</div>
+            <div class="list-item">Personal data will be securely deleted according to our retention schedule</div>
+            <div class="list-item">Backup data will be purged within our standard retention periods</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">8. Data Backup and User Responsibilities</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">8.1 Data Backup Recommendations</h3>
+            <p class="content-text">While certain services may include automated backup features, we <span class="highlight">strongly recommend that users maintain regular, independent backups</span> of their data. Swift Peak Hosting shall not be liable for data loss caused by user error, system failures, or external factors beyond our reasonable control.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">8.2 User Responsibility for Data Processing</h3>
+            <p class="content-text">If you process personal data of third parties using our services, you are responsible for:</p>
+            <div class="list-item">Obtaining appropriate consent or legal basis for processing</div>
+            <div class="list-item">Complying with applicable data protection laws</div>
+            <div class="list-item">Implementing appropriate security measures</div>
+            <div class="list-item">Providing necessary privacy notices to data subjects</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">9. Limitation of Liability and Disclaimers</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">9.1 Service Availability Disclaimer</h3>
+            <p class="content-text">While we strive to provide uninterrupted services, we cannot guarantee continuous availability due to circumstances beyond our reasonable control, including but not limited to force majeure events, third-party service dependencies, scheduled maintenance, or acts of government.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">9.2 Limitation of Liability</h3>
+            <p class="content-text">To the maximum extent permitted by applicable law, Swift Peak Hosting's total liability to you for any and all claims arising from or relating to these Terms or our services shall not exceed the amount paid by you for the services during the twelve (12) months preceding the event giving rise to liability. This limitation does not apply to data protection violations where unlimited liability may apply under GDPR.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">10. Governing Law and Dispute Resolution</h2>
+        
+        <div class="subsection">
+            <h3 class="subsection-title">10.1 Governing Law</h3>
+            <p class="content-text">These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Swift Peak Hosting is incorporated, without regard to conflict of law principles, except where GDPR or other EU data protection laws provide greater protection.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">10.2 Dispute Resolution</h3>
+            <p class="content-text">Any disputes arising from these Terms or our services shall be resolved through good faith negotiation. For data protection disputes, you may lodge a complaint with the relevant supervisory authority. If resolution cannot be achieved, disputes shall be subject to the exclusive jurisdiction of the courts in our jurisdiction of incorporation.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">11. Contact Information and Data Protection</h2>
+        
+        <div class="info-box">
+            <div class="subsection">
+                <h3 class="subsection-title">Official Contact Details:</h3>
+                <p class="content-text"><strong>General Support:</strong> <a href="mailto:support@swiftpeakhosting.com" class="contact-link">support@swiftpeakhosting.com</a></p>
+                <p class="content-text"><strong>Data Protection Officer:</strong> <a href="mailto:dpo@swiftpeakhosting.com" class="contact-link">dpo@swiftpeakhosting.com</a></p>
+                <p class="content-text"><strong>Legal Inquiries:</strong> <a href="mailto:legal@swiftpeakhosting.com" class="contact-link">legal@swiftpeakhosting.com</a></p>
+                <p class="content-text"><strong>Support Hours:</strong> Monday through Friday, 9:00 AM to 11:00 PM (Greenwich Mean Time)</p>
+                <p class="content-text"><strong>Response Time:</strong> We aim to respond to all inquiries within 24 hours during business hours, and to data protection requests within one month as required by GDPR.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="consent-section">
+        <h3 class="subsection-title">Consent and Acknowledgment</h3>
+        <p class="content-text">By using our services, you acknowledge that you have read and understood these Terms and Conditions, including our data processing practices. You confirm that you are authorized to agree to these terms and that you understand your rights under applicable data protection laws.</p>
+    </div>
+
+    <div class="footer">
+        <div class="signature-section">
+            <p class="content-text"><strong>Swift Peak Hosting Development Team</strong></p>
+            <p class="content-text">Authorized Representative & Data Controller</p>
+        </div>
+        
+        <div class="last-updated">
+            <p>Document Version 2.1 | Last Updated: 01/09/2025, UK date <br>
+            GDPR Compliant | © 2025 Swift Peak Hosting. All Rights Reserved.</p>
+        </div>
+    </div>
 </body>
 </html>
