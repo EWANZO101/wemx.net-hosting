@@ -38,190 +38,210 @@
       transform: translateY(-5px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-100 p-6 relative overflow-hidden">
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-100 relative">
 
   <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10">
+  <div class="fixed inset-0 opacity-10 pointer-events-none">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #10b981 2px, transparent 0), radial-gradient(circle at 75px 75px, #3b82f6 2px, transparent 0); background-size: 100px 100px;"></div>
   </div>
 
   <!-- Background Glow -->
-  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+  <div class="fixed top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="fixed bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-  <div class="relative z-10 max-w-5xl mx-auto space-y-8">
+  <div class="relative z-10 min-h-screen p-6">
+    <div class="max-w-5xl mx-auto space-y-8 pb-20">
 
-    <!-- Header -->
-    <div class="text-center mb-12 animate-fade-in">
-      <h1 class="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent mb-4">
-        SnailyCAD Activation Process
-      </h1>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-        Follow these simple steps to get your CAD system up and running
-      </p>
-    </div>
-
-    <!-- Important Notice -->
-    <div class="glass border-l-8 border-red-500 rounded-3xl p-8 animate-slide-up shadow-2xl">
-      <div class="flex items-start space-x-4">
-        <div class="flex-shrink-0">
-          <svg class="w-12 h-12 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-          </svg>
-        </div>
-        <div class="flex-1">
-          <h2 class="text-3xl font-bold text-red-400 mb-4">⚠️ Free Trial No Longer Available</h2>
-          <div class="text-lg text-gray-300 leading-relaxed space-y-2">
-            <p>The <strong class="text-red-300">14-day free trial</strong> for SnailyCAD has been discontinued.</p>
-            <p>We cannot update the official SnailyCAD documentation at this time, so please follow our updated activation process below.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Process Steps -->
-    <div class="grid gap-8">
-      
-      <!-- Step 1 -->
-      <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.1s;">
-        <div class="flex items-start space-x-6">
-          <div class="flex-shrink-0">
-            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg animate-pulse-glow">
-              1
-            </div>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-              <svg class="w-8 h-8 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m.6 0L6 3H4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path>
-              </svg>
-              Place Your Order
-            </h3>
-            <div class="text-lg text-gray-300 space-y-3">
-              <p><strong class="text-green-300">What happens:</strong> Complete your purchase through our secure checkout system.</p>
-              <p><strong class="text-blue-300">Timeline:</strong> Your CAD will be automatically deployed within <span class="bg-green-900/50 px-2 py-1 rounded font-semibold">2–12 hours</span> after payment confirmation.</p>
-              <p><strong class="text-yellow-300">What you need to do:</strong> Simply complete the payment process - everything else is automated!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.2s;">
-        <div class="flex items-start space-x-6">
-          <div class="flex-shrink-0">
-            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg">
-              2
-            </div>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-              <svg class="w-8 h-8 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-              </svg>
-              Provide Your Domain Information
-            </h3>
-            <div class="text-lg text-gray-300 space-y-3">
-              <p><strong class="text-green-300">What you need:</strong> A domain name for your CAD system.</p>
-              <div class="bg-gray-800/50 rounded-xl p-4 space-y-2">
-                <p><strong class="text-blue-300">Option 1 - Your Own Domain:</strong> Use a domain you already own (e.g., mycad.yourdomain.com)</p>
-                <p><strong class="text-purple-300">Option 2 - Free Subdomain:</strong> Get a free subdomain from us (e.g., yourcad.swiftpeak.net)</p>
-              </div>
-              <p><strong class="text-yellow-300">Where to include this:</strong> Add your domain choice in the <span class="bg-yellow-900/50 px-2 py-1 rounded font-semibold">checkout notes section</span> during purchase.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.3s;">
-        <div class="flex items-start space-x-6">
-          <div class="flex-shrink-0">
-            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg">
-              3
-            </div>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-              <svg class="w-8 h-8 mr-3 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
-              </svg>
-              Cloudflare Users Only
-            </h3>
-            <div class="text-lg text-gray-300 space-y-3">
-              <p><strong class="text-green-300">If you use Cloudflare:</strong> We need additional information for proper setup.</p>
-              <div class="bg-orange-900/20 border border-orange-500/30 rounded-xl p-4">
-                <p><strong class="text-orange-300">Required:</strong> Include your <span class="bg-orange-900/50 px-2 py-1 rounded font-mono">Debian install code</span> in the checkout notes.</p>
-                <p class="text-sm text-gray-400 mt-2">This ensures your CAD works properly with Cloudflare's proxy settings.</p>
-              </div>
-              <p><strong class="text-yellow-300">Don't use Cloudflare?</strong> You can skip this step completely!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 4 -->
-      <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.4s;">
-        <div class="flex items-start space-x-6">
-          <div class="flex-shrink-0">
-            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg">
-              ✓
-            </div>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-              <svg class="w-8 h-8 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Activation Complete!
-            </h3>
-            <div class="text-lg text-gray-300 space-y-3">
-              <p><strong class="text-green-300">What happens next:</strong> Our system automatically sets up your CAD.</p>
-              <p><strong class="text-blue-300">You'll receive:</strong> An email notification when your CAD is ready to use.</p>
-              <div class="bg-green-900/20 border border-green-500/30 rounded-xl p-4">
-                <p><strong class="text-green-300">Normal behavior:</strong> You may see temporary errors during the initial setup process - this is completely normal and will resolve automatically.</p>
-              </div>
-              <p><strong class="text-yellow-300">Ready to go:</strong> Once complete, you can start using your fully functional SnailyCAD system!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pricing CTA -->
-    <div class="glass rounded-3xl p-10 animate-slide-up text-center shadow-2xl" style="animation-delay: 0.5s;">
-      <div class="space-y-6">
-        <h3 class="text-3xl font-bold text-white">Ready to Get Started?</h3>
+      <!-- Header -->
+      <div class="text-center mb-12 animate-fade-in">
+        <h1 class="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent mb-4">
+          SnailyCAD Activation Process
+        </h1>
         <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-          View our transparent pricing plans and choose the perfect solution for your department's needs.
+          Follow these simple steps to get your CAD system up and running
         </p>
-        <a href="https://wemx.swiftpeakhosting.com/SnailyCAD" target="_blank" 
-           class="inline-flex items-center px-10 py-5 gradient-border rounded-2xl text-white text-xl font-bold hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 transition-all duration-300 group animate-pulse-glow">
-          <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-          </svg>
-          View Pricing Plans
-          <svg class="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
       </div>
-    </div>
 
-    <!-- Footer -->
-    <footer class="text-center pt-12 pb-8">
-      <div class="space-y-4">
-        <div class="inline-flex items-center justify-center space-x-3 text-gray-300 mb-4">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
-          <span class="text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">SwiftPeak Hosting</span>
+      <!-- Important Notice -->
+      <div class="glass border-l-8 border-red-500 rounded-3xl p-8 animate-slide-up shadow-2xl">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0">
+            <svg class="w-12 h-12 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h2 class="text-3xl font-bold text-red-400 mb-4">⚠️ Free Trial No Longer Available</h2>
+            <div class="text-lg text-gray-300 leading-relaxed space-y-2">
+              <p>The <strong class="text-red-300">14-day free trial</strong> for SnailyCAD has been discontinued.</p>
+              <p>We cannot update the official SnailyCAD documentation at this time, so please follow our updated activation process below.</p>
+            </div>
+          </div>
         </div>
-        <p class="text-gray-400 text-lg">Professional CAD Solutions • Enterprise-Grade Infrastructure • 24/7 Support</p>
       </div>
-    </footer>
+
+      <!-- Process Steps -->
+      <div class="grid gap-8">
+        
+        <!-- Step 1 -->
+        <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.1s;">
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg animate-pulse-glow">
+                1
+              </div>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                <svg class="w-8 h-8 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m.6 0L6 3H4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path>
+                </svg>
+                Place Your Order
+              </h3>
+              <div class="text-lg text-gray-300 space-y-3">
+                <p><strong class="text-green-300">What happens:</strong> Complete your purchase through our secure checkout system.</p>
+                <p><strong class="text-blue-300">Timeline:</strong> Your CAD will be automatically deployed within <span class="bg-green-900/50 px-2 py-1 rounded font-semibold">2–12 hours</span> after payment confirmation.</p>
+                <p><strong class="text-yellow-300">What you need to do:</strong> Simply complete the payment process - everything else is automated!</p>
+                
+                <!-- NEW: Checkout Processing Warning -->
+                <div class="bg-yellow-900/30 border border-yellow-500/40 rounded-xl p-4 mt-4">
+                  <div class="flex items-start space-x-3">
+                    <svg class="w-6 h-6 text-yellow-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div>
+                      <p class="font-semibold text-yellow-300 mb-2">⏱️ Important: Checkout Processing Time</p>
+                      <p class="text-yellow-100">When you click the checkout button, your order can take <strong>1-3 minutes</strong> to process. Please <strong class="text-red-300">DO NOT refresh or exit the page</strong> during this time - just wait patiently for the confirmation!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.2s;">
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg">
+                2
+              </div>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                <svg class="w-8 h-8 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                </svg>
+                Provide Your Domain Information
+              </h3>
+              <div class="text-lg text-gray-300 space-y-3">
+                <p><strong class="text-green-300">What you need:</strong> A domain name for your CAD system.</p>
+                <div class="bg-gray-800/50 rounded-xl p-4 space-y-2">
+                  <p><strong class="text-blue-300">Option 1 - Your Own Domain:</strong> Use a domain you already own (e.g., mycad.yourdomain.com)</p>
+                  <p><strong class="text-purple-300">Option 2 - Free Subdomain:</strong> Get a free subdomain from us (e.g., yourcad.swiftpeak.net)</p>
+                </div>
+                <p><strong class="text-yellow-300">Where to include this:</strong> Add your domain choice in the <span class="bg-yellow-900/50 px-2 py-1 rounded font-semibold">checkout notes section</span> during purchase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.3s;">
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg">
+                3
+              </div>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                <svg class="w-8 h-8 mr-3 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                </svg>
+                Cloudflare Users Only
+              </h3>
+              <div class="text-lg text-gray-300 space-y-3">
+                <p><strong class="text-green-300">If you use Cloudflare:</strong> We need additional information for proper setup.</p>
+                <div class="bg-orange-900/20 border border-orange-500/30 rounded-xl p-4">
+                  <p><strong class="text-orange-300">Required:</strong> Include your <span class="bg-orange-900/50 px-2 py-1 rounded font-mono">Debian install code</span> in the checkout notes.</p>
+                  <p class="text-sm text-gray-400 mt-2">This ensures your CAD works properly with Cloudflare's proxy settings.</p>
+                </div>
+                <p><strong class="text-yellow-300">Don't use Cloudflare?</strong> You can skip this step completely!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glass rounded-3xl p-8 step-card animate-slide-up shadow-2xl" style="animation-delay: 0.4s;">
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-400 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shadow-lg">
+                ✓
+              </div>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                <svg class="w-8 h-8 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Activation Complete!
+              </h3>
+              <div class="text-lg text-gray-300 space-y-3">
+                <p><strong class="text-green-300">What happens next:</strong> Our system automatically sets up your CAD.</p>
+                <p><strong class="text-blue-300">You'll receive:</strong> An email notification when your CAD is ready to use.</p>
+                <div class="bg-green-900/20 border border-green-500/30 rounded-xl p-4">
+                  <p><strong class="text-green-300">Normal behavior:</strong> You may see temporary errors during the initial setup process - this is completely normal and will resolve automatically.</p>
+                </div>
+                <p><strong class="text-yellow-300">Ready to go:</strong> Once complete, you can start using your fully functional SnailyCAD system!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing CTA -->
+      <div class="glass rounded-3xl p-10 animate-slide-up text-center shadow-2xl" style="animation-delay: 0.5s;">
+        <div class="space-y-6">
+          <h3 class="text-3xl font-bold text-white">Ready to Get Started?</h3>
+          <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+            View our transparent pricing plans and choose the perfect solution for your department's needs.
+          </p>
+          <a href="https://wemx.swiftpeakhosting.com/SnailyCAD" target="_blank" 
+             class="inline-flex items-center px-10 py-5 gradient-border rounded-2xl text-white text-xl font-bold hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 transition-all duration-300 group animate-pulse-glow">
+            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            View Pricing Plans
+            <svg class="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-center pt-12 pb-8">
+        <div class="space-y-4">
+          <div class="inline-flex items-center justify-center space-x-3 text-gray-300 mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+            <span class="text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">SwiftPeak Hosting</span>
+          </div>
+          <p class="text-gray-400 text-lg">Professional CAD Solutions • Enterprise-Grade Infrastructure • 24/7 Support</p>
+        </div>
+      </footer>
+
+    </div>
   </div>
 </body>
 </html>
