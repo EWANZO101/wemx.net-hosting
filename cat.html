@@ -8,483 +8,442 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .service-card {
-            background: linear-gradient(145deg, #374151, #4b5563);
-            border: 1px solid #4b5563;
+        .price-card {
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid #374151;
+            backdrop-filter: blur(10px);
         }
-        .service-card:hover {
-            border-color: #6b7280;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        .price-card:hover {
+            border-color: #6366f1;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .popular-card {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
-        }
-        .feature-badge {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         }
     </style>
 </head>
 <body class="gradient-bg text-white min-h-screen">
-    <!-- Header -->
-    <header class="bg-gray-800/80 backdrop-blur-lg shadow-2xl border-b border-gray-700">
-        <div class="container mx-auto px-6 py-6">
+    <!-- Compact Header -->
+    <header class="bg-gray-900/90 backdrop-blur-sm border-b border-gray-700">
+        <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-lg">
-                        <i class="fas fa-cloud text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-2xl font-bold text-white">CloudHost Services</h1>
-                        <p class="text-gray-400 text-sm">Premium Hosting Solutions</p>
-                    </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-cloud text-blue-500 text-xl"></i>
+                    <h1 class="text-xl font-bold text-white">CloudHost Services</h1>
                 </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-105">Home</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-105">Services</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-105">Support</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-105">Contact</a>
+                <nav class="hidden md:flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative py-20 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
-                    Our Hosting <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Categories</span>
-                </h2>
-                <p class="text-xl text-gray-300 mb-8 leading-relaxed">Choose from our comprehensive range of cloud hosting solutions designed to meet your specific needs with enterprise-grade performance and reliability.</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="feature-badge px-4 py-2 rounded-full text-sm">
-                        <i class="fas fa-shield-alt text-green-400 mr-2"></i>
-                        99.9% Uptime
-                    </div>
-                    <div class="feature-badge px-4 py-2 rounded-full text-sm">
-                        <i class="fas fa-headset text-blue-400 mr-2"></i>
-                        24/7 Support
-                    </div>
-                    <div class="feature-badge px-4 py-2 rounded-full text-sm">
-                        <i class="fas fa-rocket text-purple-400 mr-2"></i>
-                        High Performance
-                    </div>
-                </div>
-            </div>
+    <!-- Compact Hero -->
+    <section class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Choose Your Hosting Plan</h2>
+            <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto">Select from our range of specialized hosting solutions designed for your specific needs</p>
         </div>
     </section>
 
-    <!-- Services Grid -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <!-- Main Services Grid - 4 columns on xl, 3 on lg, 2 on md, 1 on sm -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+    <!-- Price Cards Grid -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 
                 <!-- Cloud Hosting Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-server text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">Cloud Hosting</h3>
+                <div class="price-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-server text-white"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white">Cloud Hosting</h3>
+                        <p class="text-gray-400 text-xs mt-1">General Purpose</p>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Reliable and scalable cloud hosting solutions for your websites and applications.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>99.9% Uptime Guarantee</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>SSD Storage</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>24/7 Support</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                            Learn More
-                        </button>
-                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            99.9% Uptime SLA
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            SSD Storage
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            24/7 Support
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Free SSL Certificate
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Daily Backups
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm">
+                        Get Started
+                    </button>
                 </div>
 
                 <!-- SnailyCAD Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-shield-alt text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">SnailyCAD</h3>
+                <div class="price-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-shield-alt text-white"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white">SnailyCAD</h3>
+                        <p class="text-gray-400 text-xs mt-1">Specialized</p>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Specialized hosting for SnailyCAD applications with optimized performance.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Pre-configured Environment</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Auto Backups</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Easy Updates</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                            Learn More
-                        </button>
-                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Pre-configured Setup
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Auto Updates
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Database Included
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Expert Support
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Performance Monitoring
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm">
+                        Get Started
+                    </button>
                 </div>
 
-                <!-- WEMX Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-cogs text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">WEMX</h3>
-                        </div>
+                <!-- WEMX Card - Popular -->
+                <div class="price-card popular-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">Popular</span>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Advanced hosting solutions with WEMX management panel integration.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Intuitive Panel</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Resource Monitoring</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Custom Configurations</span>
-                            </div>
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-cogs text-white"></i>
                         </div>
-                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                            Learn More
-                        </button>
+                        <h3 class="text-lg font-bold text-white">WEMX</h3>
+                        <p class="text-gray-400 text-xs mt-1">Advanced</p>
                     </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Intuitive Control Panel
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Resource Monitoring
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Custom Configurations
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            API Access
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Priority Support
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm">
+                        Get Started
+                    </button>
                 </div>
 
                 <!-- Paymenter Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-credit-card text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">Paymenter</h3>
+                <div class="price-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1 opacity-75">
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-credit-card text-white"></i>
                         </div>
-                        <div class="absolute top-4 right-4 bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-semibold">
-                            Soon
-                        </div>
+                        <h3 class="text-lg font-bold text-white">Paymenter</h3>
+                        <p class="text-orange-400 text-xs mt-1">Coming Soon</p>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Payment processing solutions with cPanel integration for seamless billing.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-clock text-yellow-500 mr-2 text-xs"></i>
-                                <span>cPanel Integration</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-clock text-yellow-500 mr-2 text-xs"></i>
-                                <span>Secure Payments</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-clock text-yellow-500 mr-2 text-xs"></i>
-                                <span>Multi-Currency Support</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-orange-600 opacity-75 cursor-not-allowed text-white font-semibold py-2.5 px-4 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-clock mr-2"></i>
-                            Coming Soon
-                        </button>
-                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-clock text-orange-500 mr-2 text-xs"></i>
+                            cPanel Integration
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-clock text-orange-500 mr-2 text-xs"></i>
+                            Secure Payments
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-clock text-orange-500 mr-2 text-xs"></i>
+                            Multi-Currency
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-clock text-orange-500 mr-2 text-xs"></i>
+                            Automated Billing
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-clock text-orange-500 mr-2 text-xs"></i>
+                            Custom Invoicing
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-orange-600 text-white font-medium py-2.5 px-4 rounded-md cursor-not-allowed opacity-60 text-sm" disabled>
+                        Coming Soon
+                    </button>
                 </div>
 
                 <!-- Pterodactyl Panel Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-gamepad text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">Pterodactyl Panel</h3>
+                <div class="price-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-gamepad text-white"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white">Pterodactyl Panel</h3>
+                        <p class="text-gray-400 text-xs mt-1">Game Servers</p>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Game server hosting with powerful Pterodactyl panel management.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Game Server Management</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Real-time Monitoring</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>File Manager</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                            Learn More
-                        </button>
-                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Game Server Management
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Real-time Monitoring
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            File Manager
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            User Permissions
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Backup System
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm">
+                        Get Started
+                    </button>
                 </div>
 
                 <!-- Pterodactyl Node Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-network-wired text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">Pterodactyl Node</h3>
+                <div class="price-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-network-wired text-white"></i>
                         </div>
-                        <div class="absolute top-4 right-4 bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-semibold">
-                            Limited
-                        </div>
+                        <h3 class="text-lg font-bold text-white">Pterodactyl Node</h3>
+                        <p class="text-yellow-400 text-xs mt-1">Limited Stock</p>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Limited availability nodes for high-performance game server hosting.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
-                                <span>Premium Performance</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
-                                <span>Dedicated Resources</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-exclamation-triangle text-yellow-500 mr-2 text-xs"></i>
-                                <span>Limited Availability</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                            Check Availability
-                        </button>
-                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Premium Performance
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Dedicated Resources
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Priority Queue
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Enhanced Security
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mr-2 text-xs"></i>
+                            Limited Availability
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm">
+                        Check Stock
+                    </button>
                 </div>
 
                 <!-- Pelican Panel Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-teal-600 to-teal-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-feather-alt text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">Pelican Panel</h3>
+                <div class="price-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-feather-alt text-white"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white">Pelican Panel</h3>
+                        <p class="text-gray-400 text-xs mt-1">Next-Gen</p>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Modern game server management with the next-generation Pelican panel.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Modern Interface</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>Enhanced Security</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
-                                <span>API Integration</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                            Learn More
-                        </button>
-                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Modern Interface
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Enhanced Security
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            API Integration
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Docker Support
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                            Advanced Analytics
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm">
+                        Get Started
+                    </button>
                 </div>
 
                 <!-- Pelican Wings Card -->
-                <div class="service-card rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div class="bg-gradient-to-r from-cyan-600 to-cyan-700 p-6 relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                        <div class="flex items-center space-x-3 relative z-10">
-                            <i class="fas fa-dove text-white text-2xl"></i>
-                            <h3 class="text-lg font-bold text-white">Pelican Wings</h3>
+                <div class="price-card rounded-lg p-5 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                    <div class="text-center mb-4">
+                        <div class="w-12 h-12 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-dove text-white"></i>
                         </div>
-                        <div class="absolute top-4 right-4 bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-semibold">
-                            Limited
-                        </div>
+                        <h3 class="text-lg font-bold text-white">Pelican Wings</h3>
+                        <p class="text-yellow-400 text-xs mt-1">Limited Stock</p>
                     </div>
-                    <div class="p-5">
-                        <p class="text-gray-400 text-sm mb-4">Premium Pelican hosting with Wings daemon integration - limited availability.</p>
-                        <div class="space-y-2 mb-5">
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
-                                <span>Wings Integration</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
-                                <span>Enhanced Performance</span>
-                            </div>
-                            <div class="flex items-center text-xs text-gray-300">
-                                <i class="fas fa-exclamation-triangle text-yellow-500 mr-2 text-xs"></i>
-                                <span>Limited Availability</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                            Check Availability
-                        </button>
-                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Wings Integration
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Enhanced Performance
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Advanced Monitoring
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-star text-yellow-500 mr-2 text-xs"></i>
+                            Premium Features
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mr-2 text-xs"></i>
+                            Limited Availability
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm">
+                        Check Stock
+                    </button>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="py-16 bg-gray-800/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white mb-4">Why Choose Our Services?</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">We provide enterprise-grade hosting solutions with cutting-edge technology and unmatched support.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-rocket text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-semibold text-white mb-2">High Performance</h4>
-                    <p class="text-gray-400 text-sm">Optimized infrastructure for maximum speed and reliability.</p>
+    <!-- Compact Features -->
+    <section class="py-8 bg-gray-900/50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <i class="fas fa-shield-alt text-blue-500 text-2xl mb-2"></i>
+                    <h4 class="text-white font-medium text-sm">Secure</h4>
+                    <p class="text-gray-400 text-xs">Enterprise Security</p>
                 </div>
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-green-500 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-semibold text-white mb-2">Secure Hosting</h4>
-                    <p class="text-gray-400 text-sm">Advanced security measures to protect your data and applications.</p>
+                <div>
+                    <i class="fas fa-rocket text-green-500 text-2xl mb-2"></i>
+                    <h4 class="text-white font-medium text-sm">Fast</h4>
+                    <p class="text-gray-400 text-xs">High Performance</p>
                 </div>
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-orange-500 to-red-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-headset text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-semibold text-white mb-2">24/7 Support</h4>
-                    <p class="text-gray-400 text-sm">Round-the-clock expert support whenever you need assistance.</p>
+                <div>
+                    <i class="fas fa-headset text-purple-500 text-2xl mb-2"></i>
+                    <h4 class="text-white font-medium text-sm">Support</h4>
+                    <p class="text-gray-400 text-xs">24/7 Available</p>
                 </div>
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-purple-500 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-expand-arrows-alt text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-semibold text-white mb-2">Scalable Solutions</h4>
-                    <p class="text-gray-400 text-sm">Easily scale your resources as your business grows.</p>
+                <div>
+                    <i class="fas fa-expand-arrows-alt text-orange-500 text-2xl mb-2"></i>
+                    <h4 class="text-white font-medium text-sm">Scalable</h4>
+                    <p class="text-gray-400 text-xs">Grows With You</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
-                <div class="absolute inset-0 bg-black/20"></div>
-                <div class="relative z-10">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Started?</h3>
-                    <p class="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">Our expert team can help you select the perfect hosting solution for your specific requirements. Get started today with a free consultation.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="bg-white text-blue-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg">
-                            <i class="fas fa-phone mr-2"></i>
-                            Contact Sales
-                        </button>
-                        <button class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
-                            <i class="fas fa-comments mr-2"></i>
-                            Live Chat
-                        </button>
-                        <button class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
-                            <i class="fas fa-calculator mr-2"></i>
-                            Price Calculator
-                        </button>
-                    </div>
+    <!-- Compact CTA -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6 text-center">
+                <h3 class="text-2xl font-bold text-white mb-2">Need Help Choosing?</h3>
+                <p class="text-blue-100 mb-4 text-sm">Our experts can help you find the perfect solution</p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <button class="bg-white text-blue-600 font-medium py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-sm">
+                        Contact Sales
+                    </button>
+                    <button class="border border-white text-white font-medium py-2 px-6 rounded-md hover:bg-white hover:text-blue-600 transition-colors text-sm">
+                        Live Chat
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+    <!-- Compact Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
                 <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
-                            <i class="fas fa-cloud text-white text-xl"></i>
-                        </div>
-                        <span class="text-xl font-bold text-white">CloudHost</span>
+                    <div class="flex items-center space-x-2 mb-2">
+                        <i class="fas fa-cloud text-blue-500"></i>
+                        <span class="font-bold text-white">CloudHost</span>
                     </div>
-                    <p class="text-gray-400 text-sm mb-4">Reliable cloud hosting solutions for businesses of all sizes with enterprise-grade performance and security.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-github"></i>
-                        </a>
+                    <p class="text-gray-400 text-xs">Premium hosting solutions</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-medium mb-2 text-sm">Services</h4>
+                    <div class="grid grid-cols-2 gap-1 text-xs text-gray-400">
+                        <a href="#" class="hover:text-white">Cloud Hosting</a>
+                        <a href="#" class="hover:text-white">Game Servers</a>
+                        <a href="#" class="hover:text-white">Managed Hosting</a>
+                        <a href="#" class="hover:text-white">Support</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Cloud Hosting</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Game Servers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Managed Hosting</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Premium Support</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Support</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Support Tickets</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Knowledge Base</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Community Forum</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-blue-400"></i>
-                            support@cloudhost.com
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-blue-400"></i>
-                            +1 (555) 123-4567
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-clock mr-2 text-blue-400"></i>
-                            24/7 Support Available
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
-                            Global Data Centers
-                        </li>
-                    </ul>
+                    <h4 class="text-white font-medium mb-2 text-sm">Contact</h4>
+                    <div class="text-xs text-gray-400 space-y-1">
+                        <p>support@cloudhost.com</p>
+                        <p>24/7 Support Available</p>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2024 CloudHost Services. All rights reserved.</p>
-                <div class="flex space-x-6 text-sm text-gray-400">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition-colors">Security</a>
-                </div>
+            <div class="border-t border-gray-800 pt-4 text-center">
+                <p class="text-gray-400 text-xs">&copy; 2024 CloudHost Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
