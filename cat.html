@@ -18,6 +18,32 @@
             box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.4);
             transform: translateY(-2px);
         }
+        .service-card.available {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        .service-card.available:hover {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+        .service-card.limited {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.05);
+        }
+        .service-card.limited:hover {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+        .service-card.coming-soon {
+            border-color: #6b7280;
+            background: rgba(107, 114, 128, 0.05);
+            opacity: 0.7;
+        }
+        .service-card.unavailable {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+            opacity: 0.6;
+        }
         .service-card.expanded {
             border-color: #3b82f6;
             background: rgba(59, 130, 246, 0.1);
@@ -49,11 +75,39 @@
         }
         .status-badge {
             font-size: 0.65rem;
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.025em;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .status-badge.available {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+        .status-badge.limited {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid #f59e0b;
+        }
+        .status-badge.coming-soon {
+            background: rgba(107, 114, 128, 0.2);
+            color: #9ca3af;
+            border: 1px solid #6b7280;
+        }
+        .status-badge.unavailable {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+        .availability-legend {
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid #374151;
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -81,7 +135,7 @@
                                     <i class="fas fa-server mr-2 text-blue-500"></i>Cloud Hosting
                                 </a>
                                 <a href="#specialized" class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
-                                    <i class="fas fa-cogs mr-2 text-purple-500"></i>Specialized Solutions
+                                    <i class="fas fa-cogs mr-2 text-purple-500"></i>Software Applications
                                 </a>
                                 <a href="#gaming" class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
                                     <i class="fas fa-gamepad mr-2 text-red-500"></i>Game Servers
@@ -127,9 +181,28 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Choose Your Perfect Hosting Solution</h2>
             <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-8">Discover our comprehensive range of hosting services designed for every need - from simple websites to complex applications</p>
-            <div class="flex justify-center space-x-4">
-                <span class="status-badge bg-green-900 text-green-300">All Systems Operational</span>
-                <span class="status-badge bg-blue-900 text-blue-300">24/7 Support Available</span>
+            <div class="flex justify-center space-x-4 mb-6">
+                <span class="status-badge available"><i class="fas fa-check-circle"></i>All Systems Operational</span>
+                <span class="status-badge available"><i class="fas fa-headset"></i>24/7 Support Available</span>
+            </div>
+            
+            <!-- Availability Legend -->
+            <div class="availability-legend inline-block rounded-lg p-4 mb-8">
+                <h4 class="text-sm font-semibold text-white mb-3">Service Availability Legend:</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                    <div class="flex items-center space-x-2">
+                        <span class="status-badge available"><i class="fas fa-check-circle"></i>Available</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="status-badge limited"><i class="fas fa-exclamation-triangle"></i>Limited Stock</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="status-badge coming-soon"><i class="fas fa-clock"></i>Coming Soon</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="status-badge unavailable"><i class="fas fa-times-circle"></i>Unavailable</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -157,12 +230,12 @@
                     <div class="dropdown-content mt-6" id="cloud-content">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <!-- Cloud Hosting Card -->
-                            <div class="service-card rounded-lg p-6">
+                            <div class="service-card available rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-server text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-green-900 text-green-300">unAvailable</span>
+                                    <span class="status-badge available"><i class="fas fa-check-circle"></i>Available</span>
                                 </div>
                                 
                                 <h4 class="text-xl font-bold text-white mb-2">Standard Cloud</h4>
@@ -184,21 +257,21 @@
                                     </ul>
                                 </div>
                                 
-                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
-                                    Get Started
+                                <button class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
+                                    <i class="fas fa-rocket mr-2"></i>Get Started Now
                                 </button>
                             </div>
 
                             <!-- cPanel Hosting -->
-                            <div class="service-card rounded-lg p-6">
+                            <div class="service-card coming-soon rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-tools text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-green-900 text-green-300">unAvailable</span>
+                                    <span class="status-badge coming-soon"><i class="fas fa-clock"></i>Coming Soon</span>
                                 </div>
                                 
-                                <h4 class="text-xl font-bold text-white mb-2">cPanel Hosting (coming soon)</h4>
+                                <h4 class="text-xl font-bold text-white mb-2">cPanel Hosting</h4>
                                 <p class="text-gray-400 text-sm mb-4">Easy-to-use web hosting control panel</p>
                                 
                                 <button onclick="toggleServiceDetails('cpanel')" class="text-yellow-400 hover:text-yellow-300 text-sm mb-4 flex items-center">
@@ -208,16 +281,19 @@
                                 
                                 <div class="dropdown-content" id="cpanel-content">
                                     <ul class="space-y-2 text-sm text-gray-300 mb-6">
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Easy Website Management</li>
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Email Management</li>
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Database Access</li>
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>One-Click Installs</li>
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>File Manager</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-yellow-500 mr-2"></i>Easy Website Management</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-yellow-500 mr-2"></i>Email Management</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-yellow-500 mr-2"></i>Database Access</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-yellow-500 mr-2"></i>One-Click Installs</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-yellow-500 mr-2"></i>File Manager</li>
                                     </ul>
+                                    <div class="bg-yellow-900/20 border border-yellow-700 rounded-lg p-3 mb-4">
+                                        <p class="text-yellow-200 text-xs"><i class="fas fa-info-circle mr-2"></i><strong>Expected Launch:</strong> Q2 2025</p>
+                                    </div>
                                 </div>
                                 
-                                <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
-                                    Get Started
+                                <button class="w-full bg-gray-600 text-gray-300 font-medium py-3 px-4 rounded-lg cursor-not-allowed" disabled>
+                                    <i class="fas fa-bell mr-2"></i>Notify When Available
                                 </button>
                             </div>
                         </div>
@@ -225,7 +301,7 @@
                 </div>
             </div>
 
-            <!-- Business Applications Category -->
+            <!-- Software Applications Category -->
             <div class="mb-8">
                 <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
                     <button onclick="toggleCategory('specialized')" class="w-full flex items-center justify-between text-left">
@@ -234,7 +310,7 @@
                                 <i class="fas fa-briefcase text-white text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-bold text-white">software/game Applications</h3>
+                                <h3 class="text-2xl font-bold text-white">Software Applications</h3>
                                 <p class="text-gray-400">Specialized hosting for business management tools</p>
                             </div>
                         </div>
@@ -244,12 +320,12 @@
                     <div class="dropdown-content mt-6" id="specialized-content">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <!-- SnailyCAD -->
-                            <div class="service-card rounded-lg p-6">
+                            <div class="service-card available rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-shield-alt text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-green-900 text-green-300">Available</span>
+                                    <span class="status-badge available"><i class="fas fa-check-circle"></i>Available</span>
                                 </div>
                                 
                                 <h4 class="text-xl font-bold text-white mb-2">SnailyCAD</h4>
@@ -271,12 +347,12 @@
                                 </div>
                                 
                                 <button class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
-                                    Get Started
+                                    <i class="fas fa-rocket mr-2"></i>Get Started Now
                                 </button>
                             </div>
 
                             <!-- WEMX - Popular -->
-                            <div class="service-card rounded-lg p-6 relative">
+                            <div class="service-card available rounded-lg p-6 relative">
                                 <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
                                     <span class="popular-badge text-white text-xs px-3 py-1 rounded-full font-medium">Most Popular</span>
                                 </div>
@@ -284,7 +360,7 @@
                                     <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-cogs text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-green-900 text-green-300">Available</span>
+                                    <span class="status-badge available"><i class="fas fa-check-circle"></i>Available</span>
                                 </div>
                                 
                                 <h4 class="text-xl font-bold text-white mb-2">WEMX</h4>
@@ -305,29 +381,30 @@
                                     </ul>
                                 </div>
                                 
-                                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
-                                    Get Started
+                                <button class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
+                                    <i class="fas fa-rocket mr-2"></i>Get Started Now
                                 </button>
                             </div>
 
                             <!-- Paymenter -->
-                            <div class="service-card rounded-lg p-6 opacity-75">
+                            <div class="service-card coming-soon rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-credit-card text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-orange-900 text-orange-300">Coming Soon</span>
+                                    <span class="status-badge coming-soon"><i class="fas fa-clock"></i>Coming Soon</span>
                                 </div>
                                 
-                                <h4 class="text-xl font-bold text-white mb-2">Paymenter (coming soon )</h4>
+                                <h4 class="text-xl font-bold text-white mb-2">Paymenter</h4>
                                 <p class="text-gray-400 text-sm mb-4">Billing and payment management system</p>
                                 
-                                <div class="text-sm text-gray-400 mb-6">
-                                    <p>Advanced billing platform launching Q2 2025</p>
+                                <div class="bg-orange-900/20 border border-orange-700 rounded-lg p-3 mb-6">
+                                    <p class="text-orange-200 text-xs"><i class="fas fa-info-circle mr-2"></i><strong>Expected Launch:</strong> Q2 2025</p>
+                                    <p class="text-orange-300 text-xs mt-1">Advanced billing platform with payment processing</p>
                                 </div>
                                 
-                                <button class="w-full bg-orange-600 text-white font-medium py-3 px-4 rounded-lg cursor-not-allowed opacity-60" disabled>
-                                    Notify Me
+                                <button class="w-full bg-gray-600 text-gray-300 font-medium py-3 px-4 rounded-lg cursor-not-allowed" disabled>
+                                    <i class="fas fa-bell mr-2"></i>Notify When Available
                                 </button>
                             </div>
                         </div>
@@ -354,12 +431,12 @@
                     <div class="dropdown-content mt-6" id="gaming-content">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <!-- Pterodactyl Panel -->
-                            <div class="service-card rounded-lg p-6">
+                            <div class="service-card available rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-gamepad text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-green-900 text-green-300">Available</span>
+                                    <span class="status-badge available"><i class="fas fa-check-circle"></i>Available</span>
                                 </div>
                                 
                                 <h4 class="text-lg font-bold text-white mb-2">Pterodactyl Panel</h4>
@@ -379,18 +456,18 @@
                                     </ul>
                                 </div>
                                 
-                                <button class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors text-sm">
-                                    Get Started
+                                <button class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors text-sm">
+                                    <i class="fas fa-rocket mr-1"></i>Get Started
                                 </button>
                             </div>
 
                             <!-- Pterodactyl Node -->
-                            <div class="service-card rounded-lg p-6">
+                            <div class="service-card limited rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-network-wired text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-yellow-900 text-yellow-300">Limited</span>
+                                    <span class="status-badge limited"><i class="fas fa-exclamation-triangle"></i>Limited</span>
                                 </div>
                                 
                                 <h4 class="text-lg font-bold text-white mb-2">Pterodactyl Node</h4>
@@ -406,25 +483,25 @@
                                         <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>Premium Performance</li>
                                         <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>Dedicated Resources</li>
                                         <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>Priority Queue</li>
-                                        <li class="flex items-center"><i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>Limited Stock</li>
+                                        <li class="flex items-center"><i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>Only 3 slots left</li>
                                     </ul>
                                 </div>
                                 
-                                <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors text-sm">
-                                    Check Stock
+                                <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors text-sm">
+                                    <i class="fas fa-bolt mr-1"></i>Check Stock
                                 </button>
                             </div>
 
                             <!-- Pelican Panel -->
-                            <div class="service-card rounded-lg p-6">
+                            <div class="service-card coming-soon rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-feather-alt text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-green-900 text-green-300">Available</span>
+                                    <span class="status-badge coming-soon"><i class="fas fa-clock"></i>Coming Soon</span>
                                 </div>
                                 
-                                <h4 class="text-lg font-bold text-white mb-2">Pelican Panel (coming soon)</h4>
+                                <h4 class="text-lg font-bold text-white mb-2">Pelican Panel</h4>
                                 <p class="text-gray-400 text-xs mb-4">Next-generation platform</p>
                                 
                                 <button onclick="toggleServiceDetails('pelican')" class="text-teal-400 hover:text-teal-300 text-sm mb-4 flex items-center">
@@ -434,28 +511,31 @@
                                 
                                 <div class="dropdown-content" id="pelican-content">
                                     <ul class="space-y-1 text-xs text-gray-300 mb-4">
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Modern Interface</li>
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Enhanced Security</li>
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>API Integration</li>
-                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Docker Support</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-teal-500 mr-2"></i>Modern Interface</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-teal-500 mr-2"></i>Enhanced Security</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-teal-500 mr-2"></i>API Integration</li>
+                                        <li class="flex items-center"><i class="fas fa-clock text-teal-500 mr-2"></i>Docker Support</li>
                                     </ul>
+                                    <div class="bg-teal-900/20 border border-teal-700 rounded-lg p-2 mb-2">
+                                        <p class="text-teal-200 text-xs"><i class="fas fa-info-circle mr-1"></i><strong>ETA:</strong> Q3 2025</p>
+                                    </div>
                                 </div>
                                 
-                                <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors text-sm">
-                                    Get Started
+                                <button class="w-full bg-gray-600 text-gray-300 font-medium py-2.5 px-4 rounded-lg cursor-not-allowed text-sm" disabled>
+                                    <i class="fas fa-bell mr-1"></i>Notify Me
                                 </button>
                             </div>
 
                             <!-- Pelican Wings -->
-                            <div class="service-card rounded-lg p-6">
+                            <div class="service-card unavailable rounded-lg p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-dove text-white"></i>
                                     </div>
-                                    <span class="status-badge bg-yellow-900 text-yellow-300">Limited</span>
+                                    <span class="status-badge unavailable"><i class="fas fa-times-circle"></i>Unavailable</span>
                                 </div>
                                 
-                                <h4 class="text-lg font-bold text-white mb-2">Pelican Wings (coming soon)</h4>
+                                <h4 class="text-lg font-bold text-white mb-2">Pelican Wings</h4>
                                 <p class="text-gray-400 text-xs mb-4">Enhanced performance</p>
                                 
                                 <button onclick="toggleServiceDetails('pelican-wings')" class="text-cyan-400 hover:text-cyan-300 text-sm mb-4 flex items-center">
@@ -465,15 +545,17 @@
                                 
                                 <div class="dropdown-content" id="pelican-wings-content">
                                     <ul class="space-y-1 text-xs text-gray-300 mb-4">
-                                        <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>Wings Integration</li>
-                                        <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>Performance Boost</li>
-                                        <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>Advanced Monitoring</li>
-                                        <li class="flex items-center"><i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>Limited Stock</li>
+                                        <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i>Wings Integration</li>
+                                        <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i>Performance Boost</li>
+                                        <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i>Advanced Monitoring</li>
                                     </ul>
+                                    <div class="bg-red-900/20 border border-red-700 rounded-lg p-2 mb-2">
+                                        <p class="text-red-200 text-xs"><i class="fas fa-exclamation-triangle mr-1"></i><strong>Status:</strong> Discontinued</p>
+                                    </div>
                                 </div>
                                 
-                                <button class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors text-sm">
-                                    Check Stock
+                                <button class="w-full bg-red-600 text-red-300 font-medium py-2.5 px-4 rounded-lg cursor-not-allowed text-sm" disabled>
+                                    <i class="fas fa-ban mr-1"></i>Not Available
                                 </button>
                             </div>
                         </div>
