@@ -54,64 +54,25 @@
         .darker-bg {
             background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
         }
-        #countryModal {
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+        .location-btn.selected {
+            border-color: rgb(59 130 246) !important;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        .location-btn.selected.usa {
+            border-color: rgb(59 130 246) !important;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        .location-btn.selected.south-africa {
+            border-color: rgb(34 197 94) !important;
+            background: rgba(34, 197, 94, 0.1);
+        }
+        .location-btn.selected.germany {
+            border-color: rgb(234 179 8) !important;
+            background: rgba(234, 179, 8, 0.1);
         }
     </style>
 </head>
 <body class="bg-black text-white font-inter overflow-x-hidden">
-    
-    <!-- Country Selection Modal -->
-    <div id="countryModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm">
-        <div class="bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h2 class="text-2xl font-bold text-white mb-2"># Choose Your Location</h2>
-                <p class="text-gray-400"># Select your country to see pricing in your local currency</p>
-            </div>
-            
-            <div class="space-y-3">
-                <button onclick="selectCountry('usa')" class="w-full p-4 bg-black/50 hover:bg-gray-800 border border-gray-700 hover:border-blue-500 rounded-xl text-left transition-all duration-300 group">
-                    <div class="flex items-center space-x-4">
-                        <span class="text-2xl">🇺🇸</span>
-                        <div>
-                            <div class="text-white font-semibold group-hover:text-blue-400 transition-colors"># United States</div>
-                            <div class="text-gray-400 text-sm"># Pricing in USD - Instant deployment</div>
-                        </div>
-                    </div>
-                </button>
-                
-                <button onclick="selectCountry('south-africa')" class="w-full p-4 bg-black/50 hover:bg-gray-800 border border-gray-700 hover:border-green-500 rounded-xl text-left transition-all duration-300 group">
-                    <div class="flex items-center space-x-4">
-                        <span class="text-2xl">🇿🇦</span>
-                        <div>
-                            <div class="text-white font-semibold group-hover:text-green-400 transition-colors"># South Africa</div>
-                            <div class="text-gray-400 text-sm"># Pricing in ZAR - Instant deployment</div>
-                        </div>
-                    </div>
-                </button>
-                
-                <button onclick="selectCountry('germany')" class="w-full p-4 bg-black/50 hover:bg-gray-800 border border-gray-700 hover:border-yellow-500 rounded-xl text-left transition-all duration-300 group">
-                    <div class="flex items-center space-x-4">
-                        <span class="text-2xl">🇩🇪</span>
-                        <div>
-                            <div class="text-white font-semibold group-hover:text-yellow-400 transition-colors"># Germany</div>
-                            <div class="text-gray-400 text-sm"># Pricing in EUR - Manual provisioning required</div>
-                        </div>
-                    </div>
-                </button>
-            </div>
-            
-            <div class="mt-6 text-center">
-                <p class="text-xs text-gray-500"># You can change this later in the navigation</p>
-            </div>
-        </div>
-    </div>
     
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 glass-effect">
@@ -133,11 +94,6 @@
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <select id="countrySelect" class="bg-black/70 border border-gray-800 text-white text-sm rounded-xl px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm">
-                        <option value="usa">🇺🇸 United States</option>
-                        <option value="south-africa">🇿🇦 South Africa</option>
-                        <option value="germany">🇩🇪 Germany</option>
-                    </select>
                     <button class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-2 rounded-xl font-medium transition-all duration-300 transform hover:scale-105">
                         Get Started
                     </button>
@@ -278,8 +234,78 @@
                     # Transparent pricing with no hidden fees. Scale as you grow with our flexible VPS solutions
                 </p>
                 
+                <!-- Global Location Selector -->
+                <div class="max-w-4xl mx-auto mb-12">
+                    <div class="flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold text-white"># Deploy Globally - Choose Your Data Center</h3>
+                    </div>
+                    <p class="text-gray-400 mb-8"># Select your preferred location for optimal performance and local pricing</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                        <button onclick="selectLocation('usa')" id="location-usa" class="location-btn p-6 rounded-2xl border-2 border-gray-700 hover:border-blue-500 bg-black/50 hover:bg-black/70 transition-all duration-300 group">
+                            <div class="text-center">
+                                <div class="text-4xl mb-3">🇺🇸</div>
+                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors mb-2"># United States</h4>
+                                <div class="text-sm text-gray-400 mb-3"># North America</div>
+                                <div class="flex items-center justify-center space-x-2 text-green-400">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm font-medium"># Instant Deploy</span>
+                                </div>
+                                <div class="text-lg font-bold text-blue-400 mt-2">USD Pricing</div>
+                            </div>
+                        </button>
+                        
+                        <button onclick="selectLocation('south-africa')" id="location-south-africa" class="location-btn p-6 rounded-2xl border-2 border-gray-700 hover:border-green-500 bg-black/50 hover:bg-black/70 transition-all duration-300 group">
+                            <div class="text-center">
+                                <div class="text-4xl mb-3">🇿🇦</div>
+                                <h4 class="text-xl font-bold text-white group-hover:text-green-400 transition-colors mb-2"># South Africa</h4>
+                                <div class="text-sm text-gray-400 mb-3"># Africa</div>
+                                <div class="flex items-center justify-center space-x-2 text-green-400">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm font-medium"># Instant Deploy</span>
+                                </div>
+                                <div class="text-lg font-bold text-green-400 mt-2">ZAR Pricing</div>
+                            </div>
+                        </button>
+                        
+                        <button onclick="selectLocation('germany')" id="location-germany" class="location-btn p-6 rounded-2xl border-2 border-gray-700 hover:border-yellow-500 bg-black/50 hover:bg-black/70 transition-all duration-300 group">
+                            <div class="text-center">
+                                <div class="text-4xl mb-3">🇩🇪</div>
+                                <h4 class="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors mb-2"># Germany</h4>
+                                <div class="text-sm text-gray-400 mb-3"># Europe</div>
+                                <div class="flex items-center justify-center space-x-2 text-yellow-400">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm font-medium"># Manual Setup</span>
+                                </div>
+                                <div class="text-lg font-bold text-yellow-400 mt-2">EUR Pricing</div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center justify-center space-x-4 text-sm text-gray-500">
+                        <span># More locations available:</span>
+                        <div class="flex space-x-2">
+                            <span>🇬🇧 UK</span>
+                            <span>🇦🇺 Australia</span>
+                            <span>🇸🇬 Singapore</span>
+                            <span>🇯🇵 Japan</span>
+                            <span>🇨🇦 Canada</span>
+                            <span class="text-blue-400">+ 10 more</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Germany Notice -->
-                <div id="germany-notice" class="hidden max-w-2xl mx-auto">
+                <div id="germany-notice" class="hidden max-w-2xl mx-auto mb-8">
                     <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-yellow-300">
                         <div class="flex items-center space-x-2">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
