@@ -54,9 +54,64 @@
         .darker-bg {
             background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
         }
+        #countryModal {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-black text-white font-inter overflow-x-hidden">
+    
+    <!-- Country Selection Modal -->
+    <div id="countryModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm">
+        <div class="bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-2"># Choose Your Location</h2>
+                <p class="text-gray-400"># Select your country to see pricing in your local currency</p>
+            </div>
+            
+            <div class="space-y-3">
+                <button onclick="selectCountry('usa')" class="w-full p-4 bg-black/50 hover:bg-gray-800 border border-gray-700 hover:border-blue-500 rounded-xl text-left transition-all duration-300 group">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-2xl">🇺🇸</span>
+                        <div>
+                            <div class="text-white font-semibold group-hover:text-blue-400 transition-colors"># United States</div>
+                            <div class="text-gray-400 text-sm"># Pricing in USD - Instant deployment</div>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="selectCountry('south-africa')" class="w-full p-4 bg-black/50 hover:bg-gray-800 border border-gray-700 hover:border-green-500 rounded-xl text-left transition-all duration-300 group">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-2xl">🇿🇦</span>
+                        <div>
+                            <div class="text-white font-semibold group-hover:text-green-400 transition-colors"># South Africa</div>
+                            <div class="text-gray-400 text-sm"># Pricing in ZAR - Instant deployment</div>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="selectCountry('germany')" class="w-full p-4 bg-black/50 hover:bg-gray-800 border border-gray-700 hover:border-yellow-500 rounded-xl text-left transition-all duration-300 group">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-2xl">🇩🇪</span>
+                        <div>
+                            <div class="text-white font-semibold group-hover:text-yellow-400 transition-colors"># Germany</div>
+                            <div class="text-gray-400 text-sm"># Pricing in EUR - Manual provisioning required</div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            
+            <div class="mt-6 text-center">
+                <p class="text-xs text-gray-500"># You can change this later in the navigation</p>
+            </div>
+        </div>
+    </div>
     
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 glass-effect">
@@ -79,9 +134,9 @@
                 
                 <div class="flex items-center space-x-4">
                     <select id="countrySelect" class="bg-black/70 border border-gray-800 text-white text-sm rounded-xl px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm">
-                        <option value="usa">🇺🇸 USD</option>
-                        <option value="south-africa">🇿🇦 ZAR</option>
-                        <option value="germany">🇩🇪 EUR</option>
+                        <option value="usa">🇺🇸 United States</option>
+                        <option value="south-africa">🇿🇦 South Africa</option>
+                        <option value="germany">🇩🇪 Germany</option>
                     </select>
                     <button class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-2 rounded-xl font-medium transition-all duration-300 transform hover:scale-105">
                         Get Started
@@ -533,18 +588,23 @@
         const pricingAmounts = document.querySelectorAll('.pricing-amount');
         const currencies = document.querySelectorAll('.currency');
         const checkoutBtns = document.querySelectorAll('.checkout-btn');
+        const countryModal = document.getElementById('countryModal');
         
         // Pricing data
         const pricingData = {
             'usa': {
                 currency: 'USD',
-                symbol: '$',
+                symbol: '
+</body>
+</html>,
                 starter: 19,
                 professional: 49,
                 enterprise: 99,
                 managed: '+$35',
                 storage: '$0.20',
-                ddos: '+$20'
+                ddos: '+$20',
+                flag: '🇺🇸',
+                name: 'United States'
             },
             'south-africa': {
                 currency: 'ZAR',
@@ -554,7 +614,9 @@
                 enterprise: 1880,
                 managed: '+R665',
                 storage: 'R3.80',
-                ddos: '+R380'
+                ddos: '+R380',
+                flag: '🇿🇦',
+                name: 'South Africa'
             },
             'germany': {
                 currency: 'EUR',
@@ -564,12 +626,33 @@
                 enterprise: 89,
                 managed: '+€32',
                 storage: '€0.18',
-                ddos: '+€18'
+                ddos: '+€18',
+                flag: '🇩🇪',
+                name: 'Germany'
             }
         };
 
-        countrySelect.addEventListener('change', function() {
-            const selectedCountry = this.value;
+        // Function to handle country selection from modal
+        function selectCountry(country) {
+            // Hide modal with fade out effect
+            countryModal.style.opacity = '0';
+            setTimeout(() => {
+                countryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+            
+            // Set the country in the dropdown
+            countrySelect.value = country;
+            
+            // Update pricing
+            updatePricing(country);
+            
+            // Store selection in session storage
+            sessionStorage.setItem('selectedCountry', country);
+        }
+
+        // Function to update pricing based on country
+        function updatePricing(selectedCountry) {
             const pricing = pricingData[selectedCountry];
             
             // Show/hide Germany notice
@@ -596,9 +679,37 @@
             checkoutBtns.forEach(btn => {
                 const currentHref = btn.getAttribute('href');
                 const baseUrl = currentHref.split('/checkout/')[0];
-                const planType = currentHref.split('/checkout/')[1];
+                const planType = currentHref.split('/checkout/')[1].split('?')[0];
                 btn.setAttribute('href', baseUrl + '/checkout/' + planType + '?country=' + selectedCountry);
             });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user has already selected a country
+            const savedCountry = sessionStorage.getItem('selectedCountry');
+            
+            if (savedCountry) {
+                // User has already selected, hide modal and set country
+                countryModal.style.display = 'none';
+                countrySelect.value = savedCountry;
+                updatePricing(savedCountry);
+                document.body.style.overflow = 'auto';
+            } else {
+                // Show modal
+                document.body.style.overflow = 'hidden';
+                countryModal.style.display = 'flex';
+                setTimeout(() => {
+                    countryModal.style.opacity = '1';
+                }, 100);
+            }
+        });
+
+        // Handle country change from dropdown
+        countrySelect.addEventListener('change', function() {
+            const selectedCountry = this.value;
+            updatePricing(selectedCountry);
+            sessionStorage.setItem('selectedCountry', selectedCountry);
         });
 
         // Specs toggle functionality
