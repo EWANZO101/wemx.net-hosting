@@ -3,778 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title># Premium VPS Hosting - Your Company</title>
+    <title>VPS Hosting South Africa - Coming November 15th</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        @keyframes glow {
-            from { box-shadow: 0 0 20px #3b82f6; }
-            to { box-shadow: 0 0 30px #3b82f6, 0 0 40px #3b82f6; }
-        }
-        .glass-effect {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #000000 0%, #1a1a2e 30%, #16213e 70%, #0f0f23 100%);
-        }
-        .dark-card {
-            background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
-            border: 1px solid #333333;
-        }
-        .darker-bg {
-            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
-        }
-        .location-btn.selected {
-            border-color: rgb(59 130 246) !important;
-            background: rgba(59, 130, 246, 0.1);
-        }
-        .location-btn.selected.usa {
-            border-color: rgb(59 130 246) !important;
-            background: rgba(59, 130, 246, 0.1);
-        }
-        .location-btn.selected.south-africa {
-            border-color: rgb(34 197 94) !important;
-            background: rgba(34, 197, 94, 0.1);
-        }
-        .location-btn.selected.germany {
-            border-color: rgb(234 179 8) !important;
-            background: rgba(234, 179, 8, 0.1);
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 </head>
-<body class="bg-black text-white font-inter overflow-x-hidden">
-    
+<body class="bg-gray-900 text-white">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 glass-effect">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-4">
-                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                        </svg>
-                    </div>
-                    <span class="text-xl font-bold text-white"># CloudPro VPS</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
-                    <a href="#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
-                    <a href="#support" class="text-gray-300 hover:text-white transition-colors">Support</a>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <button class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-2 rounded-xl font-medium transition-all duration-300 transform hover:scale-105">
-                        Get Started
-                    </button>
-                </div>
+    <nav class="bg-gray-800 border-gray-700 px-4 lg:px-6 py-2.5">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+            <a href="#" class="flex items-center">
+                <span class="self-center text-xl font-semibold whitespace-nowrap text-white">🇿🇦 SA VPS Cloud</span>
+            </a>
+            <div class="flex items-center lg:order-2">
+                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Get Notified</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 hero-gradient"></div>
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="animate-float">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-                    # Next-Gen<br>
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">VPS Hosting</span>
-                </h1>
+    <section class="bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+            <div class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 mr-3">Coming Soon</span> 
+                <span class="text-sm font-medium">Official Launch: November 15th, 2025</span>
             </div>
-            
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                # Deploy lightning-fast virtual servers with guaranteed resources, enterprise-grade security, and 99.99% uptime across global data centers
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                Premium VPS Hosting in <span class="text-blue-500">South Africa</span>
+            </h1>
+            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                Lightning-fast virtual private servers hosted in Johannesburg and Cape Town data centers. Built for performance, reliability, and African businesses.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                <button class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                    View Plans
+            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                <button class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
+                    View Pricing Plans
+                    <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
                 </button>
-                <button class="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-300">
-                    Live Demo
+                <button class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-300 border border-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:ring-gray-400">
+                    Technical Specifications
                 </button>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="glass-effect rounded-2xl p-6 text-center transform hover:scale-105 transition-all duration-300">
-                    <div class="text-3xl font-bold text-blue-400"># 99.99%</div>
-                    <div class="text-gray-300">Uptime SLA</div>
-                </div>
-                <div class="glass-effect rounded-2xl p-6 text-center transform hover:scale-105 transition-all duration-300">
-                    <div class="text-3xl font-bold text-purple-400"># 15+ </div>
-                    <div class="text-gray-300">Global Locations</div>
-                </div>
-                <div class="glass-effect rounded-2xl p-6 text-center transform hover:scale-105 transition-all duration-300">
-                    <div class="text-3xl font-bold text-green-400"># 24/7</div>
-                    <div class="text-gray-300">Expert Support</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-24 bg-black relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                    # Why Choose Our Platform?
-                </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    # Experience enterprise-grade infrastructure with developer-friendly tools and unmatched performance
-                </p>
+    <!-- Features Grid -->
+    <section class="bg-gray-800 py-16">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Why Choose SA VPS Cloud?</h2>
+                <p class="text-gray-400">Built specifically for the African market with local infrastructure</p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group p-8 rounded-2xl dark-card hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:animate-glow">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4"># NVMe SSD Storage</h3>
-                    <p class="text-gray-400 leading-relaxed"># Lightning-fast NVMe drives deliver up to 10x faster performance than traditional storage solutions</p>
-                </div>
-                
-                <div class="group p-8 rounded-2xl dark-card hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4"># Dedicated Resources</h3>
-                    <p class="text-gray-400 leading-relaxed"># Guaranteed CPU, RAM, and storage that's never oversold or shared with other users</p>
-                </div>
-                
-                <div class="group p-8 rounded-2xl dark-card hover:border-green-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4"># Enterprise Security</h3>
-                    <p class="text-gray-400 leading-relaxed"># Advanced DDoS protection, firewall, and security monitoring keep your data safe 24/7</p>
-                </div>
-                
-                <div class="group p-8 rounded-2xl dark-card hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4"># Instant Deployment</h3>
-                    <p class="text-gray-400 leading-relaxed"># Launch your VPS in under 60 seconds with our automated provisioning system</p>
-                </div>
-                
-                <div class="group p-8 rounded-2xl dark-card hover:border-pink-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <div class="text-blue-500 mb-4">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4"># Expert Support</h3>
-                    <p class="text-gray-400 leading-relaxed"># 24/7 technical support from certified engineers with average 2-minute response time</p>
+                    <h3 class="text-xl font-bold text-white mb-2">Local Data Centers</h3>
+                    <p class="text-gray-400">Tier 3 facilities in Johannesburg and Cape Town for ultra-low latency across South Africa.</p>
                 </div>
-                
-                <div class="group p-8 rounded-2xl dark-card hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <div class="text-green-500 mb-4">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NVMe SSD Storage</h3>
+                    <p class="text-gray-400">Enterprise-grade NVMe drives delivering up to 100,000 IOPS for maximum performance.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <div class="text-purple-500 mb-4">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4"># Global Network</h3>
-                    <p class="text-gray-400 leading-relaxed"># Deploy across 15+ worldwide locations with premium network connectivity and low latency</p>
+                    <h3 class="text-xl font-bold text-white mb-2">99.9% Uptime SLA</h3>
+                    <p class="text-gray-400">Guaranteed uptime with redundant infrastructure and 24/7 monitoring by local technicians.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-24 darker-bg relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M20 20c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm-20-18c9.941 0 18 8.059 18 18s-8.059 18-18 18-18-8.059-18-18 8.059-18 18-18z"/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                    # Choose Your Perfect Plan
-                </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-                    # Transparent pricing with no hidden fees. Scale as you grow with our flexible VPS solutions
-                </p>
-                
-                <!-- Global Location Selector -->
-                <div class="max-w-4xl mx-auto mb-12">
-                    <div class="flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
-                        </svg>
-                        <h3 class="text-2xl font-bold text-white"># Deploy Globally - Choose Your Data Center</h3>
-                    </div>
-                    <p class="text-gray-400 mb-8"># Select your preferred location for optimal performance and local pricing</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                        <button onclick="selectLocation('usa')" id="location-usa" class="location-btn p-6 rounded-2xl border-2 border-gray-700 hover:border-blue-500 bg-black/50 hover:bg-black/70 transition-all duration-300 group">
-                            <div class="text-center">
-                                <div class="text-4xl mb-3">🇺🇸</div>
-                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors mb-2"># United States</h4>
-                                <div class="text-sm text-gray-400 mb-3"># North America</div>
-                                <div class="flex items-center justify-center space-x-2 text-green-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-sm font-medium"># Instant Deploy</span>
-                                </div>
-                                <div class="text-lg font-bold text-blue-400 mt-2">USD Pricing</div>
-                            </div>
-                        </button>
-                        
-                        <button onclick="selectLocation('south-africa')" id="location-south-africa" class="location-btn p-6 rounded-2xl border-2 border-gray-700 hover:border-green-500 bg-black/50 hover:bg-black/70 transition-all duration-300 group">
-                            <div class="text-center">
-                                <div class="text-4xl mb-3">🇿🇦</div>
-                                <h4 class="text-xl font-bold text-white group-hover:text-green-400 transition-colors mb-2"># South Africa</h4>
-                                <div class="text-sm text-gray-400 mb-3"># Africa</div>
-                                <div class="flex items-center justify-center space-x-2 text-green-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-sm font-medium"># Instant Deploy</span>
-                                </div>
-                                <div class="text-lg font-bold text-green-400 mt-2">ZAR Pricing</div>
-                            </div>
-                        </button>
-                        
-                        <button onclick="selectLocation('germany')" id="location-germany" class="location-btn p-6 rounded-2xl border-2 border-gray-700 hover:border-yellow-500 bg-black/50 hover:bg-black/70 transition-all duration-300 group">
-                            <div class="text-center">
-                                <div class="text-4xl mb-3">🇩🇪</div>
-                                <h4 class="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors mb-2"># Germany</h4>
-                                <div class="text-sm text-gray-400 mb-3"># Europe</div>
-                                <div class="flex items-center justify-center space-x-2 text-yellow-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-sm font-medium"># Manual Setup</span>
-                                </div>
-                                <div class="text-lg font-bold text-yellow-400 mt-2">EUR Pricing</div>
-                            </div>
-                        </button>
-                    </div>
-                    
-                    <div class="mt-8 flex items-center justify-center space-x-4 text-sm text-gray-500">
-                        <span># More locations available:</span>
-                        <div class="flex space-x-2">
-                            <span>🇬🇧 UK</span>
-                            <span>🇦🇺 Australia</span>
-                            <span>🇸🇬 Singapore</span>
-                            <span>🇯🇵 Japan</span>
-                            <span>🇨🇦 Canada</span>
-                            <span class="text-blue-400">+ 10 more</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Germany Notice -->
-                <div id="germany-notice" class="hidden max-w-2xl mx-auto mb-8">
-                    <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-yellow-300">
-                        <div class="flex items-center space-x-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="font-medium">Germany Location:</span>
-                            <span>Manual provisioning required - <a href="example.com/support" class="underline hover:no-underline">Contact Support</a></span>
-                        </div>
-                    </div>
-                </div>
+    <!-- VPS Plans -->
+    <section class="bg-gray-900 py-16">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">VPS Hosting Plans</h2>
+                <p class="text-gray-400">Scalable solutions for every business size</p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Starter Plan -->
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
-                    <div class="relative dark-card rounded-2xl p-8">
-                        <div class="text-center mb-8">
-                            <h3 class="text-2xl font-bold text-white mb-2"># Starter</h3>
-                            <p class="text-gray-400 mb-6"># Perfect for small projects</p>
-                            <div class="flex items-baseline justify-center">
-                                <span class="text-5xl font-bold text-white pricing-amount" data-usa="19" data-south-africa="360" data-germany="17">$19</span>
-                                <span class="text-gray-400 ml-2 currency" data-usa="USD" data-south-africa="ZAR" data-germany="EUR">USD</span>
-                                <span class="text-gray-400">/mo</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Specs Toggle -->
-                        <button class="w-full mb-6 p-3 bg-black rounded-xl text-left flex items-center justify-between hover:bg-gray-900 transition-colors" onclick="toggleSpecs('starter-specs')">
-                            <span class="text-white font-medium">Server Specifications</span>
-                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" id="starter-icon">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        
-                        <div id="starter-specs" class="hidden mb-6 p-4 bg-black/50 rounded-xl border border-gray-800">
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="text-gray-400"># CPU Cores:</div>
-                                <div class="text-white font-medium"># 2 vCPU</div>
-                                <div class="text-gray-400"># Memory:</div>
-                                <div class="text-white font-medium"># 4GB RAM</div>
-                                <div class="text-gray-400"># Storage:</div>
-                                <div class="text-white font-medium"># 50GB NVMe</div>
-                                <div class="text-gray-400"># Bandwidth:</div>
-                                <div class="text-white font-medium"># 2TB/month</div>
-                            </div>
-                        </div>
-                        
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Free SSL Certificate</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Daily Backups</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># 99.9% Uptime SLA</span>
-                            </li>
-                        </ul>
-                        
-                        <a href="example.com/checkout/starter" class="checkout-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 text-center block">
-                            Get Started
-                        </a>
+                <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 relative">
+                    <h3 class="text-2xl font-bold text-white mb-4">VPS Starter</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-blue-500">R299</span>
+                        <span class="text-gray-400">/month</span>
                     </div>
+                    
+                    <!-- Specs Dropdown -->
+                    <button id="dropdownStarterButton" data-dropdown-toggle="dropdownStarter" class="w-full text-white bg-gray-700 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between mb-4" type="button">
+                        View Specifications
+                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownStarter" class="z-10 hidden bg-gray-700 divide-y divide-gray-600 rounded-lg shadow w-full">
+                        <ul class="py-2 text-sm text-gray-200">
+                            <li class="px-4 py-2 border-b border-gray-600">💾 1 vCPU Core</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🎯 2GB RAM</li>
+                            <li class="px-4 py-2 border-b border-gray-600">💿 50GB NVMe SSD</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🌐 1TB Bandwidth</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🔒 DDoS Protection</li>
+                            <li class="px-4 py-2">📍 Johannesburg DC</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
+                        Pre-Order Now
+                    </button>
                 </div>
-                
+
                 <!-- Professional Plan -->
-                <div class="relative group transform scale-105">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
-                    <div class="relative dark-card rounded-2xl p-8 border-2 border-purple-500">
-                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                            <span class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                                # Most Popular
-                            </span>
-                        </div>
-                        
-                        <div class="text-center mb-8 mt-4">
-                            <h3 class="text-2xl font-bold text-white mb-2"># Professional</h3>
-                            <p class="text-gray-400 mb-6"># Best for growing businesses</p>
-                            <div class="flex items-baseline justify-center">
-                                <span class="text-5xl font-bold text-white pricing-amount" data-usa="49" data-south-africa="930" data-germany="45">$49</span>
-                                <span class="text-gray-400 ml-2 currency" data-usa="USD" data-south-africa="ZAR" data-germany="EUR">USD</span>
-                                <span class="text-gray-400">/mo</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Specs Toggle -->
-                        <button class="w-full mb-6 p-3 bg-black rounded-xl text-left flex items-center justify-between hover:bg-gray-900 transition-colors" onclick="toggleSpecs('pro-specs')">
-                            <span class="text-white font-medium">Server Specifications</span>
-                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" id="pro-icon">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        
-                        <div id="pro-specs" class="hidden mb-6 p-4 bg-black/50 rounded-xl border border-gray-800">
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="text-gray-400"># CPU Cores:</div>
-                                <div class="text-white font-medium"># 4 vCPU</div>
-                                <div class="text-gray-400"># Memory:</div>
-                                <div class="text-white font-medium"># 8GB RAM</div>
-                                <div class="text-gray-400"># Storage:</div>
-                                <div class="text-white font-medium"># 100GB NVMe</div>
-                                <div class="text-gray-400"># Bandwidth:</div>
-                                <div class="text-white font-medium"># 5TB/month</div>
-                            </div>
-                        </div>
-                        
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Everything in Starter</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Priority Support</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Free Domain & CDN</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Advanced Monitoring</span>
-                            </li>
-                        </ul>
-                        
-                        <a href="example.com/checkout/professional" class="checkout-btn w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 text-center block">
-                            Get Started
-                        </a>
+                <div class="bg-gray-800 p-8 rounded-lg border-2 border-blue-500 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
                     </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">VPS Professional</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-blue-500">R599</span>
+                        <span class="text-gray-400">/month</span>
+                    </div>
+                    
+                    <button id="dropdownProButton" data-dropdown-toggle="dropdownPro" class="w-full text-white bg-gray-700 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between mb-4" type="button">
+                        View Specifications
+                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownPro" class="z-10 hidden bg-gray-700 divide-y divide-gray-600 rounded-lg shadow w-full">
+                        <ul class="py-2 text-sm text-gray-200">
+                            <li class="px-4 py-2 border-b border-gray-600">💾 2 vCPU Cores</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🎯 4GB RAM</li>
+                            <li class="px-4 py-2 border-b border-gray-600">💿 100GB NVMe SSD</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🌐 2TB Bandwidth</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🔒 Advanced DDoS Protection</li>
+                            <li class="px-4 py-2 border-b border-gray-600">📍 JHB + CPT DC Choice</li>
+                            <li class="px-4 py-2">🛡️ Free SSL Certificate</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
+                        Pre-Order Now
+                    </button>
                 </div>
-                
+
                 <!-- Enterprise Plan -->
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
-                    <div class="relative dark-card rounded-2xl p-8">
-                        <div class="text-center mb-8">
-                            <h3 class="text-2xl font-bold text-white mb-2"># Enterprise</h3>
-                            <p class="text-gray-400 mb-6"># Maximum performance</p>
-                            <div class="flex items-baseline justify-center">
-                                <span class="text-5xl font-bold text-white pricing-amount" data-usa="99" data-south-africa="1880" data-germany="89">$99</span>
-                                <span class="text-gray-400 ml-2 currency" data-usa="USD" data-south-africa="ZAR" data-germany="EUR">USD</span>
-                                <span class="text-gray-400">/mo</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Specs Toggle -->
-                        <button class="w-full mb-6 p-3 bg-black rounded-xl text-left flex items-center justify-between hover:bg-gray-900 transition-colors" onclick="toggleSpecs('enterprise-specs')">
-                            <span class="text-white font-medium">Server Specifications</span>
-                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" id="enterprise-icon">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        
-                        <div id="enterprise-specs" class="hidden mb-6 p-4 bg-black/50 rounded-xl border border-gray-800">
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="text-gray-400"># CPU Cores:</div>
-                                <div class="text-white font-medium"># 8 vCPU</div>
-                                <div class="text-gray-400"># Memory:</div>
-                                <div class="text-white font-medium"># 16GB RAM</div>
-                                <div class="text-gray-400"># Storage:</div>
-                                <div class="text-white font-medium"># 200GB NVMe</div>
-                                <div class="text-gray-400"># Bandwidth:</div>
-                                <div class="text-white font-medium"># 10TB/month</div>
-                            </div>
-                        </div>
-                        
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Everything in Professional</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># 24/7 Phone Support</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Dedicated IP & Firewall</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-300"># Custom Solutions</span>
-                            </li>
-                        </ul>
-                        
-                        <a href="example.com/checkout/enterprise" class="checkout-btn w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 text-center block">
-                            Get Started
-                        </a>
+                <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 relative">
+                    <h3 class="text-2xl font-bold text-white mb-4">VPS Enterprise</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-blue-500">R999</span>
+                        <span class="text-gray-400">/month</span>
                     </div>
+                    
+                    <button id="dropdownEnterpriseButton" data-dropdown-toggle="dropdownEnterprise" class="w-full text-white bg-gray-700 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between mb-4" type="button">
+                        View Specifications
+                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownEnterprise" class="z-10 hidden bg-gray-700 divide-y divide-gray-600 rounded-lg shadow w-full">
+                        <ul class="py-2 text-sm text-gray-200">
+                            <li class="px-4 py-2 border-b border-gray-600">💾 4 vCPU Cores</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🎯 8GB RAM</li>
+                            <li class="px-4 py-2 border-b border-gray-600">💿 200GB NVMe SSD</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🌐 5TB Bandwidth</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🔒 Enterprise DDoS Protection</li>
+                            <li class="px-4 py-2 border-b border-gray-600">📍 Multi-DC Failover</li>
+                            <li class="px-4 py-2 border-b border-gray-600">🛡️ Free SSL + Firewall</li>
+                            <li class="px-4 py-2">☎️ Priority 24/7 Support</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
+                        Pre-Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Launch Countdown -->
+    <section class="bg-blue-900 py-16">
+        <div class="max-w-screen-xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Official Launch Countdown</h2>
+            <p class="text-blue-200 mb-8">Get ready for the most advanced VPS hosting platform in South Africa</p>
+            
+            <div class="flex justify-center space-x-8 mb-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white" id="days">--</div>
+                    <div class="text-blue-200">Days</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white" id="hours">--</div>
+                    <div class="text-blue-200">Hours</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white" id="minutes">--</div>
+                    <div class="text-blue-200">Minutes</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white" id="seconds">--</div>
+                    <div class="text-blue-200">Seconds</div>
                 </div>
             </div>
             
-            <!-- Add-ons Section -->
-            <div class="mt-16 max-w-4xl mx-auto">
-                <h3 class="text-2xl font-bold text-white text-center mb-8"># Optional Add-ons</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-black/70 rounded-xl p-6 text-center border border-gray-800">
-                        <h4 class="text-lg font-semibold text-white mb-2"># Managed Services</h4>
-                        <p class="text-gray-400 mb-4"># Full server management</p>
-                        <div class="pricing-amount text-xl font-bold text-blue-400" data-usa="+$35" data-south-africa="+R665" data-germany="+€32">+$35</div>
-                        <div class="text-gray-500"># per month</div>
-                    </div>
-                    <div class="bg-black/70 rounded-xl p-6 text-center border border-gray-800">
-                        <h4 class="text-lg font-semibold text-white mb-2"># Extra Storage</h4>
-                        <p class="text-gray-400 mb-4"># Additional NVMe storage</p>
-                        <div class="pricing-amount text-xl font-bold text-purple-400" data-usa="$0.20" data-south-africa="R3.80" data-germany="€0.18">$0.20</div>
-                        <div class="text-gray-500"># per GB/month</div>
-                    </div>
-                    <div class="bg-black/70 rounded-xl p-6 text-center border border-gray-800">
-                        <h4 class="text-lg font-semibold text-white mb-2"># DDoS Protection</h4>
-                        <p class="text-gray-400 mb-4"># Advanced attack mitigation</p>
-                        <div class="pricing-amount text-xl font-bold text-green-400" data-usa="+$20" data-south-africa="+R380" data-germany="+€18">+$20</div>
-                        <div class="text-gray-500"># per month</div>
-                    </div>
-                </div>
-            </div>
+            <button class="bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300">
+                Join Waiting List for Early Access
+            </button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                            </svg>
-                        </div>
-                        <span class="text-xl font-bold text-white"># CloudPro VPS</span>
-                    </div>
-                    <p class="text-gray-400 mb-6 max-w-md"># Powering the next generation of web applications with enterprise-grade VPS hosting solutions.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-white font-semibold mb-4"># Services</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors"># VPS Hosting</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors"># Managed Services</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors"># Cloud Storage</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors"># Monitoring</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-white font-semibold mb-4"># Support</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors"># Documentation</a></li>
-                        <li><a href="example.com/support" class="hover:text-white transition-colors"># Contact Support</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors"># Status Page</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors"># Community</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm"># © 2025 CloudPro VPS. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors"># Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors"># Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors"># Cookie Policy</a>
-                </div>
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2025 SA VPS Cloud. Bringing world-class hosting to South Africa.</p>
+                <p class="text-gray-500 text-sm mt-2">🇿🇦 Proudly South African • Data centers in Johannesburg & Cape Town</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Country and pricing management
-        const countrySelect = document.getElementById('countrySelect');
-        const germanyNotice = document.getElementById('germany-notice');
-        const pricingAmounts = document.querySelectorAll('.pricing-amount');
-        const currencies = document.querySelectorAll('.currency');
-        const checkoutBtns = document.querySelectorAll('.checkout-btn');
-        const countryModal = document.getElementById('countryModal');
-        
-        // Pricing data
-        const pricingData = {
-            'usa': {
-                currency: 'USD',
-                symbol: '
-</body>
-</html>,
-                starter: 19,
-                professional: 49,
-                enterprise: 99,
-                managed: '+$35',
-                storage: '$0.20',
-                ddos: '+$20',
-                flag: '🇺🇸',
-                name: 'United States'
-            },
-            'south-africa': {
-                currency: 'ZAR',
-                symbol: 'R',
-                starter: 360,
-                professional: 930,
-                enterprise: 1880,
-                managed: '+R665',
-                storage: 'R3.80',
-                ddos: '+R380',
-                flag: '🇿🇦',
-                name: 'South Africa'
-            },
-            'germany': {
-                currency: 'EUR',
-                symbol: '€',
-                starter: 17,
-                professional: 45,
-                enterprise: 89,
-                managed: '+€32',
-                storage: '€0.18',
-                ddos: '+€18',
-                flag: '🇩🇪',
-                name: 'Germany'
-            }
-        };
+        // Countdown Timer
+        function updateCountdown() {
+            const launchDate = new Date('November 15, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = launchDate - now;
 
-        // Function to handle country selection from modal
-        function selectCountry(country) {
-            // Hide modal with fade out effect
-            countryModal.style.opacity = '0';
-            setTimeout(() => {
-                countryModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 300);
-            
-            // Set the country in the dropdown
-            countrySelect.value = country;
-            
-            // Update pricing
-            updatePricing(country);
-            
-            // Store selection in session storage
-            sessionStorage.setItem('selectedCountry', country);
-        }
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // Function to update pricing based on country
-        function updatePricing(selectedCountry) {
-            const pricing = pricingData[selectedCountry];
-            
-            // Show/hide Germany notice
-            if (selectedCountry === 'germany') {
-                germanyNotice.classList.remove('hidden');
-            } else {
-                germanyNotice.classList.add('hidden');
-            }
-            
-            // Update pricing amounts
-            pricingAmounts.forEach(element => {
-                const planType = element.getAttribute('data-' + selectedCountry);
-                if (planType) {
-                    element.textContent = pricing.symbol + planType;
-                }
-            });
-            
-            // Update currency labels
-            currencies.forEach(element => {
-                element.textContent = pricing.currency;
-            });
-            
-            // Update checkout URLs
-            checkoutBtns.forEach(btn => {
-                const currentHref = btn.getAttribute('href');
-                const baseUrl = currentHref.split('/checkout/')[0];
-                const planType = currentHref.split('/checkout/')[1].split('?')[0];
-                btn.setAttribute('href', baseUrl + '/checkout/' + planType + '?country=' + selectedCountry);
-            });
-        }
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
 
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if user has already selected a country
-            const savedCountry = sessionStorage.getItem('selectedCountry');
-            
-            if (savedCountry) {
-                // User has already selected, hide modal and set country
-                countryModal.style.display = 'none';
-                countrySelect.value = savedCountry;
-                updatePricing(savedCountry);
-                document.body.style.overflow = 'auto';
-            } else {
-                // Show modal
-                document.body.style.overflow = 'hidden';
-                countryModal.style.display = 'flex';
-                setTimeout(() => {
-                    countryModal.style.opacity = '1';
-                }, 100);
-            }
-        });
-
-        // Handle country change from dropdown
-        countrySelect.addEventListener('change', function() {
-            const selectedCountry = this.value;
-            updatePricing(selectedCountry);
-            sessionStorage.setItem('selectedCountry', selectedCountry);
-        });
-
-        // Specs toggle functionality
-        function toggleSpecs(specsId) {
-            const specs = document.getElementById(specsId);
-            const icon = document.getElementById(specsId.replace('-specs', '-icon'));
-            
-            if (specs.classList.contains('hidden')) {
-                specs.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                specs.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
+            if (difference < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
             }
         }
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-            } else {
-                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
-            }
-        });
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
     </script>
 </body>
 </html>
