@@ -12,26 +12,22 @@
         function toggleDarkMode() {
             const html = document.documentElement;
             html.classList.toggle('dark');
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            // Note: localStorage usage removed for compliance with browser restrictions
         }
 
-        // Load the saved theme from localStorage
+        // Load default theme
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-                document.getElementById('darkModeToggle').checked = true;
-            }
+            // Default to light mode for compatibility
+            document.getElementById('darkModeToggle').checked = false;
         });
     </script>
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300">
-    <div class="container mx-auto p-6">
+    <div class="container mx-auto p-6 max-w-6xl">
         <!-- Dark Mode Toggle -->
         <div class="flex justify-end mb-6">
             <label for="darkModeToggle" class="flex items-center cursor-pointer space-x-3">
                 <span class="text-lg">🌙</span>
-                <!-- Slider -->
                 <div class="relative">
                     <input id="darkModeToggle" type="checkbox" class="hidden" onchange="toggleDarkMode()" />
                     <div class="w-12 h-6 bg-gray-300 dark:bg-gray-700 rounded-full relative">
@@ -44,137 +40,545 @@
 
         <!-- Header Section -->
         <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-blue-700 dark:text-blue-400">Service Level Agreement (SLA)</h1>
-            <p class="text-gray-500 dark:text-gray-400">Swift Peak Hosting LTD</p>
+            <h1 class="text-4xl font-bold text-blue-700 dark:text-blue-400">Service Level Agreement</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Swift Peak Hosting LTD</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">Effective Date: [DATE] | Version 2.0</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500">Company Registration: [REGISTRATION NUMBER] | VAT: [VAT NUMBER]</p>
         </header>
 
-        <!-- SLA Sections -->
-        <div class="bg-white rounded-lg shadow p-8 dark:bg-gray-800 dark:text-gray-300">
-            <!-- Introduction -->
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">Introduction</h2>
-                <p class="mt-2 text-gray-700 dark:text-gray-300">
-                    This Service Level Agreement (SLA) outlines the commitments and expectations between <strong>Swift Peak Hosting LTD</strong> (referred to as “Service Provider”) and the customer (referred to as “Client”) for the provision of hosting and related services. This SLA aims to ensure a positive, transparent, and reliable experience for all our clients.
+        <!-- SLA Document -->
+        <div class="bg-white rounded-lg shadow-lg p-8 dark:bg-gray-800 dark:text-gray-300">
+            
+            <!-- Legal Notice -->
+            <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-4 mb-8">
+                <p class="text-sm text-blue-800 dark:text-blue-300">
+                    <strong>Important Legal Notice:</strong> This Service Level Agreement constitutes a legally binding contract between Swift Peak Hosting LTD and the Customer. Please read all terms carefully before accepting our services. This agreement is governed by European Union law and the laws of [MEMBER STATE].
                 </p>
-            </section>
+            </div>
 
-            <!-- Support -->
+            <!-- 1. Definitions -->
             <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">1. Support</h2>
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">1. Definitions and Interpretation</h2>
                 <div class="mt-4">
-                    <h3 class="font-medium text-lg">1.1 Response Time</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        During our standard support hours (Monday to Friday, 9 AM – 11 PM GMT), Swift Peak Hosting will make every effort to respond to support tickets within <strong>2 hours</strong>. For support requests submitted outside standard hours, we aim to respond within <strong>6 hours</strong>. These are target response times, but not guaranteed.
-                    </p>
-                </div>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">1.2 Scope</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Our technical support team will assist with issues directly related to our services, including server performance, configurations, and availability. Support for third-party software or custom server modifications falls outside the scope of our offerings.
-                    </p>
-                </div>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">1.3 Support Channels</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Support is available exclusively through the <strong>Swift Peak Hosting Client Panel’s ticket system</strong>. Requests made through other channels (e.g., social media or email) may not receive a response.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Backups -->
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">2. Backups</h2>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">2.1 Game Hosting Services</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Swift Peak Hosting performs regular backups of servers for internal redundancy purposes. These backups are intended for emergency restoration and are not directly accessible to clients. Clients can manage their own backups through the <strong>Swift Peak Hosting Game Panel</strong>, where they can create or restore backups at their discretion.
-                    </p>
-                </div>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">2.2 Other Services</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        For non-game hosting services, automated backups are not included. Clients are solely responsible for performing regular backups of their data.
-                    </p>
+                    <dl class="space-y-3">
+                        <dt class="font-medium text-gray-900 dark:text-gray-100">"Agreement"</dt>
+                        <dd class="text-gray-700 dark:text-gray-300 ml-4">means this Service Level Agreement, including all schedules, annexes, and amendments.</dd>
+                        
+                        <dt class="font-medium text-gray-900 dark:text-gray-100">"Customer" or "Client"</dt>
+                        <dd class="text-gray-700 dark:text-gray-300 ml-4">means the individual or legal entity contracting for Services.</dd>
+                        
+                        <dt class="font-medium text-gray-900 dark:text-gray-100">"Provider" or "Company"</dt>
+                        <dd class="text-gray-700 dark:text-gray-300 ml-4">means Swift Peak Hosting LTD, a company incorporated under [JURISDICTION].</dd>
+                        
+                        <dt class="font-medium text-gray-900 dark:text-gray-100">"Services"</dt>
+                        <dd class="text-gray-700 dark:text-gray-300 ml-4">means hosting services, technical support, and related services as defined in the service order.</dd>
+                        
+                        <dt class="font-medium text-gray-900 dark:text-gray-100">"Personal Data"</dt>
+                        <dd class="text-gray-700 dark:text-gray-300 ml-4">has the meaning set forth in Regulation (EU) 2016/679 (GDPR).</dd>
+                    </dl>
                 </div>
             </section>
 
-            <!-- Uptime -->
+            <!-- 2. Service Description -->
             <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">3. Uptime</h2>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">3.1 Target Uptime</h3>
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">2. Service Description and Scope</h2>
+                <div class="mt-4 space-y-4">
                     <p class="text-gray-700 dark:text-gray-300">
-                        Swift Peak Hosting strives to maintain <strong>99.9% uptime</strong> across all services. Certain events, such as scheduled maintenance, hardware upgrades, or unforeseen technical issues, may cause temporary service interruptions. Clients are encouraged to account for these factors when planning their usage.
+                        Swift Peak Hosting LTD provides hosting services including but not limited to: server hosting, game server hosting, web hosting, domain registration services, and associated technical support services as specifically ordered by the Customer.
+                    </p>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-900 dark:text-gray-100">Service Categories:</h4>
+                        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 space-y-1">
+                            <li>Dedicated and Virtual Private Server Hosting</li>
+                            <li>Game Server Hosting (various platforms)</li>
+                            <li>Web Hosting Services</li>
+                            <li>Domain Registration and Management</li>
+                            <li>Technical Support and Maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Support Services -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">3. Technical Support Services</h2>
+                
+                <div class="mt-4">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">3.1 Support Hours and Response Times</h3>
+                    <div class="overflow-x-auto mt-3">
+                        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Priority Level</th>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Description</th>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Target Response Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <td class="px-4 py-2"><span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Critical</span></td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Service completely unavailable</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">1 hour (24/7)</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <td class="px-4 py-2"><span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">High</span></td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Significant service degradation</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">2 hours (business hours)</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <td class="px-4 py-2"><span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Medium</span></td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Minor service issues</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">4 hours (business hours)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2"><span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Low</span></td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">General inquiries, feature requests</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">8 hours (business hours)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                        <strong>Business Hours:</strong> Monday to Friday, 09:00 - 21:00 CET/CEST. Response times are targets, not guarantees.
                     </p>
                 </div>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">3.2 Server Status</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Clients can view real-time server performance and availability by visiting our official status page at <a href="https://statusv1.swiftpeakhosting.co.uk/" class="text-blue-500 underline dark:text-blue-300">[status page]</a>.
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">3.2 Support Scope and Limitations</h3>
+                    <div class="grid md:grid-cols-2 gap-4 mt-3">
+                        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 dark:text-green-300">Included Support:</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-green-700 dark:text-green-300 space-y-1">
+                                <li>Server administration and configuration</li>
+                                <li>Network connectivity issues</li>
+                                <li>Hardware-related problems</li>
+                                <li>Control panel assistance</li>
+                                <li>Service availability issues</li>
+                                <li>Security incident response</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-800 dark:text-red-300">Excluded from Support:</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-red-700 dark:text-red-300 space-y-1">
+                                <li>Third-party software configuration</li>
+                                <li>Custom application development</li>
+                                <li>Data recovery from user errors</li>
+                                <li>Training on software usage</li>
+                                <li>Issues caused by customer modifications</li>
+                                <li>Consultation services</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">3.3 Communication Channels</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        Technical support is exclusively provided through our <strong>Client Portal Ticket System</strong>. Support requests submitted through other channels (email, social media, phone) will be redirected to the official support system and may experience delays.
                     </p>
                 </div>
             </section>
 
-            <!-- Hardware Replacement -->
+            <!-- 4. Service Level Commitments -->
             <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">4. Hardware Replacement</h2>
-                <p class="mt-2 text-gray-700 dark:text-gray-300">
-                    In the rare event of hardware failure, Swift Peak Hosting is committed to sourcing and replacing the affected hardware within <strong>48 hours</strong> of identification. However, unforeseen circumstances may result in extended resolution times.
-                </p>
-            </section>
-
-            <!-- DDoS Protection -->
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">5. DDoS Protection</h2>
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">4. Service Level Commitments</h2>
+                
                 <div class="mt-4">
-                    <h3 class="font-medium text-lg">5.1 Mitigation Capabilities</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Swift Peak Hosting offers essential DDoS protection to defend against a variety of common network attacks. Our mitigation strategy is designed to help safeguard against smaller, unsophisticated DDoS incidents, leveraging robust network-level filtering and traffic inspection techniques.
-                    </p>
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">4.1 Availability Commitment</h3>
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mt-3">
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Swift Peak Hosting commits to maintain a <strong>99.9% uptime availability</strong> target for all services, calculated monthly. This excludes scheduled maintenance windows and circumstances beyond our reasonable control (force majeure events).
+                        </p>
+                        <div class="mt-3">
+                            <h4 class="font-semibold text-gray-900 dark:text-gray-100">Uptime Calculation:</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                Uptime = (Total Monthly Minutes - Downtime Minutes) / Total Monthly Minutes × 100%
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">5.2 Protection Features</h3>
-                    <ul class="list-disc pl-5 mt-2 text-gray-700 dark:text-gray-300">
-                        <li><strong>Traffic Filtering:</strong> Network-level traffic inspection is employed to identify and block malicious patterns, mitigating smaller-scale attacks.</li>
-                        <li><strong>Intrusion Detection and Prevention:</strong> Our infrastructure includes advanced intrusion detection systems (IDS) to identify and respond to potential DDoS threats in real-time.</li>
-                        <li><strong>Rate Limiting:</strong> We implement rate limiting and traffic throttling to reduce the impact of high-traffic volume spikes, ensuring legitimate users experience minimal disruption.</li>
-                        <li><strong>Custom Firewall Rules:</strong> Clients can configure firewall rules to restrict suspicious or known malicious IPs from accessing their services.</li>
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">4.2 Scheduled Maintenance</h3>
+                    <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 space-y-2">
+                        <li>Routine maintenance will be performed during low-usage periods (typically 02:00-06:00 CET)</li>
+                        <li>Customers will receive at least <strong>72 hours advance notice</strong> for scheduled maintenance</li>
+                        <li>Emergency maintenance may be performed with minimal notice when required for security or stability</li>
+                        <li>Scheduled maintenance windows are excluded from uptime calculations</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">5.3 Limitations</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        While Swift Peak Hosting’s DDoS protection provides robust defense against smaller and targeted attacks, it may not be sufficient for handling large-scale volumetric DDoS incidents. We recommend clients assess their specific needs for additional protection services in the event of large-scale threats.
-                    </p>
-                </div>
-                <div class="mt-4">
-                    <h3 class="font-medium text-lg">5.4 Summary</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Swift Peak Hosting’s DDoS protection offers effective mitigation for low to moderate-level attacks. Clients requiring additional security for larger threats are encouraged to explore specialized solutions suited to their needs.
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">4.3 Service Monitoring</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        Real-time service status and historical uptime data are available at our status page: 
+                        <a href="https://statusv1.swiftpeakhosting.co.uk/" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 underline" target="_blank" rel="noopener">https://statusv1.swiftpeakhosting.co.uk/</a>
                     </p>
                 </div>
             </section>
 
-            <!-- Compensation for Downtime -->
+            <!-- 5. Data Protection and Backup -->
             <section class="mb-8">
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">6. Compensation for Downtime</h2>
-                <p class="mt-2 text-gray-700 dark:text-gray-300">
-                    Clients will be eligible for compensation in the form of <strong>service credits</strong> if service availability falls below the 99.9% target uptime in any calendar month:
-                </p>
-                <ul class="list-disc pl-5 mt-2 text-gray-700 dark:text-gray-300">
-                    <li><strong>1% credit of the monthly fee</strong> for each 1% of uptime below the target.</li>
-                    <li>Compensation requests must be submitted within <strong>7 days</strong> of the incident via the Client Panel.</li>
-                </ul>
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">5. Data Protection and Backup Services</h2>
+                
+                <div class="mt-4">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">5.1 GDPR Compliance</h3>
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-4 mt-3">
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Swift Peak Hosting is committed to compliance with the General Data Protection Regulation (GDPR) and other applicable data protection laws. We process personal data in accordance with our Data Processing Agreement (DPA), which forms an integral part of this service agreement.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h4 class="font-semibold text-gray-900 dark:text-gray-100">Data Protection Measures:</h4>
+                        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 space-y-1">
+                            <li>Encryption of data in transit and at rest</li>
+                            <li>Regular security assessments and audits</li>
+                            <li>Access controls and authentication mechanisms</li>
+                            <li>Incident response procedures</li>
+                            <li>Staff training on data protection</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">5.2 Backup Services</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-gray-100">5.2.1 Game Hosting Services</h4>
+                            <p class="text-gray-700 dark:text-gray-300 mt-2">
+                                We perform automated backups for disaster recovery purposes. Customers can create, manage, and restore backups through the Game Panel. Backup retention periods vary by service plan.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-gray-100">5.2.2 Other Hosting Services</h4>
+                            <p class="text-gray-700 dark:text-gray-300 mt-2">
+                                Customers are responsible for creating and maintaining their own data backups. Optional managed backup services are available at additional cost.
+                            </p>
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-400 p-4">
+                            <p class="text-red-800 dark:text-red-300 font-medium">
+                                Important: Our backups are for disaster recovery only and should not be considered a substitute for your own data backup strategy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- Conclusion -->
-            <section>
-                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">7. Conclusion</h2>
-                <p class="mt-2 text-gray-700 dark:text-gray-300">
-                    By using Swift Peak Hosting LTD’s services, you agree to the terms outlined in this Service Level Agreement. For questions or disputes, please contact us at <a href="mailto:swiftpeakhosting@outlook.com" class="text-blue-500 underline dark:text-blue-300">swiftpeakhosting@outlook.com</a>.
-                </p>
+            <!-- 6. Security and DDoS Protection -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">6. Security and DDoS Protection</h2>
+                
+                <div class="mt-4">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">6.1 Infrastructure Security</h3>
+                    <div class="grid md:grid-cols-2 gap-4 mt-3">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-gray-100">Physical Security:</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                                <li>24/7 monitored data centers</li>
+                                <li>Biometric access controls</li>
+                                <li>Redundant power and cooling</li>
+                                <li>Fire suppression systems</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-gray-100">Network Security:</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                                <li>Multi-layer firewall protection</li>
+                                <li>Intrusion detection systems</li>
+                                <li>Network segmentation</li>
+                                <li>Regular security updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">6.2 DDoS Protection Services</h3>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 dark:text-green-300">Protection Capabilities:</h4>
+                            <ul class="list-disc list-inside mt-2 text-green-700 dark:text-green-300 space-y-1">
+                                <li><strong>Layer 3/4 Protection:</strong> Volumetric and protocol-based attacks up to 10 Gbps</li>
+                                <li><strong>Layer 7 Protection:</strong> Application-layer attack mitigation</li>
+                                <li><strong>Always-On Protection:</strong> Continuous monitoring and automatic mitigation</li>
+                                <li><strong>Custom Rules:</strong> Configurable firewall and rate limiting rules</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 dark:text-orange-300">Service Limitations:</h4>
+                            <p class="text-orange-700 dark:text-orange-300 mt-2">
+                                While our DDoS protection provides robust defense against most common attacks, exceptionally large-scale attacks (>10 Gbps) may require additional mitigation services or temporary traffic routing adjustments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <!-- 7. Hardware and Infrastructure -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">7. Hardware and Infrastructure Management</h2>
+                
+                <div class="mt-4">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">7.1 Hardware Replacement Commitment</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        In the event of hardware failure, we commit to the following response times:
+                    </p>
+                    <div class="overflow-x-auto mt-3">
+                        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Component Type</th>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Target Replacement Time</th>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Service Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Critical Components (CPU, Motherboard)</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">24-48 hours</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Service unavailable</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Storage Components (HDD/SSD)</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">12-24 hours</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Potential data access issues</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Network Components</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">2-8 hours</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Connectivity issues</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">7.2 Proactive Monitoring</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">
+                        Our infrastructure includes comprehensive monitoring systems that track hardware health, performance metrics, and potential issues. Proactive alerts enable us to address potential problems before they impact service availability.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 8. Service Credits and Remedies -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">8. Service Credits and Remedies</h2>
+                
+                <div class="mt-4">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">8.1 Service Credit Calculation</h3>
+                    <div class="overflow-x-auto mt-3">
+                        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Monthly Uptime</th>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Service Credit</th>
+                                    <th class="px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-left">Maximum Credit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">99.0% - 99.89%</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">5% of monthly fee</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">N/A</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">95.0% - 98.99%</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">15% of monthly fee</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">N/A</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">Below 95.0%</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">25% of monthly fee</td>
+                                    <td class="px-4 py-2 text-gray-700 dark:text-gray-300">100% of monthly fee</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">8.2 Claim Process and Limitations</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-gray-100">Claiming Service Credits:</h4>
+                            <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 space-y-1">
+                                <li>Claims must be submitted within <strong>30 days</strong> of the end of the affected billing month</li>
+                                <li>Claims must be submitted through the Client Portal with supporting documentation</li>
+                                <li>Credits are applied to future invoices, not provided as refunds</li>
+                                <li>Credits cannot exceed 100% of the monthly service fee for the affected service</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-gray-100">Exclusions:</h4>
+                            <p class="text-gray-700 dark:text-gray-300 mt-2">
+                                Service credits are not applicable for downtime caused by: scheduled maintenance, force majeure events, customer-caused issues, third-party service failures, or suspension due to Terms of Service violations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Legal and Compliance -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">9. Legal Framework and Compliance</h2>
+                
+                <div class="mt-4 space-y-6">
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">9.1 Governing Law and Jurisdiction</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">
+                            This Agreement is governed by the laws of [MEMBER STATE] and the European Union. Any disputes arising from this Agreement shall be subject to the exclusive jurisdiction of the courts of [JURISDICTION], except where EU consumer protection laws mandate alternative dispute resolution procedures.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">9.2 Consumer Rights</h3>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-4">
+                            <p class="text-blue-800 dark:text-blue-300">
+                                For customers who qualify as consumers under EU law: This Agreement does not affect your statutory rights under applicable consumer protection legislation, including rights relating to conformity of digital services, remedies for non-conformity, and withdrawal rights where applicable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">9.3 Liability Limitations</h3>
+                        <div class="space-y-3">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>Total Liability Cap:</strong> Our total liability for any claims arising from this Agreement shall not exceed the total fees paid by the Customer in the 12 months preceding the incident giving rise to liability.
+                            </p>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>Exclusion of Consequential Damages:</strong> We shall not be liable for indirect, incidental, special, or consequential damages, including but not limited to loss of profits, data, or business opportunities.
+                            </p>
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-4">
+                                <p class="text-yellow-800 dark:text-yellow-300 text-sm">
+                                    <strong>Important:</strong> Nothing in this Agreement excludes or limits our liability for death or personal injury caused by negligence, fraud, or other liability that cannot be excluded under applicable law.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">9.4 Force Majeure</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">
+                            Neither party shall be liable for any failure to perform obligations under this Agreement where such failure is due to circumstances beyond reasonable control, including but not limited to: natural disasters, government actions, war, terrorism, pandemic, infrastructure failures, or cyber attacks affecting essential services.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Agreement Management -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">10. Agreement Management and Modifications</h2>
+                
+                <div class="mt-4 space-y-6">
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">10.1 Term and Renewal</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">
+                            This Agreement remains in effect for the duration of the Customer's active service subscription and renews automatically with each service renewal unless terminated in accordance with the Terms of Service.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">10.2 Modifications to this Agreement</h3>
+                        <div class="space-y-3">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                We may modify this Agreement to reflect changes in our services, legal requirements, or business practices. Material changes will be communicated as follows:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+                                <li><strong>30 days advance notice</strong> for changes that reduce service levels or increase customer obligations</li>
+                                <li><strong>14 days advance notice</strong> for other material changes</li>
+                                <li><strong>Immediate notice</strong> for changes required by law or to address security vulnerabilities</li>
+                            </ul>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Continued use of services after the effective date constitutes acceptance of modifications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">10.3 Notices and Communications</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">
+                            Official notices will be sent to the Customer's registered email address or through the Client Portal. Customers are responsible for maintaining current contact information and regularly checking for communications.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. Dispute Resolution -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">11. Dispute Resolution</h2>
+                
+                <div class="mt-4 space-y-4">
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">11.1 Internal Dispute Resolution</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">
+                            We encourage customers to first attempt resolution through our internal complaint procedure by contacting our support team. We will investigate and respond to formal complaints within 15 business days.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100">11.2 Alternative Dispute Resolution</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">
+                            For unresolved disputes, customers may access alternative dispute resolution services through [APPLICABLE ADR PROVIDER] or the European Commission's Online Dispute Resolution platform at: <a href="https://ec.europa.eu/consumers/odr" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 underline">https://ec.europa.eu/consumers/odr</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Information -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-b-2 border-gray-200 dark:border-gray-600 pb-2">12. Contact Information</h2>
+                <div class="mt-4 bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-3">Swift Peak Hosting LTD</h3>
+                    <div class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <p><strong>Company Registration:</strong> [REGISTRATION NUMBER]</p>
+                        <p><strong>VAT Number:</strong> [VAT NUMBER]</p>
+                        <p><strong>Registered Address:</strong> [FULL BUSINESS ADDRESS]</p>
+                        <p><strong>Support Email:</strong> <a href="mailto:support@swiftpeakhosting.co.uk" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 underline">support@swiftpeakhosting.co.uk</a></p>
+                        <p><strong>Legal Inquiries:</strong> <a href="mailto:legal@swiftpeakhosting.co.uk" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 underline">legal@swiftpeakhosting.co.uk</a></p>
+                        <p><strong>Data Protection Officer:</strong> <a href="mailto:dpo@swiftpeakhosting.co.uk" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 underline">dpo@swiftpeakhosting.co.uk</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Document Information -->
+            <div class="border-t border-gray-200 dark:border-gray-600 pt-6 mt-8">
+                <div class="text-sm text-gray-500 dark:text-gray-400 text-center">
+                    <p><strong>Document Version:</strong> 2.0 | <strong>Last Updated:</strong> [DATE]</p>
+                    <p><strong>Next Review Date:</strong> [DATE]</p>
+                    <p class="mt-2">This document is available in multiple languages. In case of discrepancies, the English version shall prevail.</p>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Scroll to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-colors"
+            title="Scroll to top">
+        ↑
+    </button>
+
+    <style>
+        .dot {
+            transition: transform 0.3s;
+        }
+        
+        #darkModeToggle:checked ~ div .dot {
+            transform: translateX(24px);
+        }
+        
+        /* Ensure proper text contrast in all themes */
+        .dark .text-gray-700 {
+            color: rgb(209 213 219);
+        }
+        
+        .dark .text-gray-600 {
+            color: rgb(156 163 175);
+        }
+    </style>
 </body>
 </html>
