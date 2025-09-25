@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="10;url=https://example.com">
+    <title>Swift Peak Hosting - Transition Notice</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: #1e1e2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .message {
+            color: #b0b0b0;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .redirect-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #4a90e2, #7b68ee);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(123, 104, 238, 0.3);
+        }
+        
+        .redirect-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 104, 238, 0.4);
+        }
+        
+        .countdown {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+        
+        .countdown-timer {
+            font-weight: bold;
+            color: #7b68ee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Swift Peak Hosting</h1>
+        
+        <div class="message">
+            <p>Hello there! Swift Peak Hosting is now closing down. We are going to be moving on to the next chapter, but don't worry - you will still be able to cloud host SnailyCAD, just with a bigger provider.</p>
+            
+            <p><strong>Simplistic Node</strong> will be taking our spot for SnailyCAD hosting.</p>
+            
+            <p>If you wish to have any kind of cloud hosting for SnailyCAD, feel free to click the link below:</p>
+            
+            <p>And don't worry, Ewan.C or E from SnailyCAD Discord will be there to help you out with any issues!</p>
+        </div>
+        
+        <a href="https://example.com" class="redirect-link">Visit Simplistic Node</a>
+        
+        <div class="countdown">
+            <p>We will redirect you in <span class="countdown-timer" id="timer">10</span> seconds</p>
+        </div>
+    </div>
+
+    <script>
+        let countdown = 10;
+        const timer = document.getElementById('timer');
+        
+        const interval = setInterval(() => {
+            countdown--;
+            timer.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(interval);
+                timer.textContent = '0';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
